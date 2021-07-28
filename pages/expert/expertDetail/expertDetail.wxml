@@ -1,0 +1,21 @@
+<wxs module="utils" src="/utils/util.wxs"></wxs>
+<view class="content">
+  <image hidden="{{loading}}" catchload="_imgLoadEvent" style="width:100%;" mode="widthFix" src="{{expert.expert_img}}">
+  </image>
+</view>
+
+<block wx:if="{{!showJG}}">
+  <button wx:if="{{!hasToken}}" bindtap="toLogin" style="z-index:50;background:transparent;width:100vw;"
+    class="bottom"></button>
+  <view class="bottom">
+    <view class="team-read" bindtap="{{inType==3||inType==22||inType==1?'toMyUndo':'toUndoReport'}}">
+      <text>¥{{utils.toNumberFloatFix(inType==3?expert.guihua_special_price:inType==22?expert.zixun_special_price:expert.read_special_price)}}</text>
+      <text>{{inType==3?'学业规划':inType==22?'TOP咨询':'帮我解读'}}</text>
+    </view>
+  </view>
+</block>
+
+<!-- 图片未加载时显示加载中 -->
+<view class="shadow" wx:if='{{loading}}'>
+  <image class="roro" src="/images/loading.png" />
+</view>

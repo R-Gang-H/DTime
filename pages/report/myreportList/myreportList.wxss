@@ -1,0 +1,98 @@
+/* pages/report/myreportList/myreportList.wxss */
+
+page {
+  background-color: #F7F7F9;
+}
+
+.content {
+  background-color: #F7F7F9;
+}
+
+.item {
+  margin: 24rpx 32rpx;
+  padding: 24rpx;
+  background-color: white;
+  border-radius: 16rpx;
+}
+
+/* 我的报告 */
+.report-tag {
+  background-color: #F3B65D;
+  height: 36rpx;
+  line-height: 36rpx;
+  border-radius: 6rpx;
+  padding: 0 10rpx;
+  color: white;
+  font-size: 24rpx;
+  margin-right: 16rpx;
+}
+
+.report-tag2 {
+  background-color: #7698FE;
+  height: 36rpx;
+  line-height: 36rpx;
+  border-radius: 6rpx;
+  padding: 0 10rpx;
+  color: white;
+  font-size: 24rpx;
+  margin-right: 16rpx;
+}
+
+.report-time {
+  font-size: 26rpx;
+  color: #ADB4BE;
+  margin-right: 24rpx;
+}
+
+.course-name {
+  font-size: 34rpx;
+  color: #212832;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.team-detail {
+  font-size: 26rpx;
+  color: #44C4DF;
+}
+
+.team-arrow {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.team-read {
+  height: 64rpx;
+  line-height: 64rpx;
+  background: -moz-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -ms-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -o-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -webkit-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  color: white;
+  font-size: 28rpx;
+  padding: 0 28rpx;
+  border-radius: 32rpx;
+  margin: 0 auto;
+  margin-right: 0;
+  box-shadow: 0 8rpx 8rpx 0 #A2F1FF;
+}
+
+.continue {
+  height: 64rpx;
+  line-height: 64rpx;
+  color: #44C4DF;
+  font-size: 28rpx;
+  padding: 0 28rpx;
+  border-radius: 32rpx;
+  margin: 0 auto;
+  margin-right: 0;
+  border: 1rpx solid #A1E1EF;
+}
+
+/* 额外的 */
+.report-padding {
+  padding: 0 38rpx;
+}

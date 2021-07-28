@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "loadingmore": "/components/loadingmore/loadingmore"
+  },
+  "navigationBarTitleText": "天赋教养专家团队",
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,82 @@
+page{
+  background-color: #f7f7f9;
+}
+
+.container{
+  display: flex;
+  flex-flow: column;
+}
+
+.tip{
+  font-size: 28rpx;
+  color: #ADB4BE;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.withdrawContainer{
+  width: 686rpx;
+  height: 292rpx;
+  background-color: white;
+  border-radius: 16rpx;
+  align-self: center;
+  display: flex;
+  flex-flow: column;
+}
+
+.submit{
+  font-size: 34rpx;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:linear-gradient(90deg, #6FE7F4 0%, #4ADCF7 100%);
+  width:670rpx;
+  height: 92rpx;
+  border-radius: 46rpx;
+  box-shadow: 0rpx 4rpx 16rpx 0rpx #A2F1FF;
+  margin-top: 40rpx;
+}
+
+.tip1{
+  font-size: 30rpx;
+  color: #5D646E;
+  margin-left: 24rpx;
+  margin-top: 24rpx;
+}
+
+.inputPrice{
+  display: flex;
+  flex-flow: row;
+  margin-top: 40rpx;
+}
+
+.rmb{
+  font-size: 48rpx;
+  color: #212832;
+  height: 66rpx;
+  margin-left: 24rpx;
+}
+
+.price{
+  font-size: 48rpx;
+  color: #212832;
+  height: 66rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+}
+
+.balance{
+  font-size: 28rpx;
+  color: #ADB4BE;
+  margin-left: 24rpx;
+  margin-top: 26rpx;
+}
+
+.vLine{
+  background-color: #e0e0e0;
+  width: 638rpx;
+  height: 1rpx;
+  margin-top: 24rpx;
+  align-self: center;
+}

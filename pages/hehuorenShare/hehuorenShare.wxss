@@ -1,0 +1,428 @@
+/* pages/hehuorenShare/hehuorenShare.wxss */
+.container {
+  border-top: 1rpx solid #CCC;
+  background: #F7F7F9;
+}
+
+/* .main3 {
+  flex-direction: row;
+  display: flex;
+  width: 70%;
+  align-self: center;
+  margin-top: 20rpx;
+}
+
+.txt2 {
+  color: #212832;
+  font-size: 38rpx;
+}
+
+.txt3 {
+  color: #212832;
+  font-size: 28rpx;
+} */
+
+
+
+/* 111111111 */
+
+.body {
+  background: #FFFFFF;
+  width: 100%;
+  padding-bottom: 130rpx;
+}
+
+.section3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding: 30rpx 0;
+  background: #FFF;
+}
+
+.block1 {
+  border-radius: 26rpx;
+  background-color: rgba(23, 201, 131, 1);
+  margin: 0 20rpx;
+  color: rgba(255, 255, 255, 1);
+  font-size: 26rpx;
+  line-height: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  flex-direction: column;
+}
+
+
+
+.img1 {
+  width: 100%;
+  height: 400rpx;
+  background: #FFC947;
+}
+
+.titleCon {
+  padding: 32rpx;
+  background: #FFFFFF;
+}
+
+.title1 {
+  display: flex;
+  width: 100%;
+}
+
+.couTit {
+  font-weight: 500;
+  color: #212832;
+  font-size: 34rpx;
+  margin-right: 60rpx;
+}
+
+.xin1 {
+  width: 45rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 50rpx;
+}
+
+.jianjie {
+  color: #858C96;
+  font-size: 28rpx;
+  top: 5rpx;
+  position: relative;
+}
+
+.youhui {
+  position: relative;
+  top: 30rpx;
+  border-bottom: 1rpx solid #EFEFF0;
+  padding-bottom: 30rpx;
+  align-items: center;
+}
+
+.yhtxt {
+  font-weight: 600;
+  color: #FA283B;
+  font-size: 34rpx;
+}
+
+.qi {
+  margin-left: 10rpx;
+  color: #858C96;
+  font-size: 26rpx;
+}
+
+.yuanjia {
+  color: #E0E0E2;
+  font-size: 26rpx;
+  margin-left: 30rpx;
+  text-decoration: line-through
+}
+
+.contRen {
+  color: #ADB4BE;
+  font-size: 26rpx;
+}
+
+.contRen1 {
+  position: absolute;
+  right: 20rpx;
+}
+
+.tap1 {
+  padding: 10rpx 32rpx 20rpx 10rpx;
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+.shaixuan {
+  color: #ADB4BE;
+  font-size: 26rpx;
+  margin-right: 24rpx;
+  padding: 10rpx 20rpx;
+}
+
+.biaoqian {
+  background: #E9F8FB;
+  border-radius: 4px;
+  color: #44C4DF;
+  font-size: 24rpx;
+  padding: 10rpx 20rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+}
+
+.navedaoh {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 50rpx;
+  background: #FFFFFF;
+}
+
+.navepos {
+  position: fixed;
+  z-index: 100;
+  width: 86%;
+  top: 0;
+}
+
+.xuanzhong {
+  color: #212832;
+  font-weight: 600;
+  font-size: 30rpx;
+  border-bottom: 6rpx solid #63CEE4;
+  border-radius: 3rpx;
+  height: 80%;
+  transition: all 0.5s;
+}
+
+.noxuanzhong {
+  font-size: 30rpx;
+  border-radius: 3rpx;
+  height: 80%;
+  transition: all 0.5s;
+  color: #858C96;
+}
+
+.tuijian {
+  color: #212832;
+  font-size: 36rpx;
+  font-weight: 600;
+  padding: 36rpx;
+}
+
+.jianBox {
+  display: flex;
+  margin: 0 34rpx 20rpx;
+}
+
+.jianImg {
+  width: 200rpx;
+  height: 190rpx;
+  background: #F0F0F3;
+  border-radius: 16rpx;
+  flex: none;
+}
+
+.jianXx {
+  margin-left: 50rpx;
+}
+
+.jName {
+  color: #212832;
+  font-size: 34rpx;
+  font-weight: 500;
+  margin-top: 20rpx;
+}
+
+.jMs {
+  margin-top: 20rpx;
+  color: #858C96;
+  font-size: 28rpx;
+}
+
+.jianCon {
+  color: #5D646E;
+  font-size: 30rpx;
+}
+
+.xqBox {
+  margin-bottom: 32rpx;
+}
+
+.xqImg {
+  width: 100%;
+  background: #F0F0F3;
+}
+
+/* .xxfkBox {
+  margin: 32rpx;
+} */
+
+.fkItem {
+  display: flex;
+  margin: 0 32rpx 30rpx;
+}
+
+.fkAvetar {
+  width: 100rpx;
+  height: 100rpx;
+  background: #ccc;
+  border-radius: 50rpx;
+}
+
+.fknc {
+  color: #212832;
+  font-weight: 500;
+  font-size: 28rpx;
+}
+
+.dXing {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 32rpx;
+}
+
+.wuXing {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 5rpx;
+}
+
+.fkTime {
+  color: #ADB4BE;
+  font-size: 26rpx;
+  margin-top: 5rpx;
+}
+
+.fkImg {
+  width: 180rpx;
+  height: 140rpx;
+  background: #F0F0F3;
+  margin: 0 5rpx;
+}
+
+.item {
+  margin: 24rpx 32rpx;
+  padding: 24rpx;
+  background-color: white;
+  border-radius: 16rpx;
+}
+
+/* 11111111111 */
+
+/* 付款详情 */
+.fkPos {
+  background: #fff;
+  width: 100%;
+  margin-top: 24rpx;
+  padding-bottom: 30rpx;
+}
+
+.xiangqin {
+  width: 100%;
+  height: 580rpx;
+  background: #F0F0F3;
+  border-radius: 8px;
+  margin: 40rpx 0;
+}
+
+.next {
+  width: 85%;
+  height: 95rpx;
+  background: linear-gradient(90deg, #6FE7F4 0%, #4ADCF7 100%);
+  box-shadow: 0rpx 4rpx 16rpx 0rpx #A2F1FF;
+  border-radius: 46rpx;
+  align-self: center;
+  margin-top: 20rpx;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: #FFF;
+  box-sizing: border-box;
+}
+
+/* 推荐 */
+.course {
+  padding: 24rpx;
+  background-color: white;
+  border-bottom: 24rpx solid #F7F7F9;
+}
+
+.swiper {
+  width: 90%;
+  height: 580rpx;
+}
+
+/* 邀请好友 */
+/* 付款详情 */
+.fkBg {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.fkPos {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+}
+
+.fkDetail {
+  width: 100%;
+  color: #212832;
+  font-weight: 600;
+  font-size: 38rpx;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.fkItem1 {
+  display: flex;
+  justify-content: space-between;
+  height: 110rpx;
+  align-items: center;
+  border-bottom: 1px solid #EFEFF0;
+  margin: 0 30rpx;
+}
+
+.itemName {
+  color: #ADB4BE;
+  font-size: 32rpx;
+}
+
+.itemCon {
+  font-size: 34rpx;
+  color: #5D646E;
+}
+
+.itemCon1 {
+  font-size: 34rpx;
+  color: #FA283B;
+  font-weight: 600;
+}
+
+.fkYouh {
+  color: #ADB4BE;
+  font-size: 30rpx;
+  justify-content: flex-end;
+  padding-bottom: 50rpx;
+}
+
+.box3 {
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 1);
+  border-top: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.next {
+  width: 85%;
+  height: 95rpx;
+  background: linear-gradient(90deg, #6FE7F4 0%, #4ADCF7 100%);
+  box-shadow: 0rpx 4rpx 16rpx 0rpx #A2F1FF;
+  border-radius: 46rpx;
+  align-self: center;
+  margin-top: 20rpx;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: #FFF;
+  box-sizing: border-box;
+}

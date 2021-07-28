@@ -1,0 +1,47 @@
+<wxs module="util" src="../../utils/util.wxs"></wxs>
+
+<view class="content">
+  <view class="top level">
+    <view class="search level">
+      <image class="search-glass" src="/images/search@2x.png"></image>
+      <input bindconfirm="search" confirm-type="search" type="text" placeholder="请输入关键词进行搜索" class="search-input"
+        value="{{keywords}}" placeholder-class="search-placeholder" />
+    </view>
+    <view class="cancel" bindtap="cancel">取消</view>
+  </view>
+  <view class="search-tips" wx:if="{{keywords}}">搜索到含有“{{keywords}}”的产品{{courses.length}}件</view>
+  <!-- 课程 -->
+  <view class="hotCourses">
+    <view class="course level" wx:for="{{courses}}" bindtap="toCourseDetail" data-id="{{item.id}}">
+      <image class="course-banner" src="{{item.thumb_image}}"></image>
+      <view class="course-intro">
+        <view class="course-name">{{item.product_name}}</view>
+        <view class="course-subname">{{item.one_words}}</view>
+        <view class="course-tags level">
+          <block wx:for="{{item.tag_base}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_xg}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_tf}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_xxfg}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_other}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+        </view>
+        <view class="level">
+          <view class="course-price-big">{{util.toNumberFloatFix(item.price)}}</view>
+          <view class="team-read">赚 {{util.toNumberFloatFix(item.fenrun)}}</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view class="no-more" wx:if="{{!haveMore}}">没有更多了</view>

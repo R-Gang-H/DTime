@@ -1,0 +1,173 @@
+/* pages/topic/topic.wxss */
+.box2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.topic_diji {
+  height: 64rpx;
+  border-radius: 32rpx;
+  background-color: rgba(247, 247, 249, 1);
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  box-sizing: border-box;
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+
+.txt2 {
+  z-index: 57;
+  width: 97px;
+  display: block;
+  overflow-wrap: break-word;
+  color: rgba(173, 180, 190, 1);
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  line-height: 20px;
+  text-align: left;
+}
+
+.topic_ti {
+  margin-left: 40rpx;
+  margin-top: 40rpx;
+  width: 85%;
+}
+
+.duoxuan {
+  border-radius: 6rpx;
+  background-color: rgba(140, 133, 250, 1);
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+  padding: 5rpx 15rpx;
+  color: rgba(255, 255, 255, 1);
+  font-size: 22rpx;
+}
+
+.timu {
+  color: rgba(93, 100, 110, 1);
+  font-size: 32rpx;
+}
+
+.txt3 {
+  color: #8C85FA;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+.item_duo {
+  margin-left: 40rpx;
+  margin-top: 44rpx;
+  margin-right: 40rpx;
+  display: flex;
+}
+
+.topic_con {
+  color: #5D646E;
+  font-size: 32rpx;
+  margin-left: 24rpx;
+  display: flex;
+}
+
+/* 底部按钮 */
+.boxbtm {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  padding-top: 20rpx;
+  margin-bottom: 48rpx;
+  border-top: 2rpx solid #F0F0F3;
+}
+
+.last_topic {
+  width: 150px;
+  height: 92rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 46rpx;
+  background-color: rgba(240, 240, 243, 1);
+  color: rgba(93, 100, 110, 1);
+}
+
+.lower_topic {
+  border-radius: 46rpx;
+  width: 150px;
+  height: 92rpx;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: linear-gradient(90deg, #6FE7F4 0%, #4ADCF7 100%);
+  box-shadow: 0px 2px 8px 0px #A2F1FF;
+  color: rgba(255, 255, 255, 1);
+}
+
+radio .wx-radio-input,
+checkbox .wx-checkbox-input {
+  flex: none;
+}
+
+/* 未选中的 背景样式 */
+radio .wx-radio-input {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: #E0E0E2 3rpx solid !important;
+}
+
+/* 选中后的 背景样式  */
+radio .wx-radio-input.wx-radio-input-checked {
+  border: #63CEE4 3rpx solid !important;
+}
+
+/* 选中后的 对勾样式  */
+radio .wx-radio-input.wx-radio-input-checked::before {
+  border-radius: 50%;
+  /* 选中后对勾大小，不要超过背景的尺寸 */
+  width: 40rpx;
+  /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 40rpx;
+  /* 对勾大小 34rpx */
+  font-size: 38rpx;
+  /* 对勾颜色 白色 */
+  color: #FFFFFF;
+  background: #63CEE4;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+
+}
+
+
+/* 未选中的 背景样式 */
+checkbox .wx-checkbox-input {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20%;
+  border: #E0E0E2 3rpx solid !important;
+}
+
+/* 选中后的 背景样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border: #63CEE4 3rpx solid !important;
+}
+
+/* 选中后的 对勾样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 20%;
+  /* 选中后对勾大小，不要超过背景的尺寸 */
+  width: 40rpx;
+  /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 40rpx;
+  /* 对勾大小 34rpx */
+  font-size: 38rpx;
+  /* 对勾颜色 白色 */
+  color: #FFFFFF;
+  background: #63CEE4;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+
+}

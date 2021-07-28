@@ -1,0 +1,16 @@
+<!--pages/report/reportShare/reportShare.wxml-->
+<wxs module="util" src="/utils/util.wxs"></wxs>
+<view>
+
+  <image class="img1" src="{{testProduct.image}}"></image>
+  <view style="display: grid;line-height: 50rpx;">
+    <text>{{testProduct.product_name}}</text>
+    <text>原价￥{{util.toNumberFloatFix(testProduct.old_price)}}</text>
+    <text>优惠价￥{{util.toNumberFloatFix(testProduct.price)}} 买大送小</text>
+    <text>{{testProduct.content}}</text>
+  </view>
+
+  <view class="box3">
+    <button open-type="share" class="next">分享</button>
+  </view>
+</view>

@@ -1,0 +1,133 @@
+page {
+  background-color: #F7F7F9;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+}
+
+.staticContainer {
+  display: flex;
+  flex-flow: column;
+  position: fixed;
+  width: 100%;
+}
+
+.tabContainer {
+  width: 100%;
+  height: 96rpx;
+  flex-flow: row;
+  display: flex;
+  border-top: 1rpx solid #EAEAEA;
+  background-color: white;
+}
+
+.tabTitle {
+  align-self: center;
+  text-align: center;
+}
+
+.title1 {
+  margin-left: 32rpx;
+}
+
+.title2 {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+
+.titleContainer {
+  display: flex;
+  flex-flow: column;
+  align-self: center;
+}
+
+.titleBottom {
+  width: 40rpx;
+  height: 8rpx;
+  align-self: center;
+  background-color: #63CEE4;
+  margin-top: 10rpx;
+}
+
+.listContainer {
+  width: 686rpx;
+  display: flex;
+  flex-flow: column;
+  margin-top: 128rpx;
+}
+
+.listItem {
+  display: flex;
+  flex-flow: column;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.dataContainer {
+  height: 192rpx;
+  display: flex;
+  flex-flow: column;
+}
+
+.userContainer {
+  display: flex;
+  flex-flow: row;
+  margin-left: 24rpx;
+  margin-top: 24rpx;
+}
+
+.name {
+  font-size: 28rpx;
+  color: #212832;
+  font-weight: bold;
+  margin-right: 56rpx;
+}
+
+.sex {
+  font-size: 28rpx;
+  color: #344255;
+  margin-right: 24rpx;
+}
+
+.timeContainer {
+  /* display: flex;
+  flex-flow: column;
+  margin-top: 24rpx; */
+  margin-left: 24rpx;
+}
+
+.time {
+  font-size: 26rpx;
+  color: #ADB4BE;
+  height: 36rpx;
+  width: 365rpx;
+}
+
+.look {
+  width: 200rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #6FE7F4 0%, #4ADCF7 100%);
+  border-radius: 32rpx;
+  font-size: 28rpx;
+  color: white;
+  margin-top: 32rpx;
+  margin-left: 75rpx;
+}
+
+.noMore {
+  font-size: 26rpx;
+  color: #858C96;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.lookContainer {
+  display: flex;
+  flex-flow: row;
+}

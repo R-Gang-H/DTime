@@ -1,0 +1,68 @@
+<!--pages/collect/collect.wxml-->
+<wxs module="util" src="../../utils/util.wxs"></wxs>
+
+<view class="content" style="{{isCheck?'padding-bottom: 200rpx;':''}}">
+  <view class="header">
+    <view class="level header-term">
+      <view class="{{cterm == 1 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="1" data-brl="120">天赋教养自研</view>
+      <view class="{{cterm == 2 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="2" data-brl="320">D-TIME严选</view>
+      <!-- <view class="{{cterm == 2 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="2" data-brl="120">D-TIME严选</view> -->
+      <text class="edit {{isCheck?'edit_check':'edit_check1'}}" bindtap="editTap">{{isCheck?'完成':'编辑'}}</text>
+    </view>
+    <view class="br" style="left:{{brl}}rpx"></view>
+  </view>
+  <!-- 课程 -->
+  <view class="hotCourses">
+    <block wx:if="{{collectList.length}}">
+      <checkbox-group bindchange="checkboxChange">
+        <view class="course level" wx:for="{{collectList}}">
+          <checkbox wx:if="{{isCheck}}" value="{{item.id}}" checked="{{item.checked}}" />
+          <view class="level" data-item="{{item}}" bindtap="toCourseDetail">
+            <image class="course-banner" src="{{item.thumb_image}}"></image>
+            <view class="course-intro">
+              <view class="course-name">{{item.product_name}}</view>
+              <view class="course-subname">{{item.one_words}}</view>
+              <view class="course-tags level">
+                <block wx:for="{{item.tag_base}}" wx:for-item="itemName">
+                  <text class="course-tag">{{itemName}}</text>
+                </block>
+                <block wx:for="{{item.tag_xg}}" wx:for-item="itemName">
+                  <text class="course-tag">{{itemName}}</text>
+                </block>
+                <block wx:for="{{item.tag_tf}}" wx:for-item="itemName">
+                  <text class="course-tag">{{itemName}}</text>
+                </block>
+                <block wx:for="{{item.tag_xxfg}}" wx:for-item="itemName">
+                  <text class="course-tag">{{itemName}}</text>
+                </block>
+                <block wx:for="{{item.tag_other}}" wx:for-item="itemName">
+                  <text class="course-tag">{{itemName}}</text>
+                </block>
+              </view>
+              <view class="course-prices level">
+                <block wx:if="{{item.type!=1&&item.type!=2&&item.type!=3}}">
+                  <view class="course-price">¥{{util.toNumberFloatFix(item.price)}}</view>
+                  <view class="course-lineprice">¥{{util.toNumberFloatFix(item.old_price)}}</view>
+                </block>
+                <!-- <view class="course-count">300人购买</view> -->
+              </view>
+            </view>
+          </view>
+        </view>
+      </checkbox-group>
+    </block>
+    <view wx:else
+      style="display:flow-root;text-align: center;color: #5CD3E8;font-size: 13px;width: 100vw;height: 100vh;padding-top: 300rpx;">
+      <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+      <view>当前暂无收藏</view>
+    </view>
+  </view>
+  <block wx:if="{{userAddress.length>0}}">
+    <loadingmore hasmore="{{hasmore}}"></loadingmore>
+  </block>
+</view>
+
+<view class="allCheck" wx:if="{{isCheck}}">
+  <checkbox class="checked" checked="{{allChecked}}" bindtap="allChecked">全选</checkbox>
+  <view class="delate" bindtap="delCollectPro">删除</view>
+</view>

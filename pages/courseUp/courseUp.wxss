@@ -1,0 +1,39 @@
+/* pages/courseUp/courseUp.wxss */
+page {
+  background: #F7F7F9;
+}
+
+.container {
+  border-top: 1rpx solid #CCC;
+  background: #F7F7F9;
+}
+
+.section3 {
+  border-radius: 24rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 6px 0px rgba(246, 246, 250, 1);
+  margin-top: 30px;
+  margin-bottom: 100rpx;
+  width: 90%;
+}
+
+.block2 {
+  display: grid;
+  justify-content: center;
+  padding-bottom: 50rpx;
+  text-align: center;
+}
+
+.word4 {
+  color: rgba(93, 100, 110, 1);
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  margin-top: 32rpx;
+}
+
+.pic2 {
+  width: 400rpx;
+  height: 400rpx;
+  margin-top: 50rpx;
+  background: #CCC;
+}

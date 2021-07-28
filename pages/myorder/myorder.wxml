@@ -1,0 +1,95 @@
+<!--pages/myorder/myorder.wxml-->
+<wxs module="util" src="../../utils/util.wxs"></wxs>
+<view class="header">
+  <view class="level header-term">
+    <view class="{{cterm == 1 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="1" data-brl="30">全部</view>
+    <view class="{{cterm == 2 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="2" data-brl="148">待付款</view>
+    <view class="{{cterm == 3 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="3" data-brl="270">拼团中</view>
+    <view class="{{cterm == -1 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="-1" data-brl="410">拼团失败</view>
+    <view class="{{cterm == 4 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="4" data-brl="548">已完成</view>
+    <view class="{{cterm == 5 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="5" data-brl="668">已关闭</view>
+  </view>
+  <view class="br" style="left:{{brl}}rpx"></view>
+</view>
+<view class="content">
+  <!-- 课程 -->
+  <view class="hotCourses">
+    <block wx:if="{{myOrders.length}}">
+      <view class="course" wx:for="{{myOrders}}" bindtap="toCourseUp">
+        <view class="ddAll">
+          <text class="mydd">订单编号：{{item.order_number}}</text>
+          <text class="ckAll"
+            style="{{item.order_buy_type==2&&item.status==2?'color:#ADB4BE':''}}">{{util.orderBuyType(item.order_buy_type,item.status,item.order_status)}}</text>
+        </view>
+        <view class="level" style="align-items:normal;">
+          <image class="course-banner" mode="aspectFill" src="{{item.thumb_image}}"></image>
+          <view class="course-intro">
+            <view class="course-name">{{item.product_name}}</view>
+            <view class="ddAll1">
+              <text class="mydd1">原价 ¥{{util.toNumberFloatFix(item.old_price)}}</text>
+              <text class="ckAll1" decode>微信支付&nbsp;<text
+                  style="color:#FA283B;">¥{{util.toNumberFloatFix(item.order_price)}}</text> </text>
+            </view>
+            <text class="mydd1">{{util.getDateTime(item.order_createat,'Y/M/D h:m:s')}}下单</text>
+          </view>
+        </view>
+        <view class="btnTxt">
+          <!-- order_status 状态 1未支付 2已支付(待评价) 3已完成 -->
+          <view wx:if="{{item.order_status == 1}}">
+            <text class="qufk" catchtap="toDel" data-order_id="{{item.order_id}}">删除</text>
+            <text wx:if="{{item.status != 3}}" class="qufk" catchtap="toPuy"
+              data-order_number="{{item.order_number}}">去付款</text>
+          </view>
+
+          <view wx:if="{{item.order_buy_type==1&&item.order_status==2}}">
+            <text class="qupj" bindtap="qpj" data-item="{{item}}">去评价</text>
+            <text class="qufk" bindtap="toCourseUp">去上课</text>
+          </view>
+
+          <view wx:if="{{item.order_buy_type==2}}">
+            <text wx:if="{{item.order_status==2}}" class="qupj" bindtap="qpj" data-item="{{item}}">去评价</text>
+            <text wx:if="{{item.order_status!=1}}" class="qufk" bindtap="toCourseUp">去上课</text>
+            <text wx:if="{{item.order_status!=1&&item.status==1}}" class="qufk" data-item="{{item}}" data-shareType="1"
+              catchtap="conTinue">邀请朋友</text>
+            <text wx:if="{{item.order_status!=1&&item.status==2}}" class="qufk" data-id="{{item.id}}"
+              catchtap="toCourseDetail">重新发起</text>
+          </view>
+
+          <!-- &&item.status==2 -->
+          <view wx:if="{{item.order_buy_type==3||item.order_buy_type==4}}">
+            <text wx:if="{{item.order_status==2}}" class="qupj" bindtap="qpj" data-item="{{item}}">去评价</text>
+            <text wx:if="{{item.order_status!=1}}" class="qufk" bindtap="toCourseUp">去上课</text>
+          </view>
+
+          <!-- <text wx:if="{{item.order_buy_type==2&&item.status==2&&item.order_status==3}}" class="qufk"
+            data-item="{{item}}" data-shareType="2" catchtap="conTinue">推荐给朋友</text> -->
+
+        </view>
+      </view>
+    </block>
+    <view wx:else
+      style="display:flow-root;text-align: center;color: #5CD3E8;font-size: 13px;width: 100vw;height: 100vh;padding-top: 300rpx;">
+      <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+      <view>当前暂无订单</view>
+    </view>
+  </view>
+
+  <block wx:if="{{myOrders.length>0}}">
+    <loadingmore hasmore="{{hasmore}}"></loadingmore>
+  </block>
+
+</view>
+
+
+<!-- 邀请好友 -->
+<view class="fkBg" catchtouchmove="true" wx:if="{{showFkDetail}}">
+  <view class="fkPos1">
+    <view class="fkDetail">{{shareType==1?'邀请好友':'推荐给朋友'}}</view>
+    <view class="box3">
+      <text class="cancelyq" catchtap="cancelFkDetail">取消</text>
+      <button
+        style="margin-top:30rpx;border-radius: 32rpx;color: #24CAE8;border: 2rpx solid #24CAE8;font-size:28rpx;padding:8rpx 30rpx;background:#fff;line-height:50rpx;font-weight:400;width:50%;"
+        open-type="share" class="next">{{shareType==1?'邀请':'推荐'}}</button>
+    </view>
+  </view>
+</view>

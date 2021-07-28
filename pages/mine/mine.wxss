@@ -1,0 +1,264 @@
+/* pages/mine/mine.wxss */
+page {
+  background: #F6F6F9;
+}
+
+.userBox {
+  width: 90%;
+  margin-top: 134rpx;
+  margin-left: 34rpx;
+  display: flex;
+  align-items: center;
+}
+
+.avater {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+}
+
+.userName {
+  color: #212832;
+  font-weight: 500;
+  font-size: 32rpx;
+  margin-left: 18rpx;
+}
+
+.hehuoren {
+  background: #FFA957;
+  border-radius: 8rpx;
+  color: #FFFFFF;
+  padding: 6rpx 10rpx;
+  font-size: 24rpx;
+  margin-left: 15rpx;
+  margin-top: 8rpx;
+}
+
+.box5 {
+  width: 90%;
+  background: #FFFFFF;
+  box-shadow: 0px 8rpx 12rpx 0px #F6F6FA;
+  border-radius: 16rpx;
+  margin-top: 26rpx;
+  padding-bottom: 30rpx;
+}
+
+.tixian {
+  background: #FFECEE;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.qian {
+  font-size: 34rpx;
+  position: absolute;
+  right: 40rpx;
+  color: #FA283B;
+}
+
+.tongji {
+  height: 170rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tifen {
+  padding-right: 12rpx;
+  position: relative;
+}
+
+.shouyi {
+  font-size: 26rpx;
+  color: #ADB4BE;
+}
+
+.sqian {
+  top: 20rpx;
+  position: relative;
+  left: 20rpx;
+}
+
+.box2 {
+  width: 90%;
+  height: 58px;
+  background: #FFFFFF;
+  box-shadow: 0px 8rpx 12rpx 0px #F6F6FA;
+  border-radius: 16rpx;
+  margin-top: 26rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.xiaoxi {
+  display: flex;
+  align-items: center;
+  padding-right: 52rpx;
+  border-right: 2rpx solid #E0E0E2;
+  position: relative;
+}
+
+.xxIcon {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.notic {
+  font-size: 26rpx;
+  color: #212832;
+  margin-left: 16rpx;
+}
+
+.dian {
+  width: 6rpx;
+  height: 6rpx;
+  border: 4rpx solid #FE3D30;
+  border-radius: 50%;
+  font-size: 20rpx;
+  position: absolute;
+  left: 15px;
+  top: -8rpx;
+  text-align: center;
+  background: #FE3D30;
+}
+
+.box3 {
+  width: 90%;
+  padding-bottom: 20rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 8rpx 12rpx 0px #F6F6FA;
+  border-radius: 16rpx;
+  margin-top: 26rpx;
+}
+
+.ddAll {
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 90%;
+  position: relative;
+  display: flex;
+  padding: 0 30rpx;
+}
+
+.mydd {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #212832;
+}
+
+.ckAll {
+  font-size: 26rpx;
+  color: #ADB4BE;
+  position: absolute;
+  right: 40rpx;
+}
+
+.arraw_right {
+  border-top: 2rpx solid #ADB4BE;
+  border-right: 2rpx solid #ADB4BE;
+  width: 16rpx;
+  height: 16rpx;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 20rpx;
+  top: 40rpx;
+}
+
+.tagboxs {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.tagbox {
+  position: relative;
+}
+
+.tagimg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.tagtxt {
+  color: #858C96;
+  font-size: 26rpx;
+  margin-top: 12rpx;
+}
+
+.box4 {
+  width: 90%;
+  height: 448rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 8rpx 12rpx 0px #F6F6FA;
+  border-radius: 16rpx;
+  margin-top: 26rpx;
+}
+
+.courboxs {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.courbox {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  width: 100%;
+}
+
+.courimg {
+  width: 260rpx;
+  height: 260rpx;
+  background: #858C96;
+  margin-right: 24rpx;
+}
+
+.courtxt {
+  color: #858C96;
+  font-size: 26rpx;
+  margin-top: 12rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.moreboxs {
+  display: flex;
+  text-align: center;
+  flex-flow: wrap;
+  padding: 0 16rpx;
+}
+
+.morebox {
+  padding: 10rpx 0rpx;
+  margin-top: 30rpx;
+  width: 160rpx;
+  position: relative;
+}
+
+.moreeimg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.moretxt {
+  color: #858C96;
+  font-size: 26rpx;
+  margin-top: 12rpx;
+}
+
+.count {
+  border: 4rpx solid #FE3D30;
+  border-radius: 50%;
+  font-size: 20rpx;
+  padding: 0rpx 8rpx;
+  color: #FE3D30;
+  position: absolute;
+  right: -3px;
+  top: -15rpx;
+  text-align: center;
+  background: #fff;
+  min-width: 15rpx;
+}

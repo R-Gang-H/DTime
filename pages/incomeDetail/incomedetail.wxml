@@ -1,0 +1,30 @@
+<wxs module="wxs" src="../../utils/util.wxs"></wxs>
+
+<view class="container">
+  <view class="detailTypeContainer">
+    <text class="detailType">{{detailType}}</text>
+    <text class="reward">奖金</text>
+  </view>
+  <view class="listContainer">
+    <view class="listItem" wx:for="{{dataList}}" data-type="{{index}}">
+      <view class="itemContainer">
+        <view class="detailContainer">
+          <image class="head" src="{{item.headimgurl}}"></image>
+          <view class="detailInfo">
+            <view class="userInfo">
+              <text class="nickname">{{item.nickname}}</text>
+              <text class="type">{{item.title}}</text>
+            </view>
+            <text class="detail">{{item.description}}</text>
+          </view>
+          <view class="incomeContainer">
+            <text class="income">{{item.fee}}元</text>
+            <text class="time">{{wxs.dateFormat(item.create_at,'yyyy/MM/dd hh:mm')}}</text>
+          </view>
+        </view>
+        <view class="vLine"></view>
+      </view>
+    </view>
+  </view>
+  <text class="noMore" hidden="{{noMore}}">无更多数据</text>
+</view>

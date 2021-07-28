@@ -1,0 +1,30 @@
+<wxs module="utils" src="../../../utils/util.wxs"></wxs>
+
+<!-- 我的报告 -->
+<view class="content">
+  <block wx:if="{{unReadReport.length}}">
+    <!-- 未解读的报告 -->
+    <view class="item" wx:for="{{unReadReport}}" wx:key="report_id">
+      <view class="level">
+        <view class="report-tag2">报告</view>
+        <view class="course-name">{{item.name}}</view>
+      </view>
+      <view class="level">
+        <view class="report-time">{{utils.getDateTime(item.cacert_time,'Y/M/D h:m:s')}}</view>
+        <!-- <view class="team-detail" bindtap="toReport" data-item="{{item}}">报告</view>
+      <image class="team-arrow" bindtap="toReport" data-item="{{item}}" src="/images/right.png"></image> -->
+        <view class="report-padding team-read" data-item="{{item}}"
+          bindtap="{{inType&&inType==2?'toMyUndo':'toMoreExpert'}}">申请解读</view>
+      </view>
+    </view>
+  </block>
+  <view wx:else
+    style="display:flow-root;text-align: center;color: #5CD3E8;font-size: 13px;width: 100vw;height: 100vh;padding-top: 300rpx;">
+    <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+    <view>当前暂无记录</view>
+  </view>
+
+  <block wx:if="{{unReadReport.length>0}}">
+    <loadingmore hasmore="{{hasmore}}"></loadingmore>
+  </block>
+</view>

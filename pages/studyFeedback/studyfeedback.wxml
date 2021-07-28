@@ -1,0 +1,36 @@
+<view class="studyContainer">
+  <view class="scoringContainer">
+    <text class="scoringTip">请给课程打个分吧</text>
+    <view class="loveContainer">
+      <text class="text1">孩子喜爱度</text>
+      <view class="starContainer" wx:for="{{loveStar}}" wx:key="index">
+        <image class="star" bindtap="starTap" src="{{item}}" data-index="{{index}}" data-type="1"></image>
+      </view>
+    </view>
+    <view class="loveContainer">
+      <text class="text1">孩子匹配度</text>
+      <view class="starContainer" wx:for="{{matchStar}}" wx:key="index">
+        <image class="star" bindtap="starTap" src="{{item}}" data-index="{{index}}" data-type="2"></image>
+      </view>
+    </view>
+  </view>
+  <view class="feedbackContainer" bindtap="getFocus">
+    <text class="scoringTip">学习反馈</text>
+    <view class="inputContainer">
+      <image class="inputIcon" src="../../images/pen.png"></image>
+      <textarea class="input" placeholder="请输入学习反馈" placeholder-style="font-size:30rpx;color:#e0e0e2"
+        bindinput="getFeedback" maxlength="-1" focus="{{focus}}"></textarea>
+    </view>
+    <view class="cameraContainer">
+      <view class="cameraList" wx:for="{{selectList}}" wx:key="index">
+        <view class="cameraItem" hidden="{{item.length==0&&index!=selectList.length-1}}" catchtap="selectImg"
+          data-index="{{index}}" bindlongtap="delImg">
+          <image class="camera" wx:if="{{item.length==0}}" src="../../images/icon_camera.png"></image>
+          <image class="cameraLarge" wx:else src="{{item}}"></image>
+          <text class="cameraText" hidden="{{item.length!=0}}">添加图片</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <text class="submit" bindtap="submit">提交</text>
+</view>

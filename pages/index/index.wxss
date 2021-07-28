@@ -1,0 +1,337 @@
+page {
+  background-color: #F7F7F9;
+}
+
+.content {
+  background-color: #F7F7F9;
+  padding-bottom: 132rpx;
+}
+
+.item {
+  margin: 0 32rpx 24rpx 32rpx;
+  padding: 24rpx;
+  background-color: white;
+  border-radius: 16rpx;
+}
+
+.swiper {
+  width: 100vw;
+  height: 530rpx;
+  margin-bottom: 32rpx;
+}
+
+.swiper-item{
+  width: 100vw;
+  height: 530rpx;
+}
+
+/* 组 */
+.header {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 32rpx;
+}
+
+.header-title {
+  color: #212832;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+.header-more {
+  color: #858C96;
+  font-size: 26rpx;
+  margin: 0 auto;
+  margin-right: 0;
+}
+
+.header-arrow {
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: -2rpx;
+}
+
+.header-top {
+  width: 80rpx;
+  height: 34rpx;
+  margin-right: 6rpx;
+}
+
+/* 金刚区 */
+.function-content {
+  margin-left: 32rpx;
+}
+
+.function-content-t {
+  margin-bottom: 16rpx;
+}
+
+.function-l {
+  width: 388rpx;
+  height: 160rpx;
+  margin-right: 18rpx;
+  border-radius: 16rpx;
+  position: relative;
+}
+
+.function-s {
+  width: 280rpx;
+  height: 160rpx;
+  position: relative;
+}
+
+.function-text {
+  position: absolute;
+  color: #FFFFFF;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.adult-right {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 44rpx;
+  left: 184rpx;
+}
+
+.child-right {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 64rpx;
+  left: 184rpx;
+}
+
+.adult {
+  top: 38rpx;
+  left: 40rpx;
+}
+
+.adult14 {
+  top: 92rpx;
+  left: 40rpx;
+  font-size: 24rpx;
+}
+
+.child {
+  top: 58rpx;
+  left: 40rpx;
+}
+
+.days21 {
+  top: 36rpx;
+  left: 40rpx;
+}
+
+.camp {
+  top: 80rpx;
+  left: 40rpx;
+}
+
+.shadow-adult {
+  box-shadow: 0 8rpx 8rpx 0 #ADEDFB;
+}
+
+.shadow-child {
+  box-shadow: 0 8rpx 8rpx 0 #D2CAFD;
+}
+
+.how-many-people {
+  width: 606rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  border-radius: 34rpx;
+  background-color: #ECEDFE;
+  color: #808BCF;
+  font-size: 28rpx;
+  margin-top: 16rpx;
+  padding: 0 40rpx;
+  margin-bottom: 36rpx;
+}
+
+/* 我的报告 */
+.report-tag {
+  background-color: #F3B65D;
+  height: 36rpx;
+  line-height: 36rpx;
+  border-radius: 6rpx;
+  padding: 0 10rpx;
+  color: white;
+  font-size: 24rpx;
+  margin-right: 16rpx;
+}
+
+.report-tag2 {
+  background-color: #7698FE;
+  height: 36rpx;
+  line-height: 36rpx;
+  border-radius: 6rpx;
+  padding: 0 10rpx;
+  color: white;
+  font-size: 24rpx;
+  margin-right: 16rpx;
+}
+
+.report-tag3 {
+  background-color: #4FDDF6;
+  height: 36rpx;
+  line-height: 36rpx;
+  border-radius: 6rpx;
+  padding: 0 10rpx;
+  color: white;
+  font-size: 24rpx;
+  margin-right: 16rpx;
+}
+
+.report-time {
+  font-size: 26rpx;
+  color: #ADB4BE;
+  margin-right: 24rpx;
+}
+
+/* 专家团队 */
+.team-icon {
+  width: 148rpx;
+  height: 180rpx;
+  border-radius: 8rpx;
+  background-color: #FFC947;
+  margin-right: 24rpx;
+}
+
+.team-detail {
+  font-size: 26rpx;
+  color: #44C4DF;
+}
+
+.team-arrow {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.team-read {
+  height: 64rpx;
+  line-height: 64rpx;
+  background: -moz-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -ms-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -o-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -webkit-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  color: white;
+  font-size: 28rpx;
+  padding: 0 28rpx;
+  border-radius: 32rpx;
+  margin: 0 auto;
+  margin-right: 0;
+  box-shadow: 0 8rpx 8rpx 0 #A2F1FF;
+}
+
+/* .team-chakan {
+  height: 64rpx;
+  line-height: 64rpx;
+  background: #FAA624;
+  color: white;
+  font-size: 28rpx;
+  padding: 0 28rpx;
+  border-radius: 32rpx;
+  margin: 0 auto;
+  margin-right: 0;
+  box-shadow: 0 8rpx 8rpx 0 #FAA624;
+} */
+
+.continue {
+  height: 64rpx;
+  line-height: 64rpx;
+  color: #44C4DF;
+  font-size: 28rpx;
+  padding: 0 28rpx;
+  border-radius: 32rpx;
+  margin: 0 auto;
+  margin-right: 0;
+  border: 1rpx solid #A1E1EF;
+}
+
+.team-read text {
+  font-weight: bold;
+}
+
+/* top课程产品 */
+.course-banner {
+  width: 638rpx;
+  height: 300rpx;
+  background-color: #FFC947;
+  border-radius: 8rpx;
+  margin-bottom: 16rpx;
+}
+
+.course-intro {
+  width: 466rpx;
+}
+
+.course-name {
+  font-size: 34rpx;
+  color: #212832;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.course-subname {
+  font-size: 28rpx;
+  color: #858C96;
+  margin-bottom: 22rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.course-price {
+  font-size: 34rpx;
+  color: #FA283B;
+  font-weight: bold;
+}
+
+.course-lineprice {
+  font-size: 26rpx;
+  color: #E0E0E2;
+  margin-left: 18rpx;
+}
+
+.course-count {
+  font-size: 26rpx;
+  color: #ADB4BE;
+  margin: 0 auto;
+  margin-right: 0;
+}
+
+/* 家长评价 */
+.evaluation-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background-color: thistle;
+  margin-right: 16rpx;
+}
+
+.evaluation-name {
+  font-size: 28rpx;
+  color: #19283C;
+  font-weight: bold;
+}
+
+.evaluation-sign {
+  font-size: 24rpx;
+  color: #ADB4BE;
+}
+
+.evaluation-detail {
+  font-size: 30rpx;
+  color: #5D646E;
+  margin-top: 12rpx;
+  margin-left: 96rpx;
+}
+
+/* 额外的 */
+.report-padding {
+  padding: 0 38rpx;
+}

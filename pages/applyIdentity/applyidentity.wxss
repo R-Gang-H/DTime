@@ -1,0 +1,118 @@
+page{
+  background-color: #e7e7e9;
+}
+
+.applyContainer{
+  display: flex;
+  flex-flow: column;
+}
+
+.question1{
+  display: flex;
+  flex-flow: column;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  margin-top: 30rpx;
+}
+
+.title{
+  color: #333;
+  font-size: 28rpx;
+}
+
+.selectContainer{
+  display: flex;
+  flex-flow: row;
+  margin-top: 20rpx;
+  margin-left: 24rpx;
+}
+
+.check{
+  margin-right: 40rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.cameraContainer {
+  height: 168rpx;
+  width: 638rpx;
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.cameraList{
+  display: flex;
+  flex-flow: row;
+}
+
+.cameraItem {
+  background-color: #F7F7F9;
+  border-radius: 8rpx;
+  border: 1rpx solid #E2E2E2;
+  width: 168rpx;
+  height: 168rpx;
+  margin-right: 22rpx;
+  margin-left: 22rpx;
+  display: flex;
+  flex-flow: column;
+}
+
+.camera {
+  margin-top: 45rpx;
+  width: 49rpx;
+  height: 36rpx;
+  align-self: center;
+}
+
+.cameraLarge{
+  width: 168rpx;
+  height: 168rpx;
+}
+
+.cameraText {
+  font-size: 24rpx;
+  color: #ADB4BE;
+  margin-top: 10rpx;
+  align-self: center;
+}
+
+.inputContainer {
+  display: flex;
+  flex-flow: row;
+  align-self: center;
+  background-color: white;
+  border-radius: 16rpx;
+  margin-top: 20rpx;
+  width: 638rpx;
+}
+
+.inputIcon {
+  width: 34rpx;
+  height: 34rpx;
+  margin-left: 24rpx;
+  margin-top: 36rpx;
+}
+
+.input {
+  font-size: 30rpx;
+  color: #212832;
+  margin-top: 32rpx;
+  margin-bottom: 32rpx;
+  width: 570rpx;
+  height: 144rpx;
+}
+
+.submit{
+  font-size: 34rpx;
+  color: white;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  background:linear-gradient(90deg, #6FE7F4 0%, #4ADCF7 100%);
+  width:670rpx;
+  height: 92rpx;
+  border-radius: 46rpx;
+  box-shadow: 0rpx 4rpx 16rpx 0rpx #A2F1FF;
+  margin-top: 80rpx;
+}

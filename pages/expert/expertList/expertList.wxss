@@ -1,0 +1,80 @@
+/* pages/expert/expertList/expertList.wxss */
+page {
+  background-color: #F7F7F9;
+}
+
+.content {
+  background-color: #F7F7F9;
+}
+
+.item {
+  margin: 24rpx 32rpx;
+  padding: 24rpx;
+  background-color: white;
+  border-radius: 16rpx;
+}
+
+/* 专家团队 */
+.team-icon {
+  width: 148rpx;
+  height: 180rpx;
+  border-radius: 8rpx;
+  background-color: #FFC947;
+  margin-right: 24rpx;
+}
+
+.team-detail {
+  font-size: 26rpx;
+  color: #44C4DF;
+}
+
+.team-arrow {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.team-read {
+  height: 64rpx;
+  line-height: 64rpx;
+  background: -moz-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -ms-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -o-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -webkit-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  color: white;
+  font-size: 28rpx;
+  padding: 0 28rpx;
+  border-radius: 32rpx;
+  margin: 0 auto;
+  margin-right: 0;
+  box-shadow: 0 8rpx 8rpx 0 #A2F1FF;
+  max-width: 260rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.team-read text {
+  font-weight: bold;
+}
+
+.course-name {
+  font-size: 34rpx;
+  color: #212832;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.course-subname {
+  font-size: 28rpx;
+  color: #858C96;
+  margin-bottom: 22rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.course-intro {
+  width: 466rpx;
+}

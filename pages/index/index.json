@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "loadingmore": "/components/loadingmore/loadingmore"
+  },
+  "navigationStyle": "custom"
+}

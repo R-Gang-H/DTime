@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "loadingmore": "/components/loadingmore/loadingmore"
+  },
+  "navigationBarTitleText": "我的报告列表",
+  "enablePullDownRefresh": true
+
+}

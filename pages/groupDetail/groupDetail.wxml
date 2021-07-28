@@ -1,0 +1,212 @@
+<!--pages/groupDetail/groupDetail.wxml-->
+<wxs module="util" src="/utils/util.wxs"></wxs>
+<view class="container">
+
+  <block wx:if="{{isPuySuc}}">
+    <!-- 购买成功 -->
+    <view class="produce">
+      <image class="sc_pic2" referrerpolicy="no-referrer" src="../../images/icon_buy_succ.png" />
+      <text class="sc_txt2">支付成功</text>
+      <view class="main3">
+        <text class="txt2">邀请<text class="txt3">2个新用户，</text>即可成团</text>
+      </view>
+      <view class="main3">
+        <text class="txt4">距离结束还剩</text>
+        <text class="block12">{{h}}</text>
+        <text class="endtime">:</text>
+        <text class="block12">{{m}}</text>
+        <text class="endtime">:</text>
+        <text class="block12">{{s}}</text>
+      </view>
+      <view class="ptUser">
+        <image class="userImg" wx:for="{{util.splitImages(courseDetail.user_images)}}" src="{{item}}"></image>
+        <image class="userImg" wx:for="{{util.getNoCJHD(util.splitImages(courseDetail.user_images).length)}}"
+          src="../../images/icon_head_no.png"></image>
+      </view>
+      <view class="box3">
+        <view style="display:flex;">
+          <button style="width:280rpx;" class="next" bindtap="shareKc">分享朋友圈</button>
+          <button style="width:280rpx;" open-type="share" class="next">邀请朋友</button>
+        </view>
+        <view class="back" bindtap="toHome">查看客服</view>
+      </view>
+    </view>
+
+
+    <view class="fkPos">
+      <view class="fkDetail">
+        付款详情</view>
+      <view class="fkItem1">
+        <text class="itemName">商品名称</text>
+        <text class="itemCon">{{courseDetail.product_name}}</text>
+      </view>
+      <view class="fkItem1">
+        <text class="itemName">购买方式</text>
+        <text class="itemCon">{{orderBuyType==2?'3人邀请团':orderBuyType==1?'单独购':''}}</text>
+      </view>
+      <view class="fkItem1">
+        <text class="itemName">支付总额</text>
+        <text class="itemCon1">¥{{util.toNumberFloatFix(courseDetail.order_price)}}</text>
+      </view>
+      <view class="fkItem1">
+        <text class="itemName">积分抵扣</text>
+        <text class="itemCon">无</text>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <block wx:if="{{!isCTSuc}}">
+      <!-- 购买成功 -->
+      <view class="produce" style="padding:0;">
+        <view class="course level">
+          <image class="course-banner" src="{{courseDetail.thumb_image}}"></image>
+          <view class="course-intro">
+            <view class="course-name">{{courseDetail.product_name}}</view>
+            <view class="course-subname">{{courseDetail.one_words}}</view>
+            <view class="course-tags level">
+              <block wx:for="{{courseDetail.tag_base}}" wx:for-item="itemName">
+                <text class="course-tag">{{itemName}}</text>
+              </block>
+              <block wx:for="{{courseDetail.tag_xg}}" wx:for-item="itemName">
+                <text class="course-tag">{{itemName}}</text>
+              </block>
+              <block wx:for="{{courseDetail.tag_tf}}" wx:for-item="itemName">
+                <text class="course-tag">{{itemName}}</text>
+              </block>
+              <block wx:for="{{courseDetail.tag_xxfg}}" wx:for-item="itemName">
+                <text class="course-tag">{{itemName}}</text>
+              </block>
+              <block wx:for="{{courseDetail.tag_other}}" wx:for-item="itemName">
+                <text class="course-tag">{{itemName}}</text>
+              </block>
+            </view>
+            <view class="course-prices level">
+              <view class="course-price">¥{{util.toNumberFloatFix(courseDetail.order_price)}}</view>
+              <view class="course-lineprice">¥{{util.toNumberFloatFix(courseDetail.old_price)}}</view>
+              <view class="course-count">{{courseDetail.sales}}人购买</view>
+            </view>
+          </view>
+        </view>
+
+        <view class="main3" style="margin-top: 40rpx;">
+          <text wx:if="{{isPTEnd}}" class="txt2">拼团已成功</text>
+          <text wx:else class="txt2">仅剩<text
+              class="txt3">{{util.getNoCJHD(util.splitImages(courseDetail.user_images).length)}}个名额，</text>先到先得</text>
+        </view>
+        <view class="main3">
+          <text wx:if="{{isPTEnd}}" class="txt3">已结束</text>
+          <block wx:else>
+            <text class="txt4">距离结束还剩</text>
+            <text class="block12">{{h}}</text>
+            <text class="endtime">:</text>
+            <text class="block12">{{m}}</text>
+            <text class="endtime">:</text>
+            <text class="block12">{{s}}</text>
+          </block>
+
+        </view>
+        <view class="ptUser">
+          <image class="userImg" wx:for="{{util.splitImages(courseDetail.user_images)}}" src="{{item}}"></image>
+          <image class="userImg" wx:for="{{util.getNoCJHD(util.splitImages(courseDetail.user_images).length)}}"
+            src="../../images/icon_head_no.png"></image>
+        </view>
+
+        <block wx:if="{{isZJSRT}}">
+          <view class="box3">
+            <button open-type="share" class="next">立即邀请</button>
+            <view class="back" bindtap="toHome">查看客服</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="box3" style="padding-bottom: 40rpx;">
+            <view wx:if="{{isPTEnd}}" class="next" catchtap="showFkDetail" data-item="{{courseDetail}}">
+              ￥{{util.toNumberFloatFix(courseDetail.order_price)}} 单独购
+            </view>
+            <view wx:else class="next" catchtap="showFkDetail" data-item="{{courseDetail}}">
+              ￥{{util.toNumberFloatFix(courseDetail.group_price)}} 立即参团
+            </view>
+          </view>
+        </block>
+
+      </view>
+
+      <view class="fkPos">
+        <block wx:for="{{util.splitImages(courseDetail.detail_images)}}" wx:key="id">
+          <image class="xiangqin" src="{{item}}" mode="widthFix"></image>
+        </block>
+      </view>
+    </block>
+    <block wx:else>
+
+      <view class="main3" style="margin-top: 40rpx;">
+        <text class="txt2" style="width:100%;text-align:center;"
+          wx:if="{{util.getNoCJHD(util.splitImages(courseDetail.user_images).length==0)}}">恭喜您拼团成功</text>
+        <text class="txt2" wx:else>仅剩<text
+            class="txt3">{{util.getNoCJHD(util.splitImages(courseDetail.user_images).length)}}个名额，</text>先到先得</text>
+      </view>
+
+      <block wx:if="{{courseDetail.status==1}}">
+        <view class="main3">
+          <text class="txt4">距离结束还剩</text>
+          <text class="block12">{{h}}</text>
+          <text class="endtime">:</text>
+          <text class="block12">{{m}}</text>
+          <text class="endtime">:</text>
+          <text class="block12">{{s}}</text>
+        </view>
+      </block>
+
+      <view class="ptUser">
+        <image class="userImg" wx:for="{{util.splitImages(courseDetail.user_images)}}" src="{{item}}"></image>
+        <image class="userImg" wx:for="{{util.getNoCJHD(util.splitImages(courseDetail.user_images).length)}}"
+          src="../../images/icon_head_no.png"></image>
+      </view>
+
+      <view class="section3">
+        <view class="block2">
+          <image class="pic2" catchtap="showImage" data-url="{{kefuImg}}" referrerpolicy="no-referrer" mode="widthFix"
+            src="{{kefuImg}}" />
+          <text class="word4">加专属客服 领取课程码</text>
+        </view>
+        <view class="block2">
+          <image class="pic2" catchtap="showImage" data-url="{{gzhImg}}" referrerpolicy="no-referrer" mode="widthFix"
+            src="{{gzhImg}}" />
+          <text class="word4">扫描订阅 订单早知道</text>
+        </view>
+      </view>
+
+
+    </block>
+  </block>
+
+</view>
+
+
+<!-- 付款详情 -->
+<view class="fkBg" catchtouchmove="true" wx:if="{{showFkDetail}}" bindtap="cancelFkDetail">
+  <view class="fkPos1">
+    <view class="fkDetail">
+      付款详情</view>
+    <view class="fkItem1" bindtap="youjiDZ" wx:if="{{courseDetail.product_form == 2}}">
+      <text class="itemName">邮寄地址</text>
+      <text class="itemCon">{{yjAddress?yjAddress:'请选择地址'}}</text>
+    </view>
+    <view class="fkItem1">
+      <text class="itemName">商品名称</text>
+      <text class="itemCon">{{courseDetail.product_name}}</text>
+    </view>
+    <view class="fkItem1">
+      <text class="itemName">购买方式</text>
+      <text class="itemCon">3人邀请团</text>
+    </view>
+    <view class="fkItem1">
+      <text class="itemName">支付总额</text>
+      <text class="itemCon1">¥{{util.toNumberFloatFix(courseDetail.group_price)}}</text>
+    </view>
+    <text
+      class="fkItem1 fkYouh">已优惠￥{{util.toNumberFloatFix(util.youhuiPrice(courseDetail.old_price,courseDetail.group_price))}}</text>
+    <view class="box3">
+      <view class="next" catchtap="WeiXinBuy">微信支付</view>
+    </view>
+  </view>
+</view>

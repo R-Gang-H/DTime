@@ -1,0 +1,21 @@
+<!--pages/Address/Address.wxml-->
+<view>
+  <view class="box1" wx:for="{{userAddress}}" data-itemAdd="{{item}}" bindtap="backHome">
+    <text class="yjname">{{item.name}}</text>
+    <text class="phone">{{item.mobile}}</text>
+    <view class="dzaddress">
+      <text class="address_txt">{{item.province+item.city+item.area+item.address}}</text>
+      <image catchtap="newEditAddress" data-addType="2" data-item="{{item}}" class="addImg" src="/images/icon_bi.png">
+      </image>
+    </view>
+  </view>
+
+  <block wx:if="{{userAddress.length>0}}">
+    <loadingmore hasmore="{{hasmore}}"></loadingmore>
+  </block>
+
+  <view class="box3">
+    <view bindtap="newEditAddress" data-addType="1" class="next">+ 新建收货地址</view>
+  </view>
+
+</view>

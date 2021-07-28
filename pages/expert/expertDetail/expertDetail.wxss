@@ -1,0 +1,39 @@
+/* pages/expert/expertDetail/expertDetail.wxss */
+page {
+  background-color: #F7F7F9;
+}
+
+.content {
+  background-color: #F7F7F9;
+  padding-bottom: 32rpx;
+}
+
+.bottom {
+  height: 160rpx;
+  width: 100vw;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
+
+.team-read {
+  width: 670rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  background: -moz-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -ms-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -o-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -webkit-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  color: white;
+  font-size: 34rpx;
+  border-radius: 46rpx;
+  margin: 0 auto;
+  box-shadow: 0 8rpx 8rpx 0 #A2F1FF;
+  margin-top: 20rpx;
+}
+
+.team-read text {
+  font-weight: bold;
+  padding-right: 80rpx;
+}

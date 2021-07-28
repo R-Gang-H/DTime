@@ -1,0 +1,277 @@
+var utils = {
+  /**
+   * 日期转时间戳
+   * date:传入日期
+   */
+  formatTime: function (date) {
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+    var hour = date.getHours()
+    var minute = date.getMinutes()
+    var second = date.getSeconds()
+
+    return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  },
+
+  formatNumber: function (n) {
+    n = n.toString()
+    return n[1] ? n : '0' + n
+  },
+
+  /** 
+   * 时间戳转化为年 月 日 时 分 秒 
+   * number: 传入时间戳 
+   * format：返回格式，支持自定义，Y/M/D h:m:s
+   */
+  getDateTime: function (number, format) {
+    var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+    var returnArr = [];
+
+    //不能使用 new Date()
+    var time = getDate(number * 1000);
+    var year = time.getFullYear();
+    var month = time.getMonth() + 1;
+    var date = time.getDate();
+    var hour = time.getHours();
+    var minute = time.getMinutes();
+    var second = time.getSeconds();
+
+    month = month < 10 ? "0" + month : month;
+    date = date < 10 ? "0" + date : date;
+    hour = hour < 10 ? "0" + hour : hour;
+    minute = minute < 10 ? "0" + minute : minute;
+    second = second < 10 ? "0" + second : second;
+
+    returnArr.push(year);
+    returnArr.push(month);
+    returnArr.push(date);
+    returnArr.push(hour);
+    returnArr.push(minute);
+    returnArr.push(second);
+
+    for (var i = 0; i < returnArr.length; i++) {
+      format = format.replace(formateArr[i], returnArr[i]);
+    }
+    return format;
+  },
+
+  /**
+   * 根据天数间隔获取时间,传入时间, 返回传入的时间和当前时间对比后的数值
+   */
+  getDateWithTime: function (time) {
+    //当前时间的时间戳
+    var timestamp = getDate();
+    timestamp = timestamp / 1000;
+
+    //传入时间转换成时间戳
+    // time = getDate(time).getTime() / 1000
+
+    //时间间隔  
+    var timeInterval = timestamp - time;
+    if (timeInterval <= 60) {
+      return '刚刚'
+    }
+    if (timeInterval <= 60 * 60) {
+
+      //一小时以内
+      var minutes = timeInterval / 60;
+      return parseInt(minutes) + '分钟前'
+    }
+
+    //传入的日期
+    var newTime = time * 1000
+    var dateTime = getDate(newTime)
+    //当前日期
+    var newTimeStamp = timestamp * 1000;
+    var currentDate = getDate(newTimeStamp)
+
+    if (timeInterval <= 60 * 60 * 24) {
+      //两天内的
+
+      //传入的日期年月日
+      var dateTimeYearMonthDay = dateTime.getFullYear() + '-' + dateTime.getMonth() + '-' + dateTime.getDay()
+
+      //当前的日期年月日
+      var currentTimeYearMonthDay = currentDate.getFullYear() + '-' + currentDate.getMonth() + '-' + currentDate.getDay()
+
+      if (dateTimeYearMonthDay == currentTimeYearMonthDay) {
+
+        //同一天
+        var h = dateTime.getHours();
+        //分  
+        var m = dateTime.getMinutes();
+        return h + ':' + m;
+
+
+      } else {
+        return '昨天'
+      }
+
+    } else {
+
+      //判断是否是同一年
+      var Y = dateTime.getFullYear()
+      var M = (dateTime.getMonth() + 1 < 10 ? '0' + (dateTime.getMonth() + 1) : dateTime.getMonth() + 1);
+      //日  
+      var D = dateTime.getDate() < 10 ? '0' + dateTime.getDate() : dateTime.getDate();
+      var currentY = currentDate.getFullYear()
+      if (Y == currentY) {
+        //同一年
+
+        return M + '-' + D
+      } else {
+        //不是同一年
+        return Y + '-' + M + '-' + D
+      }
+    }
+  },
+
+  /** 
+   * 保留几位小数点
+   * value:原值
+   * uint:保留几位
+   */
+  toFixed: function (value, unit) {
+    return value.toFixed(unit);
+  },
+
+  /**
+   * 字符串转json
+   */
+  stringToJson: function (object) {
+    return JSON.parse(object);
+  },
+
+  /**
+   * json转字符串
+   */
+  jsonToString: function (object) {
+    return JSON.stringify(object);
+  },
+
+  getNum: function (num) {
+    var value = Math.ceil(num)
+    // console.log(value + "-----")
+    if (value <= 0) {
+      value = 1;
+    }
+    return value;
+  },
+
+  toFix: function (value) {
+    return parseInt(value)
+  },
+
+  toNumberFix: function (value) {
+    if (value == 0) {
+      return parseInt(value)
+    }
+    return (parseInt(value) / 100).toFixed(2) // 此处2为保留两位小数，保留几位小数，这里写几    
+  },
+
+  isCheckBox: function (item, id) {
+    for (var i = 0; item.length > i; i++) {
+      // console.log(item[i] + "-----" + id)
+      if (item[i] == id) {
+        return true
+      }
+      return false
+    }
+  },
+
+  // 没选中的五角星
+  getWJX: function (num) {
+    var value = Math.ceil(num)
+    // console.log(value + "-----")
+    if (value <= 0) {
+      value = 1;
+    }
+    return 5 - value;
+  },
+
+  // 没参加活动的人
+  getNoCJHD: function (num) {
+    var value = Math.ceil(num)
+    // console.log(value + "-----")
+    if (value <= 0) {
+      value = 1;
+    }
+    var count = parseInt(3) - parseInt(value)
+    // console.log(count, "-----")
+    return count >= 0 ? count : 0;
+  },
+
+  // 没参加群接龙的人
+  getNoCJQJL: function (jlNum, num) {
+    var value = Math.ceil(num)
+    // console.log(value + "-----")
+    if (value < 0) {
+      value = 0;
+    }
+    return parseInt(jlNum) - parseInt(value);
+  },
+
+  // 图片分割
+  splitImages: function (images) {
+    var arr = images.split(",")
+    return arr;
+  },
+
+  // 计算已优惠的价格
+  youhuiPrice: function (old_price, price) {
+    return parseInt(old_price) - parseInt(price);
+  },
+
+  //购买方式 order_buy_type:"购买方式1=单独购买2=团购3=接龙4=合伙人团购(按普通购买处理，不算团购)"
+  // order_status: 状态 1未支付 2已支付(待评价) 3已完成
+  // status":"团购状态1=拼团中2=已结束(order_buy_type=2时有效)3已关闭"
+  orderBuyType: function (order_buy_type, status, order_status) {
+    var buyType;
+    switch (order_buy_type) {
+      case 1:
+        buyType = '单独购买';
+        break;
+      case 2:
+        if (status == 2) {
+          buyType = '团购成功';
+        } else if (status == 3) {
+          buyType = '已关闭';
+        } else {
+          buyType = '团购中';
+        }
+        break;
+      case 3://接龙
+        if (order_status == 1) {
+          buyType = '待付款';
+        } else {
+          buyType = '已完成';
+        }
+        break;
+      case 4:
+        buyType = '合伙人团购';
+        break;
+    }
+    return buyType;
+  }
+
+}
+
+module.exports = {
+  getNum: utils.getNum,
+  toFix: utils.toFix,
+  toNumberFloatFix: utils.toNumberFix,
+  isCheckBox: utils.isCheckBox,
+  splitImages: utils.splitImages,
+  getWJX: utils.getWJX,
+  getNoCJHD: utils.getNoCJHD,
+  getNoCJQJL: utils.getNoCJQJL,
+  youhuiPrice: utils.youhuiPrice,
+  orderBuyType: utils.orderBuyType,
+  formatTime: utils.formatTime,
+  getDateTime: utils.getDateTime,
+  getDateWithTime: utils.getDateWithTime,
+  toFixed: utils.toFixed,
+  stringToJson: utils.stringToJson,
+  jsonToString: utils.jsonToString,
+}

@@ -1,0 +1,14 @@
+<view class="container">
+  <text class="tip">您申请提现之后，平台会在2个工作日之内为您转账</text>
+  <view class="withdrawContainer">
+    <text class="tip1">提现金额</text>
+    <view class="inputPrice">
+      <text class="rmb">¥</text>
+      <input class="price" placeholder="请输入金额(单位:元)" placeholder-style="color:#ADB4BE;font-size:40rpx;"
+        bindinput="getPrice" type="digit" />
+    </view>
+    <view class="vLine"></view>
+    <text class="balance">可用余额 ¥ {{balanceDetail.balance}}元</text>
+  </view>
+  <text class="submit" bindtap="submit">提交</text>
+</view>

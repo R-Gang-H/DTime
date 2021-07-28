@@ -1,0 +1,64 @@
+<!--pages/infobasic/infobasic.wxml-->
+<view class="body">
+  <view class="boxTitle">
+    <text class="mydd">当前剩余</text>
+    <!-- icon_head_no -->
+    <image class="label4" src="../../images/share_info57.png" bindtap="chackInfo"></image>
+
+  </view>
+  <view class="box5 ">
+    <view class="mod3 "></view>
+    <text class="txt3">数量：{{adultNumber}}次</text>
+    <text class="info2">成人测评</text>
+    <text class="txt4">数量：{{childrenNumber}}次</text>
+    <text class="word1">儿童测评</text>
+  </view>
+
+  <view class="bd1">
+    <image class="backgroundImg" src="../../images/share_lingqu57.png"></image>
+    <view class="section1 ">
+      <view class="wrap6 ">
+        <view class="mod4 ">
+          <input class="mod5" type="number" maxlength="{{adultNumber.lenght == 2 ? 2 : 1}}"
+            value="{{selectAdultNumber}}" bindinput="inputAdultNumber"></input>
+          <image class="bdLine" src="../../images/share_line57.png"></image>
+          <input class="mod7" type="number" maxlength="{{adultNumber.lenght == 2 ? 2 : 1}}"
+            value="{{selectchildrenNumber}}" bindinput="inputChildrenNumber"></input>
+        </view>
+        <!-- <view class="shareBtnBack"><button class="next" bindtap="shareToWinxin" >分享</button></view> -->
+        <view class="shareBtnBack"><button open-type="share" class="next">分享</button></view>
+
+      </view>
+      <text class="word3">成人</text>
+      <text class="word4">次</text>
+      <text class="word5">儿童</text>
+      <text class="word6">次</text>
+    </view>
+  </view>
+  <view class="inviteTitle">我要邀请</view>
+
+</view>
+
+<view class="infoViewBack" wx:if="{{isShowInfoView==1}}">
+  <view class="infoView">
+    <!-- 您总共有20次邀请朋友免费测试的机会，其中儿童测试10次，成人测试10次。
+      <br />
+      <br />
+      您发给客户邀请链接，用户只点击链接，不会消耗您的免费测邀请次数。用户如果点击领取并注册成功，则会消耗一次您的免费测试邀请机会。
+    -->
+    <view style="padding: 0 30rpx 30rpx;">
+      <text class="infoViewText">
+        关于邀请免费测
+        <br />
+        <br />
+        邀请免费测是您的合伙人权益。
+        作为天赋教养合伙人，您共有20次邀请朋友免费进行天赋测评的机会，其中儿童测试10次，成人测试10次。
+        <br />
+        <br />
+        免费邀请链接会在发出时48小时内有效，48小时内未被领取，则免费邀请机会恢复。
+        您发送免费测评机会链接，用户只点击链接不会消耗您的免费邀请次数；用户点击链接领取并注册成功，则会消耗掉您的免费测评邀请机会。
+      </text>
+    </view>
+    <view class="infoViewConfirm" bindtap="closeInfoView">确定</view>
+  </view>
+</view>

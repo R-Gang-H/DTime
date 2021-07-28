@@ -1,0 +1,31 @@
+<!--pages/infobasic/infobasic.wxml-->
+<view class="body">
+  <view class="boxTitle">
+    <text class="gongxi">~ 恭喜您 ~</text>
+    <!-- icon_head_no -->
+    <text class="mydd">您收到{{shareInfo.nickname}}送给您的天赋教养测评</text>
+  </view>
+
+  <view class="box5 ">
+    <view class="mod3 "></view>
+    <text class="txt3">数量：{{shareInfo.cr_num}}</text>
+    <text class="info2">成人测评</text>
+    <text class="txt4">数量：{{shareInfo.et_num}}</text>
+    <text class="word1">儿童测评</text>
+  </view>
+
+  <view class="bd1">
+    <image class="infoImage" mode="widthFix" src="{{infoImage}}"></image>
+  </view>
+
+  <view class="content box3">
+    <view class="bottomLine"></view>
+    <view class="shareBtnBack">
+      <!-- status":"状态(0分享中,1已过期,2已领取) -->
+      <button bindtap="getEvaluationNum" class="next">
+        {{shareInfo.status == 2 ? "已领取" :shareInfo.status == 1 ? "已过期" : "领取"}}
+      </button>
+    </view>
+  </view>
+
+</view>

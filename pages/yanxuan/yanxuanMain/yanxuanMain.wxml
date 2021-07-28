@@ -1,0 +1,132 @@
+<wxs module="util" src="../../../utils/util.wxs"></wxs>
+
+<view class="content">
+  <!-- 自定义的导航条 style为适配屏幕代码 -->
+  <view class="nav" style="height:{{topbarHeigth + 10}}px">
+    <view bindtap="tosearch" class="search level"
+      style="margin-top:{{menuButtonTop}}px;height:{{menuButtonHeight}}px;border-radius:{{menuButtonHeight * 0.5}}px">
+      <image class="search-glass" src="/images/search@2x.png"></image>
+      <view class="search-text" style="height:{{menuButtonHeight}}px;line-height:{{menuButtonHeight}}px">请输入关键词进行搜索
+      </view>
+    </view>
+  </view>
+  <!-- 轮播图 -->
+  <swiper class="swiper" indicator-dots="true" autoplay="true" indicator-active-color="#ffffff" circular="true"
+    style="padding-top:{{topbarHeigth + 10}}px">
+    <block wx:for="{{ads}}" wx:key="id">
+      <swiper-item bindtap="toLunbo" data-item="{{item}}">
+        <image src="{{item.image}}" class="swiper-item"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 课程分类 -->
+  <scroll-view class="course-classfiy" scroll-x="true">
+    <view class="course-classfiy-item" bindtap="selectClassfiy">
+      <image class="course-classfiy-item-image" src="{{classifies[0].iconImages}}"></image>
+      <view class="course-classfiy-item-title">{{classifies[0].name}}</view>
+    </view>
+    <view class="course-classfiy-item" wx:for="{{tagList}}" data-item="{{item}}" bindtap="selectClassfiy">
+      <image class="course-classfiy-item-image" src="{{classifies[index+1].iconImages}}"></image>
+      <view class="course-classfiy-item-title">{{item.title}}</view>
+    </view>
+  </scroll-view>
+  <!-- 推荐的课程 -->
+  <view class="recommend-content">
+    <!-- 适合某某的课程推荐 已经测评过的情况 -->
+    <view class="function-content-test" wx:if="{{testers.length}}">
+      <view class="level">
+        <view class="header margin-left">为<text class="high">{{ctuijianren.name}}</text>推荐</view>
+        <view class="switchTester">
+          <picker bindchange="bindPickerChange" range="{{testers}}" range-key="name">
+            <view>切换推荐人</view>
+          </picker>
+        </view>
+      </view>
+      <view class="course level" wx:for="{{recommends}}" wx:key="id" data-id="{{item.id}}" bindtap="toCourseDetail">
+        <image class="course-banner" mode="aspectFill" src="{{item.thumb_image}}"></image>
+        <view class="course-intro">
+          <view class="course-name">{{item.product_name}}</view>
+          <view class="course-subname">{{item.one_words}}</view>
+          <view class="course-tags">
+            <block wx:for="{{item.tag_base}}" wx:for-item="itemName">
+              <text class="course-tag">{{itemName}}</text>
+            </block>
+            <block wx:for="{{item.tag_xg}}" wx:for-item="itemName">
+              <text class="course-tag">{{itemName}}</text>
+            </block>
+            <block wx:for="{{item.tag_tf}}" wx:for-item="itemName">
+              <text class="course-tag">{{itemName}}</text>
+            </block>
+            <block wx:for="{{item.tag_xxfg}}" wx:for-item="itemName">
+              <text class="course-tag">{{itemName}}</text>
+            </block>
+            <block wx:for="{{item.tag_other}}" wx:for-item="itemName">
+              <text class="course-tag">{{itemName}}</text>
+            </block>
+          </view>
+          <view class="course-prices level">
+            <view class="course-price">¥{{util.toNumberFloatFix(item.group_price)}}</view>
+            <view class="course-lineprice">¥{{util.toNumberFloatFix(item.old_price)}}</view>
+            <view class="course-count">{{item.sales}}人购买</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 适合课程推荐 没有测评的情况 -->
+    <view class="function-content-notest" wx:else>
+      <view class="header">适合课程推荐</view>
+      <view class="header-subtitle">参与测试，系统会根据测试结果为您推荐课程：</view>
+      <view class="level">
+        <button wx:if="{{!hasToken}}" bindtap="toLogin"
+          style="position:absolute;width:332rpx;height:160rpx;z-index: 50;background: transparent;"></button>
+        <image class="function-l shadow-adult margin-right" src="/images/adult-test.png"
+          bindtap="{{hasToken?'toAssess':''}}" data-types="1" data-ispuy="1">
+          <view class="function-text adult">成人测评</view>
+          <image class="adult-right" src="/images/adult-right.png"></image>
+          <view class="function-text adult14">14岁(含）以上</view>
+        </image>
+        <button wx:if="{{!hasToken}}" bindtap="toLogin"
+          style="position:absolute;width:332rpx;height:160rpx;z-index:50;background:transparent;right:30rpx;"></button>
+        <image class="function-l shadow-child" src="/images/child-test.png" bindtap="{{hasToken?'toAssess':''}}"
+          data-types="2" data-ispuy="1">
+          <view class="function-text child">儿童测评</view>
+          <image class="child-right" src="/images/child-right.png"></image>
+        </image>
+      </view>
+    </view>
+  </view>
+  <!-- 热门课程 -->
+  <view class="hotCourses">
+    <view class="header margin-left">热门课程</view>
+    <view class="course level" wx:for="{{hotCourses}}" wx:key="id" data-id="{{item.id}}" bindtap="toCourseDetail">
+      <image class="course-banner" mode="aspectFill" src="{{item.thumb_image}}"></image>
+      <view class="course-intro">
+        <view class="course-name">{{item.product_name}}</view>
+        <view class="course-subname">{{item.one_words}}</view>
+        <view class="course-tags">
+          <block wx:for="{{item.tag_base}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_xg}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_tf}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_xxfg}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_other}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+        </view>
+        <view class="course-prices level">
+          <view class="course-price">¥{{util.toNumberFloatFix(item.group_price)}}</view>
+          <view class="course-lineprice">¥{{util.toNumberFloatFix(item.old_price)}}</view>
+          <view class="course-count">{{item.sales}}人购买</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="no-more" wx:if="{{!haveMore}}">没有更多了</view>

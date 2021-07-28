@@ -1,0 +1,217 @@
+<wxs module="util" src="/utils/util.wxs"></wxs>
+
+<view class="body">
+
+  <view style="{{!inType?(testType==3?'padding-bottom:160rpx;':''):(type==5||type==7?'padding-bottom:160rpx;':'')}}">
+    <!-- 轮播图-->
+    <swiper style="text-align:center;height:400rpx;" indicator-dots="true" autoplay="true" circular="true"
+      indicator-active-color="#ffffff">
+      <block wx:for="{{util.splitImages(info.image)}}" wx:key="id">
+        <swiper-item bindtap="toLunbo" data-item="{{item}}">
+          <!-- mode="heightFix" -->
+          <image class="img1" style="width:100%;" src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class="titleCon">
+      <view class="title1">
+        <text class="couTit">{{info.product_name}}</text>
+        <button wx:if="{{!hasToken}}" bindtap="toLogin"
+          style="position:absolute;width:45rpx;height:40rpx;z-index:50;background:transparent;right:50rpx;"></button>
+        <image class="xin1" catchtap="{{isCollect?'delCollectPro':'collectPro'}}"
+          src="{{isCollect?'/images/icon_xin_press.png':'/images/icon_xin-nor.png'}}"></image>
+      </view>
+      <text class="jianjie">{{info.one_words}}</text>
+      <view class="youhui">
+
+        <block wx:if="{{info.type!=1&&info.type!=2&&info.type!=3}}">
+          <text class="yhtxt">优惠价¥{{util.toNumberFloatFix(info.group_price)}}</text>
+          <text class="qi">起</text>
+          <text class="yuanjia">¥{{util.toNumberFloatFix(info.old_price)}}</text>
+        </block>
+        <text class="contRen {{info.type==5||info.type==7?'contRen1':''}}">已有{{info.sales}}人购买</text>
+
+      </view>
+    </view>
+
+    <scroll-view scroll-x="true">
+      <view style="display:flex;">
+        <!-- <text class="shaixuan" style="width: 80rpx;margin-right: 0rpx;padding: 20rpx 0rpx 0 30rpx;">筛选</text> -->
+        <view class="tap1">
+          <block wx:for="{{info.tag_base}}">
+            <text wx:if="{{item!=0}}" class="biaoqian">{{item}}</text>
+          </block>
+          <block wx:for="{{info.tag_xg}}">
+            <text wx:if="{{item!=0}}" class="biaoqian">{{item}}</text>
+          </block>
+          <block wx:for="{{info.tag_tf}}">
+            <text wx:if="{{item!=0}}" class="biaoqian">{{item}}</text>
+          </block>
+          <block wx:for="{{info.tag_xxfg}}">
+            <text wx:if="{{item!=0}}" class="biaoqian">{{item}}</text>
+          </block>
+          <block wx:for="{{info.tag_other}}">
+            <text wx:if="{{item!=0}}" class="biaoqian">{{item}}</text>
+          </block>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view style="height:25rpx;background:#F7F7F9;"></view>
+
+    <view>
+      <view class="navedaoh {{isPos?'navepos':''}}">
+        <text wx:if="{{info.type!=1&&info.type!=2&&info.type!=3&&info.type!=4&&info.type!=5&&info.type!=7}}"
+          class="{{tobIndex==1?'xuanzhong':'noxuanzhong'}}" data-index="1" data-toview="demo1"
+          bindtap="tobTo">荐者说</text>
+        <text class="{{tobIndex==2?'xuanzhong':'noxuanzhong'}}" data-index="2" data-toview="demo2"
+          bindtap="tobTo">详情</text>
+        <text class="{{tobIndex==3?'xuanzhong':'noxuanzhong'}}" data-index="3" data-toview="demo3"
+          bindtap="tobTo">学习反馈</text>
+        <text class="{{tobIndex==4?'xuanzhong':'noxuanzhong'}}" data-index="4" data-toview="demo4"
+          wx:if="{{info.type!=4&&info.type!=5&&info.type!=7}}" bindtap="tobTo">选择专家</text>
+      </view>
+      <scroll-view style="{{isPos?'margin-top: 100rpx;':''}}" scroll-y="true" scroll-with-animation="{{true}}"
+        scroll-top="{{scrollTop}}">
+        <view id="demo1" class="scroll-view-item demo-text-1">
+          <block wx:if="{{info.type!=1&&info.type!=2&&info.type!=3&&info.type!=4&&info.type!=5&&info.type!=7}}">
+            <view class="tuijian">荐者说</view>
+            <view class="jianBox">
+              <image class="jianImg" src="{{info.recommend_image}}"></image>
+              <view class="jianXx">
+                <view class="jName">{{info.recommend_name}}</view>
+                <text class="jMs">{{info.recommend_desc}}</text>
+              </view>
+            </view>
+            <view class="jianBox">
+              <text class="jianCon">{{info.recommend_content}}</text>
+            </view>
+          </block>
+        </view>
+
+        <view style="height:25rpx;background:#F7F7F9;"> </view>
+
+        <view id="demo2" class="scroll-view-item demo-text-2">
+          <view class="tuijian">详情</view>
+          <view class="xqBox">
+            <block wx:for="{{util.splitImages(info.detail_images?info.detail_images:'')}}" wx:key="id">
+              <image catchload="_imgLoadEvent" class="xqImg" src="{{item}}" mode="widthFix"></image>
+            </block>
+          </view>
+        </view>
+
+        <view style="height:25rpx;background:#F7F7F9;"></view>
+
+        <view id="demo3" class="scroll-view-item demo-text-3">
+          <view class="tuijian">学习反馈</view>
+          <view class="xxfkBox" wx:if="{{commentList.length}}">
+            <view class="fkItem" wx:for="{{commentList}}">
+              <image class="fkAvetar" src="{{item.headimgurl}}"></image>
+              <view style="margin-left:34rpx;width:80%;">
+                <view style="margin-bottom: 10rpx;">
+                  <view style="display:flex;line-height:50rpx;">
+                    <text class="fknc">{{item.nickname}}</text>
+                    <view class="dXing">
+                      <image class="wuXing" wx:for="{{util.toFix(item.score1)}}" src="/images/icon_wujiaoxin_true.png">
+                      </image>
+                      <image class="wuXing" wx:for="{{util.getWJX(item.score1)}}"
+                        src="/images/icon_wujiaoxin_false.png"></image>
+                    </view>
+                  </view>
+                  <text class="fkTime">{{util.getDateTime(item.create_at,'Y/M/D h:m:s')}}</text>
+                </view>
+                <text class="jianCon">{{item.content}}</text>
+                <view style="display: flex;padding: 20rpx 0;">
+                  <view data-images="{{item.images}}" catchtap="showImages">
+                    <image class="fkImg" wx:for="{{util.splitImages(item.images)}}" src="{{item}}"></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view wx:else style="display:grid;justify-content:center;text-align:center;color:#5CD3E8;font-size:26rpx;">
+            <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+            <text>当前暂无学习反馈</text>
+          </view>
+        </view>
+
+        <view style="height:25rpx;background:#F7F7F9;"></view>
+
+        <!-- 选择专家 -->
+        <view id="demo4" class="scroll-view-item demo-text-4">
+          <block wx:if="{{info.type!=4&&info.type!=5&&info.type!=7}}">
+            <view class="tuijian">选择专家</view>
+            <block wx:if="{{experts.length}}">
+              <view class="item" wx:for="{{experts}}" wx:key="user_id">
+                <view class="level">
+                  <image class="team-icon" mode="aspectFill" src="{{item.expert_headimg}}"></image>
+                  <view class="course-intro">
+                    <view class="course-name">{{item.name}}</view>
+                    <view class="course-subname">{{item.expert_intro}}</view>
+                    <view class="level">
+                      <view class="team-detail" bindtap="toExpertDetail" data-id="{{item.user_id}}">查看详情</view>
+                      <image class="team-arrow" src="/images/right.png"></image>
+                      <view class="team-read" data-item="{{item}}" data-buyType="1"
+                        bindtap="{{inType==3||inType==22?'WeiXinBuy':'toUndoReport'}}">
+                        <text>¥{{util.toNumberFloatFix(inType==3?item.guihua_special_price:inType==22?item.zixun_special_price:item.read_special_price)}}</text>
+                        {{inType==3?'学业规划':inType==22?'TOP咨询':'帮我解读'}}
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </block>
+            <view wx:else style="display:flow-root;text-align: center;color: #5CD3E8;font-size: 13px;width: 100vw;">
+              <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+              <view>当前暂无专家</view>
+            </view>
+            <block wx:if="{{experts.length>0}}">
+              <loadingmore hasmore="{{haveMore}}"></loadingmore>
+            </block>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+
+  </view>
+
+  <view class="boxbtm" wx:if="{{info.type==4||info.type==5||info.type==7}}">
+    <view class="lower_topic" data-buy="1" bindtap="showFkDetail">￥{{util.toNumberFloatFix(info.price)}}\t\t单独购</view>
+    <view class="lower_topic" data-buy="2" wx:if="{{!shareId}}" bindtap="showFkDetail">
+      ￥{{util.toNumberFloatFix(info.group_price)}}\t\t3人团
+    </view>
+  </view>
+
+</view>
+
+
+<!-- 付款详情 -->
+<view class="fkBg" catchtouchmove="true" wx:if="{{showFkDetail}}" bindtap="cancelFkDetail">
+  <view class="fkPos">
+    <view class="fkDetail">
+      付款详情</view>
+    <view class="fkItem1" bindtap="youjiDZ" wx:if="{{info.product_form == 2}}">
+      <text class="itemName">邮寄地址</text>
+      <text class="itemCon">{{yjAddress?yjAddress:'请选择地址'}}</text>
+    </view>
+    <view class="fkItem1">
+      <text class="itemName">商品名称</text>
+      <text class="itemCon">{{info.product_name}}</text>
+    </view>
+    <view class="fkItem1">
+      <text class="itemName">购买方式</text>
+      <text class="itemCon">{{buyType==1?'单独购':'3人邀请团'}}</text>
+    </view>
+    <view class="fkItem1">
+      <text class="itemName">支付总额</text>
+      <text class="itemCon1">¥{{buyType==1? util.toNumberFloatFix(info.price) :
+        util.toNumberFloatFix(info.group_price)}}</text>
+    </view>
+    <text
+      class="fkItem1 fkYouh">已优惠￥{{util.toNumberFloatFix(util.youhuiPrice(info.old_price,(buyType==1?info.price:info.group_price)))}}</text>
+    <view class="box3">
+      <view class="next" data-buyType="0" catchtap="WeiXinBuy">微信支付</view>
+    </view>
+  </view>
+</view>

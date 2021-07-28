@@ -1,0 +1,36 @@
+<wxs module="util" src="../../../utils/util.wxs"></wxs>
+
+<view class="content">
+  <block wx:if="{{type&&type==1}}" wx:for="{{detailImages}}" wx:key="id">
+    <image wx:if="{{detailImages}}" style="width: 100%;" src="{{item}}" mode="widthFix"></image>
+  </block>
+  <block wx:if="{{experts.length}}">
+    <view class="item" wx:for="{{experts}}" wx:key="user_id">
+      <view class="level">
+        <image class="team-icon" mode="aspectFill" src="{{item.expert_headimg}}"></image>
+        <view class="course-intro">
+          <view class="course-name">{{item.name}}</view>
+          <view class="course-subname">{{item.expert_intro}}</view>
+          <view class="level">
+            <view class="team-detail" bindtap="toExpertDetail" data-id="{{item.user_id}}">查看详情</view>
+            <image class="team-arrow" src="/images/right.png"></image>
+            <view wx:if="{{!showJG}}" class="team-read" data-item="{{item}}"
+              bindtap="{{inType==3||inType==1?'toMyUndo':'toUndoReport'}}">
+              <text>¥{{util.toNumberFloatFix(item.read_special_price)}}</text>
+              {{inType==3?'帮我提升学业':'帮我解读'}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view wx:else
+    style="display:flow-root;text-align: center;color: #5CD3E8;font-size: 13px;width: 100vw;height: 100vh;padding-top: 300rpx;">
+    <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+    <view>当前暂无专家</view>
+  </view>
+
+  <block wx:if="{{experts.length>0}}">
+    <loadingmore hasmore="{{haveMore}}"></loadingmore>
+  </block>
+</view>

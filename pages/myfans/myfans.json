@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "loadingmore": "/components/loadingmore/loadingmore"
+  },
+  "navigationBarTitleText": "我的粉丝",
+  "enablePullDownRefresh": true
+}

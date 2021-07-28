@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="staticContainer">
+    <view class="tabContainer">
+    <view class="titleContainer title1">
+      <text class="tabTitle" style="{{title1Style}}" bindtap="tabClick" data-type="1">高级合伙人</text>
+      <view class="titleBottom" hidden="{{title1Style==titleStyle.commonStyle}}" />
+    </view>
+    <view class="titleContainer title2">
+      <text class="tabTitle" style="{{title2Style}}" bindtap="tabClick" data-type="2">初级合伙人</text>
+      <view class="titleBottom" hidden="{{title2Style==titleStyle.commonStyle}}" />
+    </view>
+    <view class="titleContainer title3">
+      <text class="tabTitle" style="{{title3Style}}" bindtap="tabClick" data-type="3">社群</text>
+      <view class="titleBottom" hidden="{{title3Style==titleStyle.commonStyle}}" />
+    </view>
+  </view>
+  <view class="countContainer">
+    <view class="childContainer">
+      <text class="child">高级合伙人</text>
+      <text class="childCount">{{data.superPartnerCount}}人</text>
+    </view>
+    <view class="vLine"></view>
+    <view class="childContainer">
+      <text class="child">初级合伙人</text>
+      <text class="childCount">{{data.primaryPartnerCount}}人</text>
+    </view>
+    <view class="vLine"></view>
+    <view class="childContainer">
+      <text class="child">社群人数</text>
+      <text class="childCount">{{data.myGroupCount}}人</text>
+    </view>
+  </view>
+  </view>
+  <view class="listContainer">
+    <view class="listItem"  wx:for="{{dataList}}" wx:key="index">
+      <view class="dataContainer"  data-item="{{item}}" bindtap="itemClick">
+        <image class="headItem" src="{{item.headimgurl}}"></image>
+        <view class="userContainer">
+          <text class="name">{{item.nickname}}</text>
+          <text class="fansCount">直接粉丝: {{item.fansNum}}</text>
+        </view>
+        <view class="partnerContainer">
+          <text class="fansCount">初级合伙人: {{item.primaryPartnerNum}}</text>
+          <text class="fansCount">高级合伙人: {{item.superPartnerNum}}</text>
+        </view>
+      </view>
+      <view class="bottomLine"></view>
+    </view>
+  </view>
+  <text class="noMore" hidden="{{noMore}}">无更多数据</text>
+</view>

@@ -1,0 +1,80 @@
+<wxs module="util" src="/utils/util.wxs"></wxs>
+<view class="header">
+  <view class="level header-term">
+    <!-- <view class="{{cterm == 1 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="1" data-brl="94">邀请合伙人</view> -->
+    <view class="{{cterm == 2 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="2" data-brl="90">D-Time专属</view>
+    <view class="{{cterm == 3 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="3" data-brl="285">严选好课</view>
+    <view class="shaixuan-content level" bindtap="shai" hidden="{{cterm!=3}}">
+      <image src="/images/shaixuan.png" class="shaixuan"></image>
+      <view class="shanxuan-title">筛选</view>
+    </view>
+  </view>
+  <view class="br" style="left:{{brl}}rpx"></view>
+  <!-- 自定义的导航条 style为适配屏幕代码 -->
+  <view wx:if="{{cterm==3}}" class="nav">
+    <view bindtap="tosearch" class="search level">
+      <image class="search-glass" src="/images/search@2x.png"></image>
+      <view class="search-text">请输入关键词进行搜索
+      </view>
+    </view>
+  </view>
+</view>
+<view class="content">
+  <view class="tips level" wx:if="{{cterm==1}}">
+    <image class="tips-image" src="/images/laba@2x.png"></image>
+    <view class="tips-text">分享以下产品，对方购买后， 对方即可成为合伙人</view>
+  </view>
+  <!-- 课程 -->
+  <view style="padding-top:100rpx;" wx:if="{{cterm==3}}">
+    <view class="course level" wx:for="{{dataList}}" wx:for-index="index1" bindtap="toRepterDetail"
+      data-item="{{item}}">
+      <image class="course-banner" mode="aspectFill" src="{{item.thumb_image}}"></image>
+      <view class="course-intro">
+        <view class="course-name">{{item.product_name}}</view>
+        <view class="course-subname">{{item.one_words}}</view>
+        <view class="course-tags level">
+          <block wx:for="{{item.tag_base}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_xg}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_tf}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_xxfg}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_other}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+        </view>
+        <view class="level">
+          <view class="course-price-big">{{util.toNumberFloatFix(item.group_price)}}</view>
+          <view class="team-read">赚 {{util.toNumberFloatFix(item.fenrun)}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 课程产品 -->
+  <view class="course-content" wx:else>
+    <view class="item" wx:for="{{dataList}}" bindtap="toRepterDetail" data-item="{{item}}">
+      <image class="course-banner-big" src="{{item.thumb_image}}"></image>
+      <view class="course-name-big">{{item.product_name}}
+        <!-- type2 1=家长2=孩子 -->
+        <!-- <text wx:if="{{item.type==4}}"> {{item.type2==1?'家长':'孩子'}}</text> -->
+      </view>
+      <view class="course-subname-big">{{item.one_words}}</view>
+      <view class="level">
+        <block wx:if="{{item.type!=1&&item.type!=2&&item.type!=3}}">
+          <view class="course-price-big">{{util.toNumberFloatFix(item.group_price)}}</view>
+          <view class="course-lineprice-big">购买价格</view>
+        </block>
+        <view class="team-read">赚 {{util.toNumberFloatFix(item.fenrun)}}
+          <text wx:if="{{item.type==1||item.type==2||item.type==3}}">起</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <text class="noMore" hidden="{{noMore}}">无更多数据</text>
+</view>

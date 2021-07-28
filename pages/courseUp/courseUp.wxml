@@ -1,0 +1,17 @@
+<!--pages/courseUp/courseUp.wxml-->
+<view class="container">
+
+  <view class="section3">
+    <view class="block2">
+      <image class="pic2" catchtap="showImage" data-url="{{kefuImg}}" referrerpolicy="no-referrer" mode="widthFix"
+        src="{{kefuImg}}" />
+      <text class="word4">加专属客服 领取课程码</text>
+    </view>
+    <view class="block2">
+      <image class="pic2" catchtap="showImage" data-url="{{gzhImg}}" referrerpolicy="no-referrer" mode="widthFix"
+        src="{{gzhImg}}" />
+      <text class="word4">扫描订阅 订单早知道</text>
+    </view>
+  </view>
+
+</view>

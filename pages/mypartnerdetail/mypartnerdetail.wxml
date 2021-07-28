@@ -1,0 +1,48 @@
+<wxs module="utils" src="../../utils/util.wxs"></wxs>
+<view class="container">
+  <view class="userContainer">
+    <image class="head" src="{{headUrl}}"></image>
+    <view class="userItem">
+      <text class="nickname">{{nickname}}</text>
+      <text class="usertype">{{type}}</text>
+    </view>
+  </view>
+  <view class="detailContainer">
+    <view class="itemSingle borderItem">
+      <text class="key">加入时间</text>
+      <text class="value">{{utils.getDateTime(data.bequdao_time,'Y/M/D h:m:s')}}</text>
+    </view>
+    <view class="itemDouble borderItem">
+      <text class="key">高级合伙人</text>
+      <text class="value">{{data.superPartnerNum}}个</text>
+    </view>
+    <view class="itemSingle borderItem">
+      <text class="key">初级合伙人</text>
+      <text class="value">{{data.primaryPartnerNum}}个</text>
+    </view>
+    <view class="itemDouble borderItem">
+      <text class="key">直接粉丝</text>
+      <text class="value">{{data.fansNum}}个</text>
+    </view>
+    <view class="itemSingle borderItem">
+      <text class="key">个人本月订单量</text>
+      <text class="value">{{data.thisMonthfansOrderPrice}}元</text>
+    </view>
+    <view class="itemDouble borderItem">
+      <text class="key">个人上月订单量</text>
+      <text class="value">{{data.lastMonthfansOrderPrice}}元</text>
+    </view>
+    <view class="itemSingle borderItem">
+      <text class="key">团队上月订单量</text>
+      <text class="value">{{data.lastGroupOrderPrice}}元</text>
+    </view>
+    <view class="itemDouble borderItem">
+      <text class="key">一月内新增合伙人</text>
+      <text class="value">{{data.addPartnerNum}}个</text>
+    </view>
+    <view class="itemSingle borderItem bottomBorder">
+      <text class="key">一月内新增粉丝</text>
+      <text class="value">{{data.addFansNum}}个</text>
+    </view>
+  </view>
+</view>

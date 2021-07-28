@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="priceContainer">
+    <view class="priceCount">
+      <text class="priceText">累计总收益</text>
+      <text class="price">¥{{data.total_income}}</text>
+    </view>
+    <text class="withdraw" bindtap="withdraw">提现</text>
+  </view>
+  <view class="priceTypeContainer">
+    <view class="recommend" bindtap="detail" data-index="1">
+      <text class="recommendText">累计推课奖金</text>
+      <text class="recommendPrice">¥{{data.total_tuike}}</text>
+    </view>
+    <view class="vLine"></view>
+    <view class="recommend" bindtap="detail" data-index="2">
+      <text class="recommendText">累计内推奖金</text>
+      <text class="recommendPrice">¥{{data.total_neitui}}</text>
+    </view>
+    <view class="vLine"></view>
+    <view class="recommend" bindtap="detail" data-index="3">
+      <text class="recommendText">累计管理奖金</text>
+      <text class="recommendPrice">¥{{data.total_manage}}</text>
+    </view>
+    <view class="vLine"></view>
+    <view class="recommend" bindtap="detail" data-index="4">
+      <text class="recommendText">累计培育奖金</text>
+      <text class="recommendPrice" wx:if="{{super}}">¥{{data.total_peiyu}}</text>
+      <text class="trainTip" wx:else>成为高级合伙人才可解锁</text>
+    </view>
+  </view>
+</view>

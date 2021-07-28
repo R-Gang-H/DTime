@@ -1,0 +1,210 @@
+<!--pages/hehuorenShare/hehuorenShare.wxml-->
+<wxs module="util" src="/utils/util.wxs"></wxs>
+<view class="container">
+
+  <block wx:if="{{!isCTSuc}}">
+    <!-- 111111111111111111111111111 -->
+    <!-- <view class="main3" style="margin-top: 40rpx;">
+      <text class="txt2" style="width:100%;text-align:center;">您的朋友{{nickname}}邀请您成为\nD-Time平台合伙人</text>
+    </view>
+
+    <view class="fkPos" style="display:flex;justify-content: center;">
+      <block wx:for="{{util.splitImages(courseDetail.detail_images)}}" wx:key="id">
+        <image class="xiangqin" src="{{item}}" mode="widthFix"></image>
+      </block>
+    </view>
+
+    <text class="txt3" style="width: 80%;">D-Time合伙人条件：\n1）完成课程《21天训练营》\n2）愿意分享</text> -->
+
+    <!-- 111111111111111111111111111 -->
+
+    <view class="body">
+      <!-- 测评详情 -->
+      <view style="padding-bottom:160rpx;">
+        <!-- 轮播图-->
+        <swiper style="text-align:center;height:400rpx;" indicator-dots="true" autoplay="true" circular="true"
+          indicator-active-color="#ffffff">
+          <block wx:for="{{util.splitImages(info.image)}}" wx:key="id">
+            <swiper-item bindtap="toLunbo" data-item="{{item}}">
+              <image class="img1" mode="heightFix" src="{{item}}"></image>
+            </swiper-item>
+          </block>
+        </swiper>
+
+        <view class="titleCon">
+          <view class="title1">
+            <text class="couTit">{{info.product_name}}</text>
+            <button wx:if="{{!hasToken}}" bindtap="toLunto"
+              style="position:absolute;width:45rpx;height:40rpx;z-index:50;background:transparent;right:50rpx;"></button>
+            <image class="xin1" catchtap="{{isCollect?'delCollectPro':'collectPro'}}"
+              src="{{isCollect?'/images/icon_xin_press.png':'/images/icon_xin-nor.png'}}"></image>
+          </view>
+          <text class="jianjie">{{info.one_words}}</text>
+          <view class="youhui">
+            <block wx:if="{{detail.type!=1&&detail.type!=2&&detail.type!=3}}">
+              <text class="yhtxt">优惠价¥{{util.toNumberFloatFix(info.price)}}</text>
+              <text class="qi">起</text>
+              <text class="yuanjia">¥{{util.toNumberFloatFix(info.old_price)}}</text>
+            </block>
+            <text class="contRen {{detail.type==5?'contRen1':''}}">已有{{info.sales}}人购买</text>
+          </view>
+        </view>
+
+        <scroll-view scroll-x="true">
+          <view style="display:flex;">
+            <!-- <text class="shaixuan" style="width: 80rpx;margin-right: 0rpx;padding: 20rpx 0rpx 0 30rpx;">筛选</text> -->
+            <view class="tap1">
+              <block wx:for="{{info.tag_base}}">
+                <text class="biaoqian">{{item}}</text>
+              </block>
+              <block wx:for="{{info.tag_xg}}">
+                <text class="biaoqian">{{item}}</text>
+              </block>
+              <block wx:for="{{info.tag_tf}}">
+                <text class="biaoqian">{{item}}</text>
+              </block>
+              <block wx:for="{{info.tag_xxfg}}">
+                <text class="biaoqian">{{item}}</text>
+              </block>
+              <block wx:for="{{info.tag_other}}">
+                <text class="biaoqian">{{item}}</text>
+              </block>
+            </view>
+          </view>
+        </scroll-view>
+
+        <view style="height:25rpx;background:#F7F7F9;"></view>
+
+        <view>
+          <view class="navedaoh {{isPos?'navepos':''}}">
+            <text wx:if="{{info.type!=1&&info.type!=2&&info.type!=3&&info.type!=4&&info.type!=5&&info.type!=7}}"
+              class="{{tobIndex==1?'xuanzhong':'noxuanzhong'}}" data-index="1" data-toview="demo1"
+              bindtap="tobTo">荐者说</text>
+            <text class="{{tobIndex==2?'xuanzhong':'noxuanzhong'}}" data-index="2" data-toview="demo2"
+              bindtap="tobTo">详情</text>
+            <text class="{{tobIndex==3?'xuanzhong':'noxuanzhong'}}" data-index="3" data-toview="demo3"
+              bindtap="tobTo">学习反馈</text>
+          </view>
+          <scroll-view style="{{isPos?'margin-top: 100rpx;':''}}" scroll-y="true" scroll-with-animation="{{true}}"
+            scroll-top="{{scrollTop}}">
+            <view id="demo1" class="scroll-view-item demo-text-1">
+              <block wx:if="{{info.type!=1&&info.type!=2&&info.type!=3&&info.type!=4&&info.type!=5&&info.type!=7}}">
+                <view class="tuijian">荐者说</view>
+                <view class="jianBox">
+                  <image class="jianImg" src="{{info.recommend_image}}"></image>
+                  <view class="jianXx">
+                    <view class="jName">{{info.recommend_name}}</view>
+                    <text class="jMs">{{info.recommend_desc}}</text>
+                  </view>
+                </view>
+                <view class="jianBox">
+                  <text class="jianCon">{{info.recommend_content}}</text>
+                </view>
+              </block>
+            </view>
+
+            <view style="height:25rpx;background:#F7F7F9;"> </view>
+
+            <view id="demo2" class="scroll-view-item demo-text-2">
+              <view class="tuijian">详情</view>
+              <view class="xqBox">
+                <block wx:for="{{util.splitImages(info.detail_images?info.detail_images:'')}}" wx:key="id">
+                  <image catchload="_imgLoadEvent" class="xqImg" src="{{item}}" mode="widthFix"></image>
+                </block>
+              </view>
+            </view>
+
+            <view style="height:25rpx;background:#F7F7F9;"></view>
+
+            <view id="demo3" class="scroll-view-item demo-text-3">
+              <view class="tuijian">学习反馈</view>
+              <view class="xxfkBox" wx:if="{{commentList.length}}">
+                <view class="fkItem" wx:for="{{commentList}}">
+                  <image class="fkAvetar" src="{{item.headimgurl}}"></image>
+                  <view style="margin-left:34rpx;width:80%;">
+                    <view style="margin-bottom: 10rpx;">
+                      <view style="display:flex;line-height:50rpx;">
+                        <text class="fknc">{{item.nickname}}</text>
+                        <view class="dXing">
+                          <image class="wuXing" wx:for="{{util.toFix(item.score1)}}"
+                            src="/images/icon_wujiaoxin_true.png">
+                          </image>
+                          <image class="wuXing" wx:for="{{util.getWJX(item.score1)}}"
+                            src="/images/icon_wujiaoxin_false.png"></image>
+                        </view>
+                      </view>
+                      <text class="fkTime">{{util.getDateTime(item.create_at,'Y/M/D h:m:s')}}</text>
+                    </view>
+                    <text class="jianCon">{{item.content}}</text>
+                    <view style="display: flex;padding: 20rpx 0;">
+                      <view data-images="{{item.images}}" catchtap="showImages">
+                        <image class="fkImg" wx:for="{{util.splitImages(item.images)}}" src="{{item}}"></image>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view wx:else
+                style="display:grid;justify-content:center;text-align:center;color:#5CD3E8;font-size:26rpx;">
+                <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+                <text>当前暂无学习反馈</text>
+              </view>
+            </view>
+
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+
+
+
+    <view style="width:100%;display:flex;justify-content:center;padding-bottom:20rpx;position: fixed;bottom: 30rpx;">
+      <block wx:if="{{jkuser.is_qudao==1||jkuser.is_expert==1}}">
+        <view class="next" catchtap="toHome">您已购买</view>
+      </block>
+      <block wx:else>
+        <view style="width:85%;">
+          <view class="next" catchtap="showFkDetail" style="width:100%;">￥{{util.toNumberFloatFix(info.price)}}\t\t单独购
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+  <block wx:else>
+
+    <view class="main3" style="margin-top: 40rpx;">
+      <text class="txt2" style="width:100%;text-align:center;">恭喜您成为D-Time合伙人</text>
+    </view>
+
+    <view class="fkPos" style="background:#ffffff;">
+      <block wx:for="{{util.splitImages(courseDetail.detail_images)}}" wx:key="id">
+        <image class="xiangqin" src="{{item}}" mode="widthFix"></image>
+      </block>
+    </view>
+
+  </block>
+</view>
+
+<!-- 分享好友 -->
+<view class="fkBg" catchtouchmove="true" wx:if="{{showFkDetail}}" bindtap="cancelFkDetail">
+  <view class="fkPos">
+    <view class="fkDetail">
+      付款详情</view>
+    <view class="fkItem1">
+      <text class="itemName">商品名称</text>
+      <text class="itemCon">{{info.product_name}}</text>
+    </view>
+    <view class="fkItem1">
+      <text class="itemName">购买方式</text>
+      <text class="itemCon">单独购</text>
+    </view>
+    <view class="fkItem1">
+      <text class="itemName">支付总额</text>
+      <text class="itemCon1">¥{{util.toNumberFloatFix(info.price)}}</text>
+    </view>
+    <text class="fkItem1 fkYouh">已优惠￥{{util.toNumberFloatFix(util.youhuiPrice(info.old_price,info.price))}}</text>
+    <view class="box3">
+      <view class="next" data-buyType="0" catchtap="WeiXinBuy">微信支付</view>
+    </view>
+  </view>
+</view>

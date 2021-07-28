@@ -1,0 +1,32 @@
+<!--pages/buySucc/buySucc.wxml-->
+<view class="container">
+
+  <!-- 购买成功 -->
+  <view class="produce">
+    <image class="sc_pic2" referrerpolicy="no-referrer" src="../../images/icon_buy_succ.png" />
+    <span class="sc_txt2">购买{{textCon}}成功</span>
+    <!-- <span class="sc_info1">内容内容内容内容内容内容</span> -->
+  </view>
+
+  <view class="section3">
+    <view class="block2">
+      <view class="bd1">
+        <view class="box1">第一步</view>
+        <span class="word4">加专属客服</span>
+        <span class="info2">领取课程码</span>
+      </view>
+      <image class="pic2" catchtap="showImage" data-url="{{kefuImg}}" referrerpolicy="no-referrer" mode="widthFix"
+        src="{{kefuImg}}" />
+    </view>
+    <view class="block2">
+      <view class="bd1">
+        <view class="box1">第二步</view>
+        <span class="word4">扫描订阅</span>
+        <span class="info2">订单早知道</span>
+      </view>
+      <image class="pic2" catchtap="showImage" data-url="{{gzhImg}}" referrerpolicy="no-referrer" mode="widthFix"
+        src="{{gzhImg}}" />
+    </view>
+  </view>
+
+</view>

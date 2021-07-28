@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "loadingmore": "/components/loadingmore/loadingmore"
+  },
+  "navigationBarTitleText": "21天训练营",
+  "enablePullDownRefresh": true
+}

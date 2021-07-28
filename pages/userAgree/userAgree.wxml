@@ -1,0 +1,8 @@
+<!--pages/userAgree/userAgree.wxml-->
+<web-view hidden="{{loading}}" catchload="_imgLoadEvent" src="{{urlType==1?'aboutusUrl':urlType==2?userXieyiUrl:''}}">
+</web-view>
+
+<!-- 图片未加载时显示加载中 -->
+<view class="shadow" wx:if='{{loading}}'>
+  <image class="roro" src="../../images/loading.png" />
+</view>

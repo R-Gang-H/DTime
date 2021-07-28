@@ -1,0 +1,97 @@
+page{
+  background-color: #f7f7f9;
+}
+
+.container{
+  display: flex;
+  flex-flow: column;
+}
+
+.priceContainer{
+  width: 686rpx;
+  height: 200rpx;
+  margin-top: 32rpx;
+  background-color: #5EE1F5;
+  border-radius: 16rpx;
+  display: flex;
+  flex-flow: row;
+}
+
+.priceCount{
+  display: flex;
+  flex-flow: column;
+  margin-left: 40rpx;
+  align-self: center;
+}
+
+.priceText{
+  font-size: 30rpx;
+  color: white;
+}
+
+.price{
+  font-size: 48rpx;
+  color: white;
+  margin-top: 10rpx;
+}
+
+.withdraw{
+  font-size: 28rpx;
+  color: #24CAE8;
+  width: 200rpx;
+  height: 64rpx;
+  background-color: white;
+  border-radius: 32rpx;
+  right: 72rpx;
+  position: absolute;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.priceTypeContainer{
+  width: 686rpx;
+  height: auto;
+  background-color: white;
+  border-radius: 16rpx;
+  display: flex;
+  flex-flow: column;
+  margin-top: 32rpx;
+}
+
+.recommend{
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  height: 104rpx;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.recommendText{
+  font-size: 28rpx;
+  color: #858C96;
+}
+
+.recommendPrice{
+  position: absolute;
+  font-size: 28rpx;
+  color: #212832;
+  right: 56rpx;
+  text-align: right;
+}
+
+.vLine{
+  width: 638rpx;
+  background-color: #EAEAEA;
+  align-self: center;
+  height: 1rpx;
+}
+
+.trainTip{
+  position: absolute;
+  right: 56rpx;
+  font-size: 26rpx;
+  color: #ADB4BE;
+}

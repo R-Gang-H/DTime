@@ -1,0 +1,136 @@
+/* pages/yanxuan/yanxuanSearch/yanxuanSearch.wxss */
+page {
+  background-color: #F7F7F9;
+}
+
+.content {
+  background-color: #F7F7F9;
+}
+
+.top {
+  height: 128rpx;
+  background-color: white;
+}
+
+.search {
+  width: 580rpx;
+  height: 64rpx;
+  border-radius: 32rpx;
+  background-color: #F7F7F9;
+  margin-left: 32rpx;
+  border: 1rpx solid #EAEAEA;
+}
+
+.search-glass {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 28rpx;
+}
+
+.search-input {
+  width: 400rpx;
+  color: #212832;
+  font-size: 26rpx;
+  margin-left: 26rpx;
+}
+
+.search-placeholder {
+  color: #ADB4BE;
+}
+
+.cancel {
+  color: #858C96;
+  font-size: 28rpx;
+  width: 136rpx;
+  text-align: center;
+}
+
+.search-tips {
+  color: #5D646E;
+  font-size: 30rpx;
+  padding-left: 32rpx;
+  height: 106rpx;
+  line-height: 106rpx;
+}
+
+/* 课程 */
+.course {
+  padding: 24rpx;
+  background-color: white;
+}
+
+.course-banner {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  background-color: #FFC947;
+  margin-right: 24rpx;
+}
+
+.course-intro {
+  width: 480rpx;
+}
+
+.course-name {
+  color: #212832;
+  font-size: 32rpx;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 4rpx;
+}
+
+.course-subname {
+  color: #ADB4BE;
+  font-size: 26rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.course-tags {
+  margin-top: 14rpx;
+  margin-bottom: 16rpx;
+  flex-wrap: wrap;
+  height: 120rpx;
+  line-height: 45rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  font-size: 32rpx;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.course-tag {
+  color: #ADB4BE;
+  font-size: 24rpx;
+  background-color: #F7F7F9;
+  padding: 6rpx 14rpx;
+  margin-right: 16rpx;
+  border-radius: 8rpx;
+  margin-top: 10rpx;
+  display: inline-grid;
+}
+
+.course-price {
+  color: #FA283B;
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-right: 18rpx;
+}
+
+.course-lineprice {
+  color: #E0E0E2;
+  font-size: 26rpx;
+  text-decoration: line-through;
+}
+
+.course-count {
+  color: #ADB4BE;
+  font-size: 24rpx;
+  margin: 0 auto;
+  margin-right: 0;
+}

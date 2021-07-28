@@ -1,0 +1,46 @@
+<wxs module="utils" src="../../utils/util.wxs"></wxs>
+<view class="container">
+  <view class="staticContainer">
+    <view class="tabContainer">
+      <view class="titleContainer title1">
+        <text class="tabTitle" style="{{title1Style}}" bindtap="tabClick" data-type="1">待解读</text>
+        <view class="titleBottom" hidden="{{title1Style==titleStyle.commonStyle}}" />
+      </view>
+      <view class="titleContainer title2">
+        <text class="tabTitle" style="{{title2Style}}" bindtap="tabClick" data-type="2">已完成</text>
+        <view class="titleBottom" hidden="{{title2Style==titleStyle.commonStyle}}" />
+      </view>
+    </view>
+  </view>
+  <view class="listContainer">
+    <block wx:if="{{dataList.length}}">
+      <view class="listItem" wx:for="{{dataList}}" wx:key="index">
+        <view class="dataContainer" data-index="{{index}}" bindtap="itemClick">
+          <view class="userContainer">
+            <text class="name">{{item.name}}</text>
+            <text class="sex">{{item.sex}}</text>
+            <text class="sex">{{item.age}}</text>
+            <text class="sex">{{item.xg_type}}</text>
+          </view>
+          <view class="lookContainer">
+            <view class="timeContainer">
+              <text class="time" style="margin-top:{{singleTop}}rpx">
+                申请时间:{{utils.getDateTime(item.pay_at,'Y/M/D h:m:s')}}
+              </text>
+              <text class="time" wx:if="{{title1Style==titleStyle.commonStyle}}">
+                完成时间:{{utils.getDateTime(item.update_at,'Y/M/D h:m:s')}}
+              </text>
+            </view>
+            <text class="look" bindtap="look" data-index="{{index}}">查看报告</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view wx:else
+      style="display:flow-root;text-align: center;color: #5CD3E8;font-size: 13px;width: 100vw;height: 100vh;padding-top: 300rpx;">
+      <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+      <view>当前暂无记录</view>
+    </view>
+  </view>
+  <text class="noMore" hidden="{{noMore}}">无更多数据</text>
+</view>

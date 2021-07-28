@@ -1,0 +1,81 @@
+/* pages/yanxuan/yanxuanFiltrate/yanxuanFiltrate.wxss */
+.content {
+  margin-left: 32rpx;
+  padding-bottom: 160rpx;
+}
+
+.title {
+  color: #212832;
+  font-size: 32rpx;
+  padding: 32rpx 0 16rpx 0;
+}
+
+.item {
+  display: inline-block;
+  min-width: 160rpx;
+  padding: 0rpx 20rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  color: #858C96;
+  font-size: 26rpx;
+  background-color: #F7F7F9;
+  border-radius: 32rpx;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+  text-align: center;
+}
+
+.itemselect {
+  display: inline-block;
+  min-width: 160rpx;
+  padding: 0rpx 20rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  color: #44C4DF;
+  font-size: 26rpx;
+  background-color: #E9F8FB;
+  border-radius: 32rpx;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+  text-align: center;
+}
+
+.group {
+  padding-top: 20rpx;
+}
+
+.bottom {
+  height: 160rpx;
+  width: 100vw;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  border-top: 1rpx solid #E9F8FB;
+}
+
+.team-read {
+  width: 300rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  background: -moz-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -ms-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -o-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  background: -webkit-linear-gradient(top, rgb(111, 231, 244), rgb(74, 220, 247));
+  color: white;
+  font-size: 34rpx;
+  border-radius: 46rpx;
+  margin-left: 24rpx;
+  box-shadow: 0 8rpx 8rpx 0 #A2F1FF;
+}
+
+.team-cancel {
+  width: 300rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  color: #5D646E;
+  font-size: 34rpx;
+  border-radius: 46rpx;
+  margin-left: 64rpx;
+  background-color: #F0F0F3;
+}

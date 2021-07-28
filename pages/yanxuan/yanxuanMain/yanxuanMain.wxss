@@ -1,0 +1,261 @@
+/* pages/yanxuan/yanxuanMain/yanxuanMain.wxss */
+page {
+  background-color: #F7F7F9;
+  padding-bottom: 100rpx;
+}
+
+.content {
+  background-color: #F7F7F9;
+}
+
+.nav {
+  background-color: white;
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
+}
+
+.search {
+  width: 500rpx;
+  background-color: #F7F7F9;
+  margin-left: 32rpx;
+  border: 1rpx solid #EAEAEA;
+}
+
+.search-glass {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 28rpx;
+}
+
+.search-text {
+  color: #ADB4BE;
+  font-size: 26rpx;
+  margin-left: 26rpx;
+}
+
+.header {
+  height: 90rpx;
+  color: #212832;
+  font-size: 38rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+}
+
+.header-subtitle {
+  color: #ADB4BE;
+  font-size: 28rpx;
+  margin-bottom: 16rpx;
+}
+
+.margin-left {
+  margin-left: 32rpx;
+}
+
+.swiper {
+  width: 100vw;
+  height: 430rpx;
+  margin-bottom: 32rpx;
+}
+
+.swiper-item {
+  width: 100vw;
+  height: 430rpx;
+}
+
+/* 课程分类 */
+.course-classfiy {
+  height: 140rpx;
+  width: 686rpx;
+  white-space: nowrap;
+  padding: 32rpx;
+}
+
+.course-classfiy-item {
+  text-align: center;
+  width: 128rpx;
+  display: inline-block;
+}
+
+.course-classfiy-item-image {
+  height: 88rpx;
+  width: 88rpx;
+}
+
+.course-classfiy-item-title {
+  color: #5D646E;
+  font-size: 26rpx;
+}
+
+/* 金刚区 */
+.function-content-notest {
+  margin-bottom: 36rpx;
+  margin-left: 32rpx;
+}
+
+.margin-right {
+  margin-right: 22rpx;
+}
+
+.function-l {
+  width: 332rpx;
+  height: 160rpx;
+  border-radius: 16rpx;
+  position: relative;
+}
+
+.function-text {
+  position: absolute;
+  color: #FFFFFF;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.adult-right {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 44rpx;
+  left: 184rpx;
+}
+
+.child-right {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 64rpx;
+  left: 184rpx;
+}
+
+.adult {
+  top: 38rpx;
+  left: 40rpx;
+}
+
+.adult14 {
+  top: 92rpx;
+  left: 40rpx;
+  font-size: 24rpx;
+}
+
+.child {
+  top: 58rpx;
+  left: 40rpx;
+}
+
+.days21 {
+  top: 36rpx;
+  left: 40rpx;
+}
+
+.camp {
+  top: 80rpx;
+  left: 40rpx;
+}
+
+.shadow-adult {
+  box-shadow: 0 8rpx 8rpx 0 #ADEDFB;
+}
+
+.shadow-child {
+  box-shadow: 0 8rpx 8rpx 0 #D2CAFD;
+}
+
+/* 课程 */
+.course {
+  padding: 24rpx;
+  background-color: white;
+}
+
+.course-banner {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  background-color: #FFC947;
+  margin-right: 24rpx;
+}
+
+.course-intro {
+  width: 480rpx;
+}
+
+.course-name {
+  color: #212832;
+  font-size: 32rpx;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 4rpx;
+}
+
+.course-subname {
+  color: #ADB4BE;
+  font-size: 26rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.course-tags {
+  margin-top: 14rpx;
+  margin-bottom: 16rpx;
+  flex-wrap: wrap;
+  height: 110rpx;
+  line-height: 45rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  font-size: 32rpx;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.course-tag {
+  color: #ADB4BE;
+  font-size: 24rpx;
+  background-color: #F7F7F9;
+  padding: 0rpx 14rpx;
+  margin-right: 16rpx;
+  border-radius: 8rpx;
+  margin-top: 10rpx;
+  display: inline-grid;
+}
+
+.course-price {
+  color: #FA283B;
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-right: 18rpx;
+}
+
+.course-lineprice {
+  color: #E0E0E2;
+  font-size: 26rpx;
+  text-decoration: line-through;
+}
+
+.course-count {
+  color: #ADB4BE;
+  font-size: 24rpx;
+  margin: 0 auto;
+  margin-right: 0;
+}
+
+.high {
+  color: #44C4DF;
+}
+
+.switchTester {
+  width: 172rpx;
+  height: 44rpx;
+  border: 1rpx solid #ADB4BE;
+  border-radius: 8rpx;
+  color: #858C96;
+  font-size: 26rpx;
+  line-height: 44rpx;
+  text-align: center;
+  margin: 0 auto;
+  margin-right: 32rpx;
+}

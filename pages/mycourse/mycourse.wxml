@@ -1,0 +1,27 @@
+<!--pages/mycourse/mycourse.wxml-->
+
+<view class="hotCourses">
+  <block wx:if="{{userCourses.length}}">
+
+    <view class="course" wx:for="{{userCourses}}">
+      <image class="course-banner" mode="aspectFill" src="{{item.thumb_image}}" />
+      <view class="course-intro">
+        <view class="course-name">{{item.product_name}}</view>
+        <view class="course-subname">{{item.one_words}}</view>
+        <view style="margin-top:40rpx;display:flex;justify-content:flex-end;">
+          <!-- 状态 1未支付 2已支付(待评价) 3已完成 -->
+          <text class="qu qupj" wx:if="{{item.order_status==2}}" bindtap="qpj" data-item="{{item}}">去评价</text>
+          <text class="qu qufk" catchtap="toCourseUp">去上课</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view wx:else
+    style="display:flow-root;text-align: center;color: #5CD3E8;font-size: 13px;width: 100vw;height: 100vh;padding-top: 300rpx;">
+    <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+    <view>当前暂无课程</view>
+  </view>
+  <block wx:if="{{userCourses.length>0}}">
+    <loadingmore hasmore="{{hasmore}}"></loadingmore>
+  </block>
+</view>

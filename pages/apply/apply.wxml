@@ -1,0 +1,6 @@
+<view class="applyContainer">
+  <view class="introContainer">
+    <image style="width: 100%;" mode="widthFix" src="{{type==1?chujiUrl:type==2?gaojiUrl:type==3?tutorUrl:''}}"></image>
+  </view>
+  <text wx:if="{{type!=2}}" class="apply" bindtap="apply">{{applyText}}</text>
+</view>

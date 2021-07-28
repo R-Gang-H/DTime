@@ -1,0 +1,50 @@
+<wxs module="util" src="../../../utils/util.wxs"></wxs>
+
+<view class="content">
+  <view class="header">
+    <view class="level header-term">
+      <view class="{{orderBy == 1 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="1" data-brl="56">推荐</view>
+      <view class="{{orderBy == 2 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="2" data-brl="170">上新</view>
+      <view class="{{orderBy == 3 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="3" data-brl="290">销量</view>
+      <view class="shaixuan-content level" bindtap="shai">
+        <image src="/images/shaixuan.png" class="shaixuan"></image>
+        <view class="shanxuan-title">筛选</view>
+      </view>
+    </view>
+    <view class="br" style="left:{{brl}}rpx"></view>
+  </view>
+  <!-- 课程 -->
+  <view class="hotCourses">
+    <view class="course level" wx:for="{{courses}}" data-id="{{item.id}}" bindtap="toCourseDetail">
+      <image class="course-banner" src="{{item.thumb_image}}"></image>
+      <view class="course-intro">
+        <view class="course-name">{{item.product_name}}</view>
+        <view class="course-subname">{{item.one_words}}</view>
+        <view class="course-tags level">
+          <block wx:for="{{item.tag_base}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_xg}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_tf}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_xxfg}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+          <block wx:for="{{item.tag_other}}" wx:for-item="itemName">
+            <text class="course-tag">{{itemName}}</text>
+          </block>
+        </view>
+        <view class="course-prices level">
+          <view class="course-price">¥{{util.toNumberFloatFix(item.group_price)}}</view>
+          <view class="course-lineprice">¥{{util.toNumberFloatFix(item.old_price)}}</view>
+          <view class="course-count">{{item.sales}}人购买</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="no-more" wx:if="{{!haveMore}}">没有更多了</view>

@@ -1,0 +1,113 @@
+/* pages/messagenotic/messagenotic.wxss */
+page {
+  background-color: #F7F7F9;
+}
+
+.content {
+  background-color: #F7F7F9;
+  padding-top: 120rpx;
+}
+
+.dfc {
+  display: flex;
+  justify-content: center;
+}
+
+.item {
+  margin: 0 32rpx 24rpx 32rpx;
+  padding: 24rpx;
+  background-color: white;
+  border-radius: 16rpx;
+}
+
+.header {
+  padding-left: 12rpx;
+  background-color: white;
+  height: 96rpx;
+  margin-bottom: 24rpx;
+  width: 100vw;
+  position: fixed;
+}
+
+.header-term {
+  height: 96rpx;
+  line-height: 96rpx;
+}
+
+.term {
+  color: #858C96;
+  font-size: 28rpx;
+  padding: 0 20rpx;
+  text-align: center;
+}
+
+.sterm {
+  color: #212832;
+  font-size: 38rpx;
+  padding: 0 20rpx;
+  text-align: center;
+}
+
+.br {
+  width: 40rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+  background-color: #63CEE4;
+  position: absolute;
+  top: 76rpx;
+}
+
+.box1 {
+  width: 92%;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  margin: 24rpx auto;
+  padding: 0 0 30rpx;
+}
+
+.ddAll {
+  height: 60rpx;
+  line-height: 65rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rpx;
+}
+
+.mydd {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #212832;
+}
+
+.ckAll {
+  font-size: 24rpx;
+  color: #ADB4BE;
+}
+
+.ddAll1 {
+  height: 60rpx;
+  line-height: 65rpx;
+  display: flex;
+  padding: 0 20rpx;
+}
+
+.mydd1 {
+  color: #ADB4BE;
+  font-size: 28rpx;
+}
+
+.ckAll1 {
+  font-size: 14px;
+  color: #858C96;
+}
+
+.ddAll2 {
+  line-height: 40rpx;
+  padding: 0 20rpx;
+}
+
+.chakanqr {
+  font-size: 28rpx;
+  color: #24CAE8;
+  margin: 20rpx 0 0 20rpx;
+}

@@ -1,0 +1,11 @@
+<view class="content">
+  <image class="logo" src="/images/login@2x.png"></image>
+  <button style="position: absolute;width:80% !important;bottom:140rpx;margin: 0 80rpx;" wx:if="{{!phoneNumber}}"
+    open-type="getPhoneNumber" bindgetphonenumber="bindgetphonenumber">微信用户一键登录</button>
+  <view wx:if="{{!hasToken&&phoneNumber}}" class="tips">请完成微信授权以继续使用</view>
+  <button style="position: absolute;width:80% !important;bottom:140rpx;margin: 0 80rpx;"
+    wx:if="{{!hasToken&&phoneNumber}}" bindtap="login">授权微信用户信息</button>
+  <view class="tongyi">登录代表您已同意<text catchtap="toAboutus" style="color:#0198b5;text-decoration: underline;"
+      decode>&nbsp;D-Time用户协议、隐私协议</text>
+  </view>
+</view>

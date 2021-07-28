@@ -1,0 +1,11 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "详情",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "loadingmore": "/components/loadingmore/loadingmore",
+    "hw-actionSheet": "/components/actionSheet/actionSheet"
+  }
+}

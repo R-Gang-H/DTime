@@ -1,0 +1,174 @@
+/* pages/infobasic/infobasic.wxss */
+page {
+  background: #F7F7F9;
+}
+
+
+.bd1 {
+  width: 90%;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 6px 0px #F6F6FA;
+  border-radius: 16rpx;
+  margin: 32rpx 40rpx;
+}
+
+.bd1 .box {
+  display: flex;
+  height: 110rpx;
+  line-height: 110rpx;
+  /* border-bottom: 1rpx solid #EFF0F2; */
+  margin: 0 32rpx;
+  align-items: center;
+}
+
+.bd1 .box .txt1 {
+  font-size: 34rpx;
+  color: #858C96;
+  width: 30%;
+}
+
+.bd1 .box .txt2 {
+  color: #212832;
+  font-size: 34rpx;
+  width: 72%;
+  z-index: 10;
+}
+
+.arrow_right {
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 2rpx solid #ADB4BE;
+  border-right: 2rpx solid #ADB4BE;
+  transform: rotate(45deg);
+}
+
+.bd1 .box .txt3 {
+  font-size: 34rpx;
+  color: #858C96;
+}
+
+.bd1 .box .img1 {
+  width: 60rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+
+.box4 {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 30rpx;
+  margin-top: 20rpx;
+}
+
+.box1 {
+  display: grid;
+}
+
+.img2 {
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 50rpx;
+}
+
+.txt5 {
+  font-size: 34rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  color: #212832;
+}
+
+.bd1 .box .rodio {
+  position: absolute;
+  right: 66rpx;
+  z-index: 20;
+}
+
+.bd1 .box .txt4 {
+  font-size: 28rpx;
+  color: #2A79EB;
+}
+
+.box3 {
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 1);
+  border-top: 1rpx solid rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+}
+
+.next {
+  width: 85%;
+  height: 95rpx;
+  background: linear-gradient(90deg, #6FE7F4 0%, #4ADCF7 100%);
+  box-shadow: 0rpx 4rpx 16rpx 0rpx #A2F1FF;
+  border-radius: 46rpx;
+  align-self: center;
+  margin-top: 20rpx;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: #FFF;
+  box-sizing: border-box;
+}
+
+
+
+
+/* 邀请码 */
+.fkBg {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fkPos {
+  background: #fff;
+  width: 80%;
+  border-radius: 20rpx;
+}
+
+.box5 {
+  width: 100%;
+  display: flex;
+  border-top: 1px solid #EFF0F2;
+  margin-top: 30rpx;
+  padding-bottom: 20rpx;
+}
+
+.txt6 {
+  color: #212832;
+  font-size: 34rpx;
+  width: 80%;
+  background: #F1F1F1;
+  padding: 18rpx;
+  border-radius: 10rpx;
+  margin: 0 auto;
+}
+
+.cancelyq {
+  color: #44C4DF;
+  height: 50rpx;
+  margin-top: 20rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.fkDetail {
+  width: 100%;
+  color: #212832;
+  font-size: 36rpx;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}

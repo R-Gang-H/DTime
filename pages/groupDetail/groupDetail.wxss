@@ -1,0 +1,350 @@
+/* pages/groupDetail/groupDetail.wxss */
+.container {
+  border-top: 1rpx solid #CCC;
+  background: #F7F7F9;
+}
+
+.produce {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40rpx;
+  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
+}
+
+.sc_pic2 {
+  width: 120rpx;
+  height: 120rpx;
+  align-self: center;
+}
+
+.sc_txt2 {
+  color: rgba(33, 40, 50, 1);
+  font-size: 38rpx;
+  font-family: PingFangSC-Regular;
+  text-align: center;
+  margin-top: 36rpx;
+  margin-bottom: 44rpx;
+  color: #212832;
+}
+
+
+.main3 {
+  flex-direction: row;
+  display: flex;
+  width: 70%;
+  align-self: center;
+  margin-top: 20rpx;
+}
+
+.txt2 {
+  color: #212832;
+  font-size: 38rpx;
+}
+
+.txt3 {
+  margin-left: 8rpx;
+  color: #FA283B;
+}
+
+.txt4 {
+  color: rgba(133, 140, 150, 1);
+  font-size: 32rpx;
+  margin-right: 40rpx;
+}
+
+.endtime {
+  color: rgba(250, 40, 59, 1);
+  width: 40rpx;
+  text-align: center;
+}
+
+.block12 {
+  height: 52rpx;
+  border-radius: 8rpx;
+  background-color: rgba(250, 40, 59, 1);
+  color: rgba(255, 255, 255, 1);
+  width: 56rpx;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.ptUser {
+  margin: 60rpx 80rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.userImg {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  background: #F7F7F9;
+  border: 2rpx solid #E0E0E2;
+}
+
+
+/* 付款详情 */
+.fkPos {
+  background: #fff;
+  width: 100%;
+  margin-top: 24rpx;
+  padding-bottom: 30rpx;
+}
+
+.fkDetail {
+  width: 100%;
+  color: #212832;
+  font-weight: 600;
+  font-size: 38rpx;
+  margin: 0 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.fkItem1 {
+  display: flex;
+  justify-content: space-between;
+  height: 110rpx;
+  align-items: center;
+  border-bottom: 1px solid #EFEFF0;
+  margin: 0 30rpx;
+}
+
+.itemName {
+  color: #ADB4BE;
+  font-size: 32rpx;
+}
+
+.itemCon {
+  font-size: 34rpx;
+  color: #5D646E;
+}
+
+.itemCon1 {
+  font-size: 34rpx;
+  color: #FA283B;
+  font-weight: 600;
+}
+
+.xiangqin {
+  width: 100%;
+  /* height: 880rpx; */
+  background: #F0F0F3;
+  /* border-radius: 8px; */
+  /* margin: 40rpx 0; */
+}
+
+.box3 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.next {
+  width: 85%;
+  height: 95rpx;
+  background: linear-gradient(90deg, #6FE7F4 0%, #4ADCF7 100%);
+  box-shadow: 0rpx 4rpx 16rpx 0rpx #A2F1FF;
+  border-radius: 46rpx;
+  align-self: center;
+  margin-top: 20rpx;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: #FFF;
+  box-sizing: border-box;
+}
+
+.back {
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #44C4DF;
+  padding: 40rpx;
+  align-self: center;
+}
+
+
+/* 推荐 */
+.course {
+  padding: 24rpx;
+  background-color: white;
+  border-bottom: 24rpx solid #F7F7F9;
+}
+
+.course-banner {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  background-color: #FFC947;
+  margin-right: 24rpx;
+}
+
+.course-intro {
+  width: 480rpx;
+}
+
+.course-name {
+  color: #212832;
+  font-size: 32rpx;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 4rpx;
+}
+
+.course-subname {
+  color: #ADB4BE;
+  font-size: 26rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.course-tags {
+  margin-top: 14rpx;
+  margin-bottom: 16rpx;
+  flex-wrap: wrap;
+  height: 120rpx;
+  line-height: 45rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  font-size: 32rpx;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.course-tag {
+  color: #ADB4BE;
+  font-size: 24rpx;
+  background-color: #F7F7F9;
+  padding: 6rpx 14rpx;
+  margin-right: 16rpx;
+  border-radius: 8rpx;
+  margin-top: 10rpx;
+  display: inline-grid;
+}
+
+.course-price {
+  color: #FA283B;
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-right: 18rpx;
+}
+
+.course-lineprice {
+  color: #E0E0E2;
+  font-size: 26rpx;
+  text-decoration: line-through;
+}
+
+.course-count {
+  color: #ADB4BE;
+  font-size: 24rpx;
+  margin: 0 auto;
+  margin-right: 0;
+}
+
+.swiper {
+  width: 90%;
+  height: 880rpx;
+}
+
+/* 付款详情 */
+.fkBg {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.fkPos1 {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+}
+
+.fkDetail {
+  width: 100%;
+  color: #212832;
+  font-weight: 600;
+  font-size: 38rpx;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.fkItem1 {
+  display: flex;
+  justify-content: space-between;
+  height: 110rpx;
+  align-items: center;
+  border-bottom: 1px solid #EFEFF0;
+  margin: 0 30rpx;
+}
+
+.itemName {
+  color: #ADB4BE;
+  font-size: 32rpx;
+}
+
+.itemCon {
+  font-size: 34rpx;
+  color: #5D646E;
+}
+
+.itemCon1 {
+  font-size: 34rpx;
+  color: #FA283B;
+  font-weight: 600;
+}
+
+.fkYouh {
+  color: #ADB4BE;
+  font-size: 30rpx;
+  justify-content: flex-end;
+  padding-bottom: 50rpx;
+}
+
+/* 参团成功 */
+.container {
+  border-top: 1rpx solid #CCC;
+  background: #F7F7F9;
+}
+
+.section3 {
+  border-radius: 24rpx;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 6px 0px rgba(246, 246, 250, 1);
+  margin-top: 30px;
+  margin-bottom: 100rpx;
+  width: 90%;
+}
+
+.block2 {
+  display: grid;
+  justify-content: center;
+  padding-bottom: 50rpx;
+  text-align: center;
+}
+
+.word4 {
+  color: rgba(93, 100, 110, 1);
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  margin-top: 32rpx;
+}
+
+.pic2 {
+  width: 400rpx;
+  height: 400rpx;
+  margin-top: 50rpx;
+  background: #CCC;
+}

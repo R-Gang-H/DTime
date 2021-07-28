@@ -1,0 +1,59 @@
+<wxs module="utils" src="../../../utils/util.wxs"></wxs>
+
+<!-- 我的报告 -->
+<view class="content">
+  <block wx:if="{{unReadReport.length}}">
+    <!-- 未解读的报告 -->
+    <view class="item" wx:for="{{unReadReport}}" wx:key="report_id" data-item="{{item}}"
+      bindtap="{{item.status==1||item.status==2?'toReport':item.status==3?'toReport1':''}}">
+      <view class="level">
+        <!-- // 状态0=已有基本信息,未做完;1=已生成测评报告2=已购买待解读3=已解读 4=直接购买/赠送的测评 -->
+        <view class="report-tag" wx:if="{{item.status==0||item.status==4}}">测评</view>
+        <view class="report-tag2" wx:if="{{item.status==1}}">报告</view>
+        <view class="report-tag2" wx:if="{{item.status==2||item.status==3}}">解读</view>
+        <view class="course-name">{{item.name?item.name:(item.topic_types==1)?'成人':(item.topic_types==2?'儿童':'')}}
+        </view>
+      </view>
+      <view class="level">
+        <view class="report-time">{{utils.getDateTime(item.cacert_time==0?item.create_at:item.cacert_time,'Y/M/D h:m')}}
+        </view>
+        <!-- item.status==3?'已解读': -->
+        <view data-item="{{item}}" class="team-detail" catchtap="toReport">
+          {{item.status==1||item.status==2||item.status==3?'报告':''}}
+        </view>
+        <image class="team-arrow" wx:if="{{item.status==1||item.status==2||item.status==3}}" src="/images/right.png">
+        </image>
+
+        <!-- 4:通过别人分享邀请,已支付未填写基本信息, 已支付未开始的测试/赠送的测评 -->
+        <view wx:if="{{item.status==4}}" catchtap="toAssess" data-types="{{item.topic_types}}" data-ispuy="2"
+          data-item="{{item}}" class="report-padding continue">开始答题
+        </view>
+        <!-- 未完成测试 -->
+        <view wx:if="{{item.status==0}}" catchtap="toQuestion" data-item="{{item}}" class="report-padding continue">继续答题
+        </view>
+        <!-- 未解读的报告 -->
+        <!-- {{item.status==1?'showExpert':}} -->
+        <view wx:if="{{item.status==1}}" class="report-padding team-read" data-item="{{item}}" catchtap='toMoreExpert'>
+          申请解读
+        </view>
+
+        <!-- 系统已解读 已支付未解读报告 -->
+        <view wx:if="{{item.status==2}}" class="report-padding continue" data-item="{{item}}" catchtap="toReport">等待解读
+        </view>
+
+        <view wx:if="{{item.status==3}}" class="report-padding team-read" data-item="{{item}}" catchtap="toReport1">查看解读
+        </view>
+
+      </view>
+    </view>
+  </block>
+  <view wx:else
+    style="display:flow-root;text-align: center;color: #5CD3E8;font-size: 13px;width: 100vw;height: 100vh;padding-top: 300rpx;">
+    <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+    <view>当前暂无记录</view>
+  </view>
+
+  <block wx:if="{{unReadReport.length>0}}">
+    <loadingmore hasmore="{{hasmore}}"></loadingmore>
+  </block>
+</view>

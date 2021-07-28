@@ -1,0 +1,45 @@
+/* pages/auth/authUserInfo/authUserInfo.wxss */
+page {
+  background-color: #51DDF6;
+}
+
+.content {
+  background-color: #51DDF6;
+  text-align: center;
+}
+
+.tips {
+  font-size: 28rpx;
+  color: white;
+  width: 100%;
+  position: absolute;
+  bottom: 250rpx;
+}
+
+.logo {
+  width: 680rpx;
+  height: 836rpx;
+  margin-top: 100rpx;
+}
+
+button {
+  width: 590rpx !important;
+  height: 92rpx !important;
+  line-height: 92rpx !important;
+  padding: 0 !important;
+  border-radius: 46rpx !important;
+  color: #51DDF6 !important;
+  font-size: 36rpx !important;
+  font-weight: normal !important;
+  margin-top: 24rpx !important;
+  box-shadow: 0 8rpx 8rpx 0 #1FD2F2 !important;
+}
+
+.tongyi {
+  position: absolute;
+  width: 100%;
+  bottom: 70rpx;
+  left: 0;
+  font-size: 28rpx;
+  color: #FFF;
+}

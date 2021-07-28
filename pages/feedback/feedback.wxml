@@ -1,0 +1,26 @@
+<wxs module="utils" src="/utils/util.wxs"></wxs>
+<view class="feedbacContainer">
+  <view class="inputContainer" bindtap="getFocus">
+    <image class="inputIcon" src="../../images/pen.png"></image>
+    <textarea class="input" placeholder="请输入您的意见反馈/或提问" placeholder-style="font-size:30rpx;color:#e0e0e2"
+      bindinput="getFeedback" maxlength="-1" value="{{inputText}}" focus="{{focus}}" />
+  </view>
+  <text class="submit" bindtap="submit">提交</text>
+  <view class="historyContainer" hidden="{{dataList.length==0}}">
+    <text class="historyTitle">反馈历史</text>
+    <view class="listItem" wx:for="{{dataList}}" wx:key="{{index}}">
+      <view class="userInfo">
+        <text class="username">{{nickName}}</text>
+        <text class="time1">{{utils.getDateTime(item.create_at,'Y/M/D')}}</text>
+      </view>
+      <text class="feedback">{{item.content}}</text>
+      <view class="reply" wx:if="{{item.answer}}">
+        <view class="userInfo">
+          <text class="username">回复:</text>
+          <text class="time1">{{utils.getDateTime(item.update_at,'Y/M/D')}}</text>
+        </view>
+        <text class="feedback">{{item.answer}}</text>
+      </view>
+    </view>
+  </view>
+</view>

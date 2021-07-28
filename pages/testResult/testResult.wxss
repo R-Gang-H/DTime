@@ -1,0 +1,32 @@
+/* pages/textResult/textResult.wxss */
+.container {
+  border-top: 1rpx solid #CCC;
+}
+
+.produce {
+  display: flex;
+  flex-direction: column;
+  padding-top: 120rpx;
+}
+
+.sc_pic2 {
+  width: 200rpx;
+  height: 200rpx;
+  align-self: center;
+}
+
+.sc_txt2 {
+  color: rgba(33, 40, 50, 1);
+  font-size: 38rpx;
+  font-family: PingFangSC-Regular;
+  text-align: center;
+  margin-top: 64rpx;
+}
+
+.sc_info1 {
+  color: rgba(173, 180, 190, 1);
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  margin-top: 8px;
+  text-align: center;
+}

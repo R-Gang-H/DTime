@@ -1,0 +1,40 @@
+<!--pages/address/editAddress/editAddress.wxml-->
+<view class="body">
+
+  <view class="bd1">
+    <view class="box">
+      <text class="txt1">收货人</text>
+      <input type="text" class="txt2" placeholder="请输入" placeholder-style="color:#E0E0E2;height:110rpx;font-size:34rpx"
+        value="{{addType==2?addInfo.name:''}}" bindinput="bindName" />
+    </view>
+
+    <view class="box">
+      <text class="txt1">手机号码</text>
+      <input maxlength="11" class="txt2" placeholder="请输入" style="width:60%;"
+        placeholder-style="color:#E0E0E2;height:110rpx;font-size:34rpx" value="{{addType==2?addInfo.mobile:tel}}"
+        bindinput="bindTel" />
+      +86<view class="arrow_right"></view>
+    </view>
+
+    <picker mode="region" value="{{region}}" custom-item="{{customItem}}" bindchange="bindRegionChange">
+      <view class="box">
+        <text class="txt1">选择地址</text>
+        <text
+          class="txt2">{{addType==2?addInfo.province+addInfo.city+addInfo.area:region[0]+region[1]+region[2]}}</text>
+        <view class="arrow_right"></view>
+      </view>
+    </picker>
+
+    <view class="box">
+      <text class="txt1">详细地址</text>
+      <input class="txt2" placeholder="请输入" placeholder-style="color:#E0E0E2;height:110rpx;"
+        value="{{addType==2?addInfo.address:addressDet}}" bindinput="bindAddress" />
+    </view>
+
+  </view>
+
+  <view class="box3">
+    <view bindtap="submitAddress" class="next">提交</view>
+  </view>
+
+</view>

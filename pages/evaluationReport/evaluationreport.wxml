@@ -1,0 +1,36 @@
+<view class="reportContainer">
+  <view class="vLine"></view>
+  <view class="waitContainer">
+    <text class="title">{{title}}</text>
+    <view class="userContainer">
+      <view>
+        <text class="name">{{data.name}}</text>
+        <text class="sex" style="margin-left:30rpx;">{{data.tel}}</text>
+      </view>
+      <view class="infoContainer">
+        <text class="sex">{{data.sex}}</text>
+        <text class="sex">{{data.age}}</text>
+        <text class="look" bindtap="report" data-item="{{data}}">测评报告</text>
+        <text class="bigdata" bindtap="bigdata" data-item="{{data}}">大数据解读</text>
+      </view>
+    </view>
+  </view>
+  <view class="waitContainer listContainer" style="margin-bottom: {{listmarginbottom}}rpx">
+    <text class="title">相关报告</text>
+    <view class="list" wx:for="{{dataList}}" wx:key="index">
+      <view class="listItem">
+        <text class="name">{{item.name}}</text>
+        <view class="infoContainer">
+          <text class="sex">{{item.sex}}</text>
+          <text class="sex">{{item.age}}</text>
+          <text class="look" bindtap="report" data-item="{{item}}">测评报告</text>
+          <text class="bigdata" bindtap="bigdata" data-item="{{item}}">大数据解读</text>
+        </view>
+      </view>
+    </view>
+    <text class="noMore" hidden="{{noMore}}">无更多数据</text>
+  </view>
+  <view class="finishContainer" hidden="{{type==2}}">
+    <text class="finish" bindtap="finish">完成解读</text>
+  </view>
+</view>

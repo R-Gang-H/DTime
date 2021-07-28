@@ -1,0 +1,238 @@
+<wxs module="utils" src="../../utils/util.wxs"></wxs>
+
+<view class="content">
+  <!-- 轮播图 -->
+  <swiper class="swiper" indicator-dots="true" autoplay="true" circular="true" indicator-active-color="#ffffff">
+    <block wx:for="{{ads}}" wx:key="id">
+      <swiper-item bindtap="{{hasToken?'toLunbo':''}}" data-item="{{item}}">
+        <image src="{{item.image}}" class="swiper-item"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 金刚区 -->
+  <view class="function-content">
+    <view class="level function-content-t">
+      <button wx:if="{{!hasToken}}" bindtap="toLogin"
+        style="position:absolute;width:388rpx;height:160rpx;z-index: 50;background: transparent;"></button>
+      <image bindtap="{{hasToken?'toAssess':''}}" data-types="1" data-ispuy="1" class="function-l shadow-adult"
+        src="/images/adult-test.png">
+        <view class="function-text adult">成人测评</view>
+        <image class="adult-right" src="/images/adult-right.png"></image>
+        <view class="function-text adult14">14岁(含）以上</view>
+      </image>
+      <image class="function-s" src="/images/21days.png" data-item="{{xunlianying}}" bindtap="toXunLY">
+        <view class="function-text days21">21天</view>
+        <view class="function-text camp">训练营</view>
+      </image>
+    </view>
+    <view class="level">
+      <button wx:if="{{!hasToken}}" bindtap="toLogin"
+        style="position:absolute;width:388rpx;height:160rpx;z-index: 50;background: transparent;"></button>
+      <image bindtap="{{hasToken?'toAssess':''}}" data-types="2" data-ispuy="1" class="function-l shadow-child"
+        src="/images/child-test.png">
+        <view class="function-text child">儿童测评</view>
+        <image class="child-right" src="/images/child-right.png"></image>
+      </image>
+      <image class="function-s" src="/images/reader.png" bindtap="toTfExpert">
+        <view class="function-text days21">天赋</view>
+        <view class="function-text camp">解读</view>
+      </image>
+    </view>
+    <view class="how-many-people">已有{{home.testNum}}人参与了测评</view>
+  </view>
+  <!-- 我的报告 -->
+  <view class="report-content" wx:if="{{ishavereport}}">
+    <view class="level header">
+      <view class="header-title">我的报告</view>
+      <view class="header-more" bindtap="toMoreReport">更多</view>
+      <image class="header-arrow" src="/images/right97.png"></image>
+    </view>
+    <!-- 通过别人分享邀请,已支付未填写基本信息, 已支付未开始的测试/赠送的测评 
+    <view class="item" wx:for="{{home.hasPayUntest}}" wx:for-item="itemH" wx:key="report_id">
+      <view class="level">
+        <view class="report-tag">测评</view>
+        <view class="course-name">
+          {{itemH.name?itemH.name:(itemH.topic_types==1)?'成人':(itemH.topic_types==2?'儿童':'')}}</view>
+      </view>
+      <view class="level">
+        <view class="report-time">
+          {{utils.getDateTime(itemH.cacert_time==0?itemH.create_at:itemH.cacert_time,'Y/M/D h:m')}}</view>
+        <view bindtap="toAssess" data-types="{{itemH.topic_types}}" data-ispuy="2" data-item="{{itemH}}"
+          class="report-padding continue">开始答题
+        </view>
+      </view>
+    </view>-->
+    <!-- 未完成测试 
+    <view class="item" wx:for="{{home.unfinishTest}}" wx:key="report_id">
+      <view class="level">
+        <view class="report-tag">测评</view>
+        <view class="course-name">{{item.name}}</view>
+      </view>
+      <view class="level">
+        <view class="report-time">
+          {{utils.getDateTime(item.cacert_time==0?item.create_at:item.cacert_time,'Y/M/D h:m')}}</view>
+        <view bindtap="toQuestion" data-item="{{item}}" class="report-padding continue">继续答题</view>
+      </view>
+    </view>-->
+    <!-- 未解读的报告 
+    <view class="item" wx:for="{{home.unReadReport}}" wx:key="report_id" data-item="{{item}}" bindtap="toReport">
+      <view class="level">
+        <view class="report-tag2">报告</view>
+        <view class="course-name">{{item.name}}</view>
+      </view>
+      <view class="level">
+        <view class="report-time">
+          {{utils.getDateTime(item.cacert_time==0?item.create_at:item.cacert_time,'Y/M/D h:m')}}</view>
+        <view class="team-detail">{{item.status==1?'报告':''}}</view>
+        <image class="team-arrow" src="/images/right.png"></image>
+           --{{item.status==1?'showExpert':}}--
+        <view class="report-padding team-read" data-item="{{item}}" catchtap='toUndoExpert'>申请解读</view>
+      </view>
+    </view>-->
+    <!-- 系统已解读 已支付未解读报告 
+    <view class="item" wx:for="{{home.hasPayUnreadReport}}" wx:key="report_id" data-item="{{item}}" bindtap="toReport">
+      <view class="level">
+        <view class="report-tag2">解读</view>
+        <view class="course-name">{{item.name}}</view>
+      </view>
+      <view class="level">
+        <view class="report-time">
+          {{utils.getDateTime(item.cacert_time==0?item.create_at:item.cacert_time,'Y/M/D h:m')}}</view>
+        <view class="team-detail">{{item.status==2?'报告':''}}</view>
+        <image class="team-arrow" src="/images/right.png">
+        </image>
+        <view class="report-padding continue" data-item="{{item}}" catchtap="toReport">等待解读
+        </view>
+      </view>
+    </view>-->
+    <!-- 专家 已解读报告 
+    <view class="item" wx:for="{{home.readReport}}" wx:key="report_id" data-item="{{item}}" bindtap="toReport">
+      <view class="level">
+        <view class="report-tag3">解读</view>
+        <view class="course-name">{{item.name}}</view>
+      </view>
+      <view class="level">
+        <view class="report-time">
+          {{utils.getDateTime(item.cacert_time==0?item.create_at:item.cacert_time,'Y/M/D h:m')}}</view>
+        <view class="team-detail">报告</view>
+        <image class="team-arrow" src="/images/right.png"></image>
+        <view class="report-padding team-read" data-item="{{item}}" catchtap="toReport1">查看解读</view>
+      </view>
+    </view>-->
+
+
+    <!-- 未解读的报告 -->
+    <view class="item" wx:for="{{home.report}}" wx:key="report_id" data-item="{{item}}"
+      bindtap="{{item.status==1||item.status==2?'toReport':item.status==3?'toReport1':''}}">
+      <view class="level">
+        <!-- // 状态0=已有基本信息,未做完;1=已生成测评报告2=已购买待解读3=已解读 4=直接购买/赠送的测评 -->
+        <view class="report-tag" wx:if="{{item.status==0||item.status==4}}">测评</view>
+        <view class="report-tag2" wx:if="{{item.status==1}}">报告</view>
+        <view class="report-tag2" wx:if="{{item.status==2||item.status==3}}">解读</view>
+        <view class="course-name">{{item.name?item.name:(item.topic_types==1)?'成人':(item.topic_types==2?'儿童':'')}}
+        </view>
+      </view>
+      <view class="level">
+        <view class="report-time">{{utils.getDateTime(item.cacert_time==0?item.create_at:item.cacert_time,'Y/M/D h:m')}}
+        </view>
+
+        <!-- item.status==3?'已解读': -->
+        <view data-item="{{item}}" class="team-detail" catchtap="toReport">
+          {{item.status==1||item.status==2||item.status==3?'报告':''}}
+        </view>
+        <image class="team-arrow" wx:if="{{item.status==1||item.status==2||item.status==3}}" src="/images/right.png">
+        </image>
+
+        <!-- 4:通过别人分享邀请,已支付未填写基本信息, 已支付未开始的测试/赠送的测评 -->
+        <view wx:if="{{item.status==4}}" catchtap="toAssess" data-types="{{item.topic_types}}" data-ispuy="2"
+          data-item="{{item}}" class="report-padding continue">开始答题
+        </view>
+        <!-- 未完成测试 -->
+        <view wx:if="{{item.status==0}}" catchtap="toQuestion" data-item="{{item}}" class="report-padding continue">继续答题
+        </view>
+        <!-- 未解读的报告 -->
+        <!-- {{item.status==1?'showExpert':}} -->
+        <view wx:if="{{item.status==1}}" class="report-padding team-read" data-item="{{item}}" catchtap='toUndoExpert'>
+          申请解读
+        </view>
+
+        <!-- 系统已解读 已支付未解读报告 -->
+        <view wx:if="{{item.status==2}}" class="report-padding continue" data-item="{{item}}" catchtap="toReport">等待解读
+        </view>
+
+        <view wx:if="{{item.status==3}}" class="report-padding team-read" data-item="{{item}}" catchtap="toReport1">查看解读
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+
+  <!-- top课程产品 -->
+  <view class="course-content" wx:if="{{home.product.length}}">
+    <view class="level header">
+      <image class="header-top" src="/images/top.png"></image>
+      <view class="header-title">课程产品</view>
+    </view>
+    <view class="item" wx:for="{{home.product}}" wx:key="id" data-item="{{item}}" bindtap="toProduct">
+      <image class="course-banner" mode="aspectFill" src="{{item.image}}"></image>
+      <view class="course-name">{{item.product_name}}
+        <!-- type2 1=家长2=孩子 -->
+        <text wx:if="{{item.type==4}}"> {{item.type2==1?'（家长）':'（孩子）'}}</text>
+      </view>
+      <view class="course-subname">{{item.one_words}}</view>
+      <view class="level">
+        <block wx:if="{{item.type!=1&&item.type!=2&&item.type!=3}}">
+          <view class="course-price">¥{{utils.toNumberFloatFix(item.group_price)}}</view>
+          <view class="course-lineprice">¥{{utils.toNumberFloatFix(item.old_price)}}</view>
+        </block>
+        <view class="course-count">已有{{item.count}}人受益</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 专家团队 -->
+  <view class="team-content" wx:if="{{home.expert.length}}">
+    <view class="level header">
+      <view class="header-title">专家团队</view>
+      <view class="header-more" bindtap="toMoreExpert">更多</view>
+      <image class="header-arrow" src="/images/right97.png"></image>
+    </view>
+    <view class="item" wx:for="{{home.expert}}" wx:key="user_id">
+      <view class="level">
+        <image class="team-icon" mode="aspectFill" src="{{item.expert_headimg}}"></image>
+        <view class="course-intro">
+          <view class="course-name">{{item.name}}</view>
+          <view class="course-subname">{{item.expert_intro}}</view>
+          <view class="level">
+            <view class="team-detail" bindtap="toExpertDetail" data-id="{{item.user_id}}">查看详情</view>
+            <image class="team-arrow" src="/images/right.png"></image>
+            <button wx:if="{{!hasToken}}" bindtap="toLogin"
+              style="position:absolute;width: 280rpx;height: 64rpx;z-index: 50;background: transparent;right: 60rpx;"></button>
+            <!-- <view class="team-read" data-item="{{item}}" bindtap="toUndoReport">
+              <text>¥{{utils.toNumberFloatFix(item.read_special_price)}}</text>
+              帮我解读
+            </view> -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 家长评价 -->
+  <view class="evaluation-content" wx:if="{{home.comment.length}}">
+    <view class="level header">
+      <view class="header-title">家长评价</view>
+    </view>
+    <view class="item" wx:for="{{home.comment}}" wx:key="id">
+      <view class="level">
+        <image class="evaluation-icon" src="{{item.headimg}}"></image>
+        <view>
+          <view class="evaluation-name">{{item.nickname}}</view>
+          <view class="evaluation-sign">{{item.words}}</view>
+        </view>
+      </view>
+      <view class="evaluation-detail">{{item.content}}</view>
+    </view>
+  </view>
+</view>

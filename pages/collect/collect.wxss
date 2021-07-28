@@ -1,0 +1,194 @@
+/* pages/collect/collect.wxss */
+page {
+  background-color: #F7F7F9;
+}
+
+.content {
+  background-color: #F7F7F9;
+}
+
+.header {
+  background-color: white;
+  height: 96rpx;
+  margin-bottom: 24rpx;
+}
+
+.header-term {
+  height: 96rpx;
+  line-height: 96rpx;
+}
+
+.term {
+  color: #858C96;
+  font-size: 28rpx;
+  text-align: center;
+  margin-left: 30rpx;
+}
+
+.sterm {
+  color: #212832;
+  font-size: 38rpx;
+  text-align: center;
+  margin-left: 30rpx;
+}
+
+.br {
+  width: 40rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+  background-color: #63CEE4;
+  position: relative;
+  top: -10rpx;
+}
+
+/* 课程 */
+.course {
+  padding: 24rpx;
+  background-color: white;
+}
+
+.course-banner {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  background-color: #FFC947;
+  margin-right: 24rpx;
+}
+
+.course-intro {
+  width: 480rpx;
+}
+
+.course-name {
+  color: #212832;
+  font-size: 32rpx;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 4rpx;
+}
+
+.course-subname {
+  color: #ADB4BE;
+  font-size: 26rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.course-tags {
+  margin-top: 14rpx;
+  margin-bottom: 16rpx;
+  flex-wrap: wrap;
+  height: 120rpx;
+  line-height: 45rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  font-size: 32rpx;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.course-tag {
+  color: #ADB4BE;
+  font-size: 24rpx;
+  background-color: #F7F7F9;
+  padding: 6rpx 14rpx;
+  margin-right: 16rpx;
+  border-radius: 8rpx;
+  margin-top: 10rpx;
+  display:inline-grid;
+}
+
+.course-price {
+  color: #FA283B;
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-right: 18rpx;
+}
+
+.course-lineprice {
+  color: #E0E0E2;
+  font-size: 26rpx;
+  text-decoration: line-through;
+}
+
+.course-count {
+  color: #ADB4BE;
+  font-size: 24rpx;
+  margin: 0 auto;
+  margin-right: 0;
+}
+
+.edit {
+  padding: 0 30rpx;
+  position: absolute;
+  right: 0;
+  font-size: 28rpx;
+}
+
+.edit_check {
+  color: #FFA957;
+}
+
+.edit_check1 {
+  color: #858C96;
+}
+
+.allCheck {
+  width: 95%;
+  height: 80px;
+  background: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  border-top: 2rpx solid #EAEAEA;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40rpx;
+  align-items: center;
+}
+
+.delate {
+  width: 146rpx;
+  height: 64rpx;
+  border-radius: 32rpx;
+  border: 2rpx solid #24CAE8;
+  color: #24CAE8;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 64rpx;
+  margin-right: 40rpx;
+}
+
+/* 未选中的 背景样式 */
+checkbox .wx-checkbox-input {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: #E0E0E2 3rpx solid !important;
+}
+
+/* 选中后的 背景样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border: #63CEE4 3rpx solid !important;
+}
+
+/* 选中后的 对勾样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%;
+  /* 选中后对勾大小，不要超过背景的尺寸 */
+  width: 40rpx;
+  /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 40rpx;
+  /* 对勾大小 34rpx */
+  font-size: 38rpx;
+  /* 对勾颜色 白色 */
+  color: #FFFFFF;
+  background: #63CEE4;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+
+}

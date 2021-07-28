@@ -1,0 +1,7 @@
+<!--pages/reportResult/reportResult.wxml-->
+<web-view hidden="{{loading}}" catchload="_imgLoadEvent" binderror="_imgErrorEvent" src='{{webUrl}}'></web-view>
+
+<!-- 图片未加载时显示加载中 -->
+<view class="shadow" wx:if='{{loading}}'>
+  <image class="roro" src="/images/loading.png" />
+</view>

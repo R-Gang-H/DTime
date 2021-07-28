@@ -1,0 +1,11 @@
+<!--pages/textResult/textResult.wxml-->
+<view class="container">
+
+  <!-- 生成报告中 -->
+  <view class="produce">
+    <image class="sc_pic2" referrerpolicy="no-referrer" src="../../images/icon_timer_loading.png" />
+    <span class="sc_txt2">您已完成测评</span>
+    <span class="sc_info1">请您稍等，报告正在生成中</span>
+  </view>
+
+</view>

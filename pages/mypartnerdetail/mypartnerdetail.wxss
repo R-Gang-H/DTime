@@ -1,0 +1,101 @@
+page{
+  background-color: white;
+}
+
+.container{
+  display: flex;
+  flex-flow: column;
+}
+
+.userContainer{
+  border-top: #EAEAEA 1rpx solid;
+  height: 166rpx;
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+
+.head{
+  width: 84rpx;
+  height: 84rpx;
+  margin-left: 34rpx;
+  align-self: center;
+  border-radius: 42rpx;
+}
+
+.userItem{
+  display: flex;
+  flex-flow: column;
+  margin-left: 15rpx;
+  align-self: center;
+}
+
+.nickname{
+  font-size: 32rpx;
+  color: #212832;
+}
+
+.usertype{
+  font-size: 24rpx;
+  color: white;
+  background-color: #FFA957;
+  border-radius: 8rpx;
+  padding: 5rpx 20rpx;
+  margin-top: 10rpx;
+}
+
+.detailContainer{
+  display: flex;
+  flex-flow: column;
+  width: 686rpx;
+  align-self: center;
+}
+
+.borderItem{
+  height: 92rpx;
+  display: flex;
+  flex-flow: row;
+  border-left: #E0E0E2 1rpx solid;
+  border-top: #E0E0E2 1rpx solid;
+  border-right: #E0E0E2 1rpx solid;
+}
+
+.itemSingle{
+  background-color: #F7F7F9;
+}
+
+.itemDouble{
+  background-color: #F7F7F980;
+}
+
+.key{
+  font-size: 28rpx;
+  color: #858C96;
+  padding-left: 20rpx;
+  width: 264rpx;
+  height: 92rpx;
+  display: flex;
+  align-items: center;
+}
+
+.key::after{
+  content: ' ';
+  width: 1rpx;
+  height: 92rpx;
+  background-color: #E0E0E2;
+  position: absolute;
+  right: 432rpx;
+}
+
+.value{
+  font-size: 28rpx;
+  color: #212832;
+  padding-left: 78rpx;
+  height: 92rpx;
+  display: flex;
+  align-items: center;
+}
+
+.bottomBorder{
+  border-bottom: #E0E0E2 1rpx solid;
+}

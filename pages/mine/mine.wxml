@@ -1,0 +1,159 @@
+<!--pages/mine/mine.wxml-->
+<view class="container" style="padding-bottom: 160rpx;">
+
+  <view class="userBox">
+    <image class="avater" src="{{authuser.avatarUrl?authuser.avatarUrl:'../../images/laopo.jpg'}}"></image>
+    <view>
+      <text class="userName">{{authuser.nickname?authuser.nickname:userHeadData.nickname}}</text>
+      <text wx:if="{{userHeadData.is_qudao==1}}" class="hehuoren">{{qudaoLevel==1?'初级':'高级'}}合伙人</text>
+      <text wx:if="{{userHeadData.is_expert==1}}" class="hehuoren">教师</text>
+    </view>
+  </view>
+  <view class="box5" wx:if="{{userHeadData.is_qudao==1}}">
+    <view class="ddAll tixian" style="width:91.3%;" catchtap="withdraw">
+      <text class="mydd" style="color: #FA283B;">可提现（元）</text>
+      <view>
+        <text class="qian">￥{{balanceDetail.balance}} </text>
+        <view class="arraw_right" style="border-top: 2rpx solid #FA283B;border-right: 2rpx solid #FA283B;"></view>
+      </view>
+    </view>
+    <view class="tongji">
+      <view class="tifen" bindtap="inCome">
+        <view>
+          <text class="shouyi">累计总收益</text>
+          <view class="arraw_right" style="right: -10rpx;top: 15rpx;"></view>
+        </view>
+        <text class="mydd sqian">￥{{balanceDetail.total_income}}</text>
+      </view>
+      <view class="tifen" bindtap="myFans">
+        <view>
+          <text class="shouyi">当前粉丝数</text>
+          <view class="arraw_right" style="right: -10rpx;top: 15rpx;"></view>
+        </view>
+        <text class="mydd sqian">{{fansNum}}</text>
+      </view>
+      <view class="tifen" bindtap="myPartner">
+        <view>
+          <text class="shouyi">社群合伙人数</text>
+          <view class="arraw_right" style="right: -10rpx;top: 15rpx;"></view>
+        </view>
+        <text class="mydd sqian">{{superPartnerCount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="box2">
+    <view class="xiaoxi" bindtap="toMessageNotic">
+      <image class="xxIcon" src="../../images/icon_xiaoxi.png"></image>
+      <text class="notic">消息通知</text>
+      <text wx:if="{{hasNew==1}}" class="dian"></text>
+    </view>
+    <view class="xiaoxi" bindtap="toCollectList">
+      <image class="xxIcon" src="../../images/icon_shoucang.png"></image>
+      <text class="notic">收藏</text>
+    </view>
+    <view class="xiaoxi" style="padding-right:0;border-right:0;" bindtap="toRecords">
+      <image class="xxIcon" src="../../images/icon_liulan.png"></image>
+      <text class="notic">浏览记录</text>
+    </view>
+  </view>
+
+  <view class="box3">
+    <view class="ddAll">
+      <text class="mydd">我的订单</text>
+      <view>
+        <text class="ckAll" data-type="1" data-brl="30" bindtap="toAllorder">查看全部</text>
+        <view class="arraw_right"></view>
+      </view>
+    </view>
+
+    <view class="tagboxs">
+      <view class="tagbox" data-type="2" data-brl="148" bindtap="toAllorder">
+        <image class="tagimg" src="../../images/icon_daifukuan.png"></image>
+        <view class="tagtxt">待付款</view>
+        <text wx:if="{{orderNum2>0}}" class="count">{{orderNum2}}</text>
+      </view>
+      <view class="tagbox" data-type="3" data-brl="270" bindtap="toAllorder">
+        <image class="tagimg" src="../../images/icon_pintuan.png"></image>
+        <view class="tagtxt">拼团中</view>
+        <text wx:if="{{orderNum3>0}}" class="count">{{orderNum3}}</text>
+      </view>
+      <view class="tagbox" data-type="4" data-brl="548" bindtap="toAllorder">
+        <image class="tagimg" src="../../images/icon_complete.png"></image>
+        <view class="tagtxt">已完成</view>
+      </view>
+      <view class="tagbox" data-type="-1" data-brl="410" bindtap="toAllorder">
+        <image class="tagimg" src="../../images/icon_pinfail.png"></image>
+        <view class="tagtxt">拼团失败</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="box4">
+    <view class="ddAll">
+      <text class="mydd">我的课程</text>
+      <view>
+        <text class="ckAll" bindtap="ckMore">查看更多</text>
+        <view class="arraw_right"></view>
+      </view>
+    </view>
+
+    <scroll-view wx:if="{{userCourses.length}}" class="courboxs" scroll-x="true">
+      <view class="courbox" style="margin-left:{{userCourses.length>2?'110rpx':''}};">
+        <view style="width:260rpx;margin-right:20rpx;" wx:for="{{userCourses}}" catchtap="toCourseUp">
+          <image class="courimg" mode="aspectFill" src="{{item.thumb_image}}"></image>
+          <view class="courtxt">{{item.product_name}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    <view wx:else style="display:grid;justify-content:center;text-align:center;color:#5CD3E8;font-size:26rpx;">
+      <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+      <text>当前暂无课程</text>
+    </view>
+  </view>
+
+  <view class="box3">
+    <view class="ddAll">
+      <text class="mydd">更多服务</text>
+    </view>
+
+    <view class="moreboxs">
+      <view class="morebox" bindtap="unscramble" wx:if="{{userHeadData.is_qudao==1&&userHeadData.is_expert==1}}">
+        <image class="moreeimg" src="../../images/icon_jiedu.png"></image>
+        <view class="moretxt">解读列表</view>
+        <text wx:if="{{orderNum4>0}}" class="count">{{orderNum4}}</text>
+      </view>
+      <view class="morebox" bindtap="toInviteFreeEvaluation" wx:if="{{userHeadData.is_qudao==1}}">
+        <image class="moreeimg" src="../../images/icon_yaoqin.png"></image>
+        <view class="moretxt">邀请免费测</view>
+      </view>
+      <!-- <view class="morebox">
+        <image class="moreeimg"  src="../../images/icon_yaoqin.png"></image>
+        <view class="moretxt">邀请好友</view>
+      </view> -->
+      <view class="morebox" bindtap="toApply" data-type="{{1}}">
+        <image class="moreeimg" src="../../images/icon_cwdaoshi.png"></image>
+        <view class="moretxt">专家</view>
+      </view>
+      <view class="morebox" bindtap="toApply" data-type="{{2}}" wx:if="{{userHeadData.is_qudao==0}}">
+        <image class="moreeimg" src="../../images/icon_cwhehuo.png"></image>
+        <view class="moretxt">合伙人</view>
+      </view>
+      <view class="morebox" bindtap="toApply" data-type="{{3}}" wx:if="{{userHeadData.is_qudao==1&&qudaoLevel==1}}">
+        <image class="moreeimg" src="../../images/icon_cwhehuo.png"></image>
+        <view class="moretxt">高级合伙人</view>
+      </view>
+      <view class="morebox" bindtap="feedback">
+        <image class="moreeimg" src="../../images/icon_tiwen.png"></image>
+        <view class="moretxt">提问与意见</view>
+      </view>
+      <view class="morebox" bindtap="aboutUs">
+        <image class="tagimg" src="../../images/icon_about.png"></image>
+        <view class="moretxt">关于我们</view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

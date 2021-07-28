@@ -1,0 +1,146 @@
+page {
+  background-color: #e7e7e9;
+}
+
+.studyContainer {
+  display: flex;
+  flex-flow: column;
+  border-top: #e0e0e0 1rpx solid;
+}
+
+.scoringContainer {
+  width: 686rpx;
+  height: 298rpx;
+  margin-top: 32rpx;
+  margin-bottom: 24rpx;
+  align-self: center;
+  background-color: white;
+  border-radius: 16rpx;
+  display: flex;
+  flex-flow: column;
+}
+
+.scoringTip {
+  margin-left: 24rpx;
+  margin-top: 28rpx;
+  font-size: 32rpx;
+  color: #212832;
+  font-weight: bold;
+}
+
+.loveContainer {
+  margin-top: 38rpx;
+  height: 56rpx;
+  margin-left: 24rpx;
+  display: flex;
+  flex-flow: row;
+}
+
+.text1 {
+  font-size: 30rpx;
+  color: #858C96;
+  align-self: center;
+}
+
+.starContainer {
+  margin-left: 22rpx;
+  display: flex;
+  flex-flow: row;
+}
+
+.star {
+  width: 56rpx;
+  height: 56rpx;
+  margin-left: 8rpx;
+  margin-right: 8rpx;
+}
+
+.feedbackContainer {
+  width: 686rpx;
+  height: 474rpx;
+  align-self: center;
+  background-color: white;
+  border-radius: 16rpx;
+  display: flex;
+  flex-flow: column;
+}
+
+.inputContainer {
+  display: flex;
+  flex-flow: row;
+}
+
+.inputIcon {
+  width: 34rpx;
+  height: 34rpx;
+  margin-left: 24rpx;
+  margin-top: 36rpx;
+}
+
+.input {
+  font-size: 30rpx;
+  color: #212832;
+  margin-top: 32rpx;
+  margin-left: 10rpx;
+  margin-bottom: 32rpx;
+  width: 594rpx;
+  height: 144rpx;
+}
+
+.cameraContainer {
+  height: 168rpx;
+  width: 638rpx;
+  margin-left: 24rpx;
+  display: flex;
+}
+
+.cameraList{
+  display: flex;
+  flex-flow: row;
+}
+
+.cameraItem {
+  background-color: #F7F7F9;
+  border-radius: 8rpx;
+  border: 1rpx solid #E2E2E2;
+  width: 168rpx;
+  height: 168rpx;
+  margin-right: 22rpx;
+  margin-left: 22rpx;
+  display: flex;
+  flex-flow: column;
+}
+
+.camera {
+  margin-top: 45rpx;
+  width: 49rpx;
+  height: 36rpx;
+  align-self: center;
+}
+
+.cameraLarge{
+  width: 168rpx;
+  height: 168rpx;
+}
+
+.cameraText {
+  font-size: 24rpx;
+  color: #ADB4BE;
+  margin-top: 10rpx;
+  align-self: center;
+}
+
+.submit{
+  font-size: 34rpx;
+  color: white;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  background:linear-gradient(90deg, #6FE7F4 0%, #4ADCF7 100%);
+  width:670rpx;
+  height: 92rpx;
+  border-radius: 46rpx;
+  box-shadow: 0rpx 4rpx 16rpx 0rpx #A2F1FF;
+  margin-top: 40rpx;
+}

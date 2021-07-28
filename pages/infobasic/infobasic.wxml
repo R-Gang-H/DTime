@@ -1,0 +1,91 @@
+<!--pages/infobasic/infobasic.wxml-->
+<view class="body">
+
+  <view class="bd1">
+    <view class="box">
+      <text class="txt1">姓名</text>
+      <input class="txt2" placeholder="{{authuser.nickName}}" placeholder-style="color:#E0E0E2;height:110rpx;"
+        value="{{nickName}}" bindinput="bindName" />
+    </view>
+
+    <picker bindchange="bindSexPicker" value="{{sexIndex}}" range="{{array}}">
+      <view class="box">
+        <text class="txt1">性别</text>
+        <text class="txt2">{{array[sexIndex]}}</text>
+        <view class="arrow_right"></view>
+      </view>
+    </picker>
+
+    <picker mode="date" value="{{birthday}}" start="1950-01-01" end="2017-09-01" bindchange="bindDateChange">
+      <view class="box">
+        <text class="txt1">生日</text>
+        <text class="txt2">{{birthday}}</text>
+        <view class="arrow_right"></view>
+      </view>
+    </picker>
+
+    <view class="box">
+      <text class="txt1">联系方式</text>
+      <input type="number" maxlength="11" class="txt2" placeholder="请输入手机号码（必填项）"
+        placeholder-style="color:#E0E0E2;height:110rpx;" value="{{tel}}" bindinput="bindTel" />
+    </view>
+
+  </view>
+
+  <view class="bd1" wx:if="{{isPuy==1}}">
+    <view class="box">
+      <text class="txt3">请选择支付方式</text>
+    </view>
+
+    <!-- <radio-group bindchange="radioChange">
+      <view class="box">
+        <image class="img1" src="../../images/icon_weixin_zf.png"></image>
+        <text class="txt1">微信支付</text>
+        <radio class="rodio" value="2" checked color="#FA283B"></radio>
+      </view>
+
+      <view class="box">
+        <image class="img1" src="../../images/icon_yq_code.png"></image>
+        <text class="txt1">邀请码</text>
+        <input class="txt2" bindinput="bindCode" placeholder="请输入邀请码" placeholder-style="color:#E0E0E2;height:110rpx;"
+          disabled="{{paytype!=1}}" focus="{{paytype==1}}" />
+        <radio class="rodio" value="1" color="#FA283B"></radio>
+      </view>
+    </radio-group> -->
+
+    <view class="box4">
+      <view class="box1" data-value="2" bindtap="setTestBaseInfo">
+        <image class="img2" src="../../images/icon_weixin_zf2.png"></image>
+        <text class="txt5">点击微信支付</text>
+      </view>
+
+      <view class="box1" bindtap="conTinue">
+        <image style="margin-left:70rpx;" class="img2" src="../../images/icon_yaoqinma_zf3.png"></image>
+        <text class="txt5">点击输入邀请码</text>
+      </view>
+    </view>
+
+    <!-- <view class="box">
+      <text class="txt4">如何获取邀请码？</text>
+    </view> -->
+
+  </view>
+
+  <view class="box3" wx:if="{{paytype==3}}">
+    <view bindtap="setTestBaseInfo" data-value="3" class="next">下一步</view>
+  </view>
+
+</view>
+
+<!-- 邀请好友 -->
+<view class="fkBg" catchtouchmove="true" wx:if="{{showFkDetail}}">
+  <view class="fkPos">
+    <view class="fkDetail">邀请码</view>
+    <input class="txt6" bindinput="bindCode" placeholder="请输入邀请码" placeholder-style="color:#E0E0E2;height:110rpx;"
+      focus />
+    <view class="box5">
+      <text style="color:#5D646E;" class="cancelyq" catchtap="cancelFkDetail">取消</text>
+      <text class="cancelyq" data-value="1" catchtap="setTestBaseInfo">确定</text>
+    </view>
+  </view>
+</view>

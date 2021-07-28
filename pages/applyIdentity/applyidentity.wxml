@@ -1,0 +1,31 @@
+<view class="applyContainer">
+  <view class="question1">
+    <text class="title">{{question1Text}}</text>
+    <view class="selectContainer">
+      <checkbox class="check" checked="{{check}}" bindtap="check" data-type="{{check}}">是</checkbox>
+      <checkbox class="check" checked="{{!check}}" bindtap="check" data-type="{{check}}">否</checkbox>
+    </view>
+  </view>
+  <view class="question1">
+    <text class="title">{{question2Text}}</text>
+    <view class="cameraContainer">
+      <view class="cameraList" wx:for="{{selectList}}" wx:key="index">
+        <view class="cameraItem" hidden="{{item.length==0&&index!=selectList.length-1}}" catchtap="selectImg"
+          data-index="{{index}}" bindlongtap="delImg">
+          <image class="camera" wx:if="{{item.length==0}}" src="../../images/icon_camera.png"></image>
+          <image class="cameraLarge" wx:else src="{{item}}"></image>
+          <text class="cameraText" hidden="{{item.length!=0}}">添加图片</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="question1">
+    <text class="title">{{question3Text}}</text>
+    <view class="inputContainer">
+      <image class="inputIcon" src="../../images/pen.png"></image>
+      <textarea class="input" placeholder="请输入补充内容" placeholder-style="font-size:30rpx;color:#e0e0e2"
+        bindinput="getFeedback" focus="{{focus}}"></textarea>
+    </view>
+  </view>
+  <text class="submit" bindtap="submit">提交</text>
+</view>

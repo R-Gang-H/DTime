@@ -1,0 +1,37 @@
+<!--pages/messagenotic/messagenotic.wxml-->
+<wxs module="utils" src="../../utils/util.wxs"></wxs>
+<view class="header">
+  <view class="level header-term">
+    <view class="{{cterm == 1 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="1" data-brl="90">消息提醒</view>
+    <view class="{{cterm == 2 ? 'sterm' : 'term'}}" bindtap="switchTerm" data-id="2" data-brl="200">广播</view>
+  </view>
+  <view class="br" style="left:{{brl}}rpx"></view>
+</view>
+<view class="content">
+  <block wx:if="{{msgData.length}}">
+    <view class="box1" wx:for="{{msgData}}">
+      <view class="ddAll">
+        <text class="mydd">{{item.title}}</text>
+        <text class="ckAll">{{utils.getDateTime(item.create_at,'Y/M/D h:m:s')}}</text>
+      </view>
+      <!-- <view class="ddAll1">
+      <text class="mydd1" style="">产品名称：</text>
+      <text class="ckAll1">{{item.title}}</text>
+    </view>
+    <view class="ddAll1">
+      <text class="mydd1">订单编号：</text>
+      <text class="ckAll1">20210310132412312</text>
+    </view> -->
+      <view class="ddAll2">
+        <text class="mydd1">{{item.content}}</text>
+      </view><!-- item.title == '购买成功' -->
+      <view wx:if="{{cterm==1 &&(item.type==1 ||item.type==9)}}" data-type="{{item.type}}" catchtap="toCourseUp"
+        class="chakanqr">点击查看客服二维码</view>
+    </view>
+  </block>
+  <view wx:else
+    style="display:flow-root;text-align: center;color: #5CD3E8;font-size: 13px;width: 100vw;height: 100vh;padding-top: 300rpx;">
+    <image style="width: 260rpx;height:220rpx;" src="/images/icon_empy_img.png"></image>
+    <view>当前暂无通知</view>
+  </view>
+</view>
