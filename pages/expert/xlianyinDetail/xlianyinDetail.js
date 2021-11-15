@@ -34,22 +34,39 @@ Page({
       titleName: options.titleName,
       type: options.type,
       testType: options.testType, // 3训练营，4天赋解读
+      shareId: options.shareId,// 分享用户
     })
-    if (options.inType && options.inType != 'undefined') {
+    if (options.isjwt && options.isjwt == 1) {
+      API.cryptToken({
+        user_id: options.shareId
+      }, app).then(res2 => {
+        console.log("cryptToken==" + JSON.stringify(res2))
+        let userId = res2
+        that.setData({
+          shareId: userId,// 分享用户
+        })
+      }).catch((res) => {
+        console.log("catch2", res)
+      });
+    }else{
       that.setData({
         inType: options.inType, // inType:1是点申请解读去选专家解读 2:点帮我解读去选报告解读 22:咨询 3:学业提升
         courseId: options.courseId,
-        isPuySuc: options.isPuySuc == 1,// 1:购买成功，2:参加
-        shareId: options.shareId,// 分享用户
       })
-      that.getProductDetail(options.courseId)
-      that.expertList(1)
-    } else {
-      if (options.testType == 4) {
-        that.expertList(1)
-      }
-      that.getTestProduct(options.testType);
     }
+    setTimeout(res => {
+      if (options.inType && options.inType != 'undefined') {
+        
+        that.getProductDetail(options.courseId)
+        that.expertList(1)
+      } else {
+        if (options.testType == 4) {
+          that.expertList(1)
+        }
+        that.getTestProduct(options.testType);
+      }
+    }, 500)
+
   },
 
   /**
@@ -546,8 +563,8 @@ Page({
   onShareAppMessage: function () {
     var that = this;
     return {
-      title: '天赋教育TOP',
-      path: '/pages/expert/xlianyinDetail/xlianyinDetail?titleName=' + that.data.titleName + '&testType=' + that.data.testType + '&inType=' + that.data.inType + '&courseId=' + that.data.courseId + '&isPuySuc=' + that.data.isPuySuc + '&shareId=' + that.data.shareId
+      title: '天赋教养TOP',
+      path: '/pages/expert/xlianyinDetail/xlianyinDetail?titleName=' + that.data.titleName + '&testType=' + that.data.testType + '&inType=' + that.data.inType + '&courseId=' + that.data.courseId + '&shareId=' + that.data.shareId
     }
   },
 

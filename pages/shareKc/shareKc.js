@@ -16,6 +16,7 @@ Page({
     shareBg: API.Bucket + '/shareimg/share_bg.jpg',
     shareTopIcon: API.Bucket + '/shareimg/share_top_icon.jpg',
     shareXianShi: API.Bucket + '/shareimg/share_xianshi.jpg',
+    shareXianShiYh: API.Bucket + '/shareimg/share_xianshi_yh.jpg',
     xiaochengxuQRcode: API.Bucket + '/shareimg/xiaochengxu_qrcode.jpg',
     dAvater: '/images/laopo.jpg',
     shareLoad: true,
@@ -36,6 +37,7 @@ Page({
     console.log('path', path1)
     that.setData({
       courseId: options.id,//15
+      opentype: options.opentype, // 1三人团，2接龙，3单独购
       authuser: authuser,
       path: path1,
     })
@@ -156,7 +158,7 @@ Page({
     })
     // shareXianShi
     wx.getImageInfo({
-      src: that.data.shareXianShi,
+      src: that.data.opentype == 3 ? that.data.shareXianShiYh : that.data.shareXianShi,
       success(res) {
         // res.width;//图片宽
         // res.height;//图片高

@@ -21,8 +21,8 @@
         <view class="function-text adult14">14岁(含）以上</view>
       </image>
       <image class="function-s" src="/images/21days.png" data-item="{{xunlianying}}" bindtap="toXunLY">
-        <view class="function-text days21">21天</view>
-        <view class="function-text camp">训练营</view>
+        <view class="function-text days21">家长</view>
+        <view class="function-text camp">学习营</view>
       </image>
     </view>
     <view class="level">
@@ -32,6 +32,7 @@
         src="/images/child-test.png">
         <view class="function-text child">儿童测评</view>
         <image class="child-right" src="/images/child-right.png"></image>
+        <view class="function-text adult14">4岁-14岁</view>
       </image>
       <image class="function-s" src="/images/reader.png" bindtap="toTfExpert">
         <view class="function-text days21">天赋</view>
@@ -184,7 +185,8 @@
       <view class="level">
         <block wx:if="{{item.type!=1&&item.type!=2&&item.type!=3}}">
           <view class="course-price">¥{{utils.toNumberFloatFix(item.group_price)}}</view>
-          <view class="course-lineprice">¥{{utils.toNumberFloatFix(item.old_price)}}</view>
+          <view class="course-lineprice" wx:if="{{item.group_price!=item.old_price}}">
+            ¥{{utils.toNumberFloatFix(item.old_price)}}</view>
         </block>
         <view class="course-count">已有{{item.count}}人受益</view>
       </view>

@@ -15,14 +15,23 @@
   <!-- 课程 -->
   <view class="hotCourses">
     <block wx:if="{{myOrders.length}}">
-      <view class="course" wx:for="{{myOrders}}" bindtap="toCourseUp">
+      <view class="course" wx:for="{{myOrders}}" data-orderstatus="{{item.order_status}}" bindtap="toCourseUp">
         <view class="ddAll">
           <text class="mydd">订单编号：{{item.order_number}}</text>
           <text class="ckAll"
-            style="{{item.order_buy_type==2&&item.status==2?'color:#ADB4BE':''}}">{{util.orderBuyType(item.order_buy_type,item.status,item.order_status)}}</text>
+            style="color:{{item.order_buy_type==2&&item.status==2?'#ADB4BE':''}}">{{util.orderBuyType(item.order_buy_type,item.status,item.order_status)}}</text>
         </view>
         <view class="level" style="align-items:normal;">
-          <image class="course-banner" mode="aspectFill" src="{{item.thumb_image}}"></image>
+          <view style="position: relative;">
+            <image class="course-banner" mode="aspectFill" src="{{item.thumb_image}}"></image>
+            <view
+              style="width:200rpx;height:200rpx;position:absolute;top:0;background:rgb(0,0,0,0.3);line-height:280rpx;text-align:center;"
+              wx:if="{{item.is_hidden==1}}">
+              <image style="width: 100rpx;height: 100rpx;transform: rotate(-20deg);" mode="aspectFill"
+                src="../../images/icon_yixiajia.png">
+              </image>
+            </view>
+          </view>
           <view class="course-intro">
             <view class="course-name">{{item.product_name}}</view>
             <view class="ddAll1">
@@ -37,8 +46,8 @@
           <!-- order_status 状态 1未支付 2已支付(待评价) 3已完成 -->
           <view wx:if="{{item.order_status == 1}}">
             <text class="qufk" catchtap="toDel" data-order_id="{{item.order_id}}">删除</text>
-            <text wx:if="{{item.status != 3}}" class="qufk" catchtap="toPuy"
-              data-order_number="{{item.order_number}}">去付款</text>
+            <text wx:if="{{item.status != 3}}" class="qufk" catchtap="{{item.is_hidden==1?'':'toPuy'}}"
+              data-order_number="{{item.order_number}}">{{item.is_hidden==1?'已售磬':'去付款'}}</text>
           </view>
 
           <view wx:if="{{item.order_buy_type==1&&item.order_status==2}}">

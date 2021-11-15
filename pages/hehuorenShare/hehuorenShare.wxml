@@ -85,7 +85,7 @@
             <text class="{{tobIndex==3?'xuanzhong':'noxuanzhong'}}" data-index="3" data-toview="demo3"
               bindtap="tobTo">学习反馈</text>
           </view>
-          <scroll-view style="{{isPos?'margin-top: 100rpx;':''}}" scroll-y="true" scroll-with-animation="{{true}}"
+          <scroll-view style="margin-top:{{isPos?'100rpx;':''}}" scroll-y="true" scroll-with-animation="{{true}}"
             scroll-top="{{scrollTop}}">
             <view id="demo1" class="scroll-view-item demo-text-1">
               <block wx:if="{{info.type!=1&&info.type!=2&&info.type!=3&&info.type!=4&&info.type!=5&&info.type!=7}}">
@@ -157,18 +157,28 @@
     </view>
 
 
-
     <view style="width:100%;display:flex;justify-content:center;padding-bottom:20rpx;position: fixed;bottom: 30rpx;">
-      <block wx:if="{{jkuser.is_qudao==1||jkuser.is_expert==1}}">
-        <view class="next" catchtap="toHome">您已购买</view>
+
+      <!-- 0是未下架,1是已下架 -->
+      <block wx:if="{{info.is_hidden==1}}">
+        <view class="next" style="color: red;">商品已下线</view>
       </block>
       <block wx:else>
-        <view style="width:85%;">
-          <view class="next" catchtap="showFkDetail" style="width:100%;">￥{{util.toNumberFloatFix(info.price)}}\t\t单独购
+        <block wx:if="{{jkuser.is_qudao==1||jkuser.is_expert==1}}">
+          <view class="next" catchtap="toHome">您已购买</view>
+        </block>
+        <block wx:else>
+          <view style="width:85%;">
+            <view class="next" catchtap="showFkDetail" style="width:100%;">￥{{util.toNumberFloatFix(info.price)}}\t\t单独购
+            </view>
           </view>
-        </view>
+        </block>
       </block>
+
     </view>
+
+
+
   </block>
   <block wx:else>
 

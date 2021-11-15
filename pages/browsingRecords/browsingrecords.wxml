@@ -35,7 +35,7 @@
               </view>
               <view class="course-prices level" hidden="true">
                 <view class="course-price">¥{{util.toNumberFloatFix(item.price)}}</view>
-                <view class="course-lineprice">¥{{util.toNumberFloatFix(item.old_price)}}</view>
+                <view class="course-lineprice" wx:if="{{item.price!=item.old_price}}">¥{{util.toNumberFloatFix(item.old_price)}}</view>
                 <!-- <view class="course-count">300人购买</view> -->
               </view>
             </view>

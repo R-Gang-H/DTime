@@ -103,6 +103,7 @@ Page({
       page: current,
       pageSize: 15,
     }
+    console.log('我的订单：', data)
     API.getUserOrderList(data, app).then(res => {
       // 关闭下来刷新
       wx.stopPullDownRefresh()
@@ -244,9 +245,16 @@ Page({
 
   // 上课详情
   toCourseUp: function (res) {
-    wx.navigateTo({
-      url: '/pages/courseUp/courseUp',
-    })
+    let orderStatus = res.currentTarget.dataset.orderstatus
+    if (orderStatus == 1) {
+      // wx.showToast({
+      //   title: '待付款',
+      // })
+    } else {
+      wx.navigateTo({
+        url: '/pages/courseUp/courseUp',
+      })
+    }
   },
 
   /**

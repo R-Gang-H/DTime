@@ -82,7 +82,7 @@
             </view>
             <view class="course-prices level">
               <view class="course-price">¥{{util.toNumberFloatFix(courseDetail.order_price)}}</view>
-              <view class="course-lineprice">¥{{util.toNumberFloatFix(courseDetail.old_price)}}</view>
+              <view class="course-lineprice" wx:if="{{courseDetail.order_price!=courseDetail.old_price}}">¥{{util.toNumberFloatFix(courseDetail.old_price)}}</view>
               <view class="course-count">{{courseDetail.sales}}人购买</view>
             </view>
           </view>

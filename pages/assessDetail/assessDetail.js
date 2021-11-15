@@ -219,7 +219,7 @@ Page({
   addJieLong: function (res) {
     let opentype = res.currentTarget.dataset.opentype
     that.setData({
-      opentype: opentype,// 1三人团，2接龙
+      opentype: opentype,// 1三人团，2接龙，3单独购
     })
     let userId = wx.getStorageSync('userId');
     if (opentype == 1) {
@@ -247,7 +247,10 @@ Page({
       }).catch(() => {
 
       });
-
+    } else if (opentype == 3) {// 合伙人单独购分享
+      that.setData({
+        showFkDetail: true,
+      })
     }
   },
   cancelFkDetail() {
@@ -358,7 +361,9 @@ Page({
           path: '/pages/groupThreeDetail/groupThreeDetail?id=' + that.data.courseDetail.id + "&isPuySuc=2&shareId=" + userId + "&share_time=" + shareTime,
         }
       } else {
-
+        that.setData({
+          showFkDetail: false,
+        })
         let inType = 3
         switch (that.data.courseDetail.type) {
           case 1:
@@ -409,7 +414,9 @@ Page({
           path: '/pages/groupThreeDetail/groupThreeDetail?id=' + that.data.courseDetail.id + "&isPuySuc=2&shareId=" + userId + "&share_time=" + shareTime,
         }
       } else {
-
+        that.setData({
+          showFkDetail: false,
+        })
         let inType = 3
         switch (that.data.courseDetail.type) {
           case 1:
@@ -453,6 +460,9 @@ Page({
           path: '/pages/groupThreeDetail/groupThreeDetail?id=' + that.data.courseDetail.id + "&isPuySuc=2&shareId=" + userId + "&share_time=" + shareTime,
         }
       } else {
+        that.setData({
+          showFkDetail: false,
+        })
         return {
           title: that.data.courseDetail.product_name,
           path: '/pages/hehuorenShare/hehuorenShare?id=' + that.data.courseDetail.id + "&isPuySuc=2&shareId=" + userId + "&nickname=" + that.data.authuser.nickName,
@@ -629,6 +639,23 @@ Page({
             that.setData({
               path: '/pages/groupThreeDetail/groupThreeDetail?id=' + that.data.courseDetail.id + "&isPuySuc=2&shareId=" + userId + "&share_time=" + shareTime + "&isjwt=1",
             })
+          } else {
+            let inType = 3
+            switch (that.data.courseDetail.type) {
+              case 1:
+                inType = 2
+                break;
+              case 2:
+                inType = 22
+                break;
+              case 3:
+                inType = 3
+                break;
+            }
+            // titleName=' + that.data.courseDetail.product_name + '&
+            that.setData({
+              path: '/pages/expert/xlianyinDetail/xlianyinDetail?courseId=' + that.data.courseDetail.id + '&inType=' + inType + "&shareId=" + userId + "&type=" + that.data.courseDetail.type + "&isjwt=1",
+            })// inType: 2:点帮我解读去选报告解读 3:学业提升 22:咨询
           }
         } else if (that.data.courseDetail.type == 4) {
           if (that.data.opentype == 2 && that.data.courseDetail.iscan_jielong == 1 && that.data.showFkDetail) {// 1三人团，2接龙  iscan_jielong:1是2否  点击群接龙
@@ -641,6 +668,23 @@ Page({
             that.setData({
               path: '/pages/groupThreeDetail/groupThreeDetail?id=' + that.data.courseDetail.id + "&isPuySuc=2&shareId=" + userId + "&share_time=" + shareTime + "&isjwt=1",
             })
+          } else {
+            let inType = 3
+            switch (that.data.courseDetail.type) {
+              case 1:
+                inType = 2
+                break;
+              case 2:
+                inType = 22
+                break;
+              case 3:
+                inType = 3
+                break;
+            }
+            // titleName=' + that.data.courseDetail.product_name + '
+            that.setData({
+              path: '/pages/expert/xlianyinDetail/xlianyinDetail?courseId=' + that.data.courseDetail.id + '&inType=' + inType + "&shareId=" + userId + "&type=" + that.data.courseDetail.type + "&isjwt=1",
+            })// inType: 2:点帮我解读去选报告解读 3:学业提升 22:咨询
           }
         } else if (that.data.courseDetail.type == 5) {
           if (that.data.opentype == 2 && that.data.courseDetail.iscan_jielong == 1 && that.data.showFkDetail) {// iscan_jielong:1是2否  点击群接龙
@@ -653,6 +697,10 @@ Page({
             that.setData({
               path: '/pages/groupThreeDetail/groupThreeDetail?id=' + that.data.courseDetail.id + "&isPuySuc=2&shareId=" + userId + "&share_time=" + shareTime + "&isjwt=1",
             })
+          } else {
+            that.setData({
+              path: '/pages/hehuorenShare/hehuorenShare?id=' + that.data.courseDetail.id + "&isPuySuc=2&shareId=" + userId + "&nickname=" + that.data.authuser.nickName + "&isjwt=1",
+            })
           }
         } else if (that.data.courseDetail.type == 6) {
           that.setData({
@@ -661,7 +709,7 @@ Page({
         }
         setTimeout(res => {
           wx.navigateTo({
-            url: '/pages/shareKc/shareKc?id=' + that.data.courseDetail.id + '&path=' + encodeURIComponent(that.data.path),
+            url: '/pages/shareKc/shareKc?id=' + that.data.courseDetail.id + '&path=' + encodeURIComponent(that.data.path) + '&opentype=' + that.data.opentype,
           })
         }, 500)
       }).catch((res) => {

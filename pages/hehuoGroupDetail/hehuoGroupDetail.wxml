@@ -29,7 +29,7 @@
           </view>
           <view class="course-prices level">
             <view class="course-price">¥{{util.toNumberFloatFix(courseDetail.price)}}</view>
-            <view class="course-lineprice">¥{{util.toNumberFloatFix(courseDetail.old_price)}}</view>
+            <view class="course-lineprice" wx:if="{{courseDetail.price!=courseDetail.old_price}}">¥{{util.toNumberFloatFix(courseDetail.old_price)}}</view>
             <view class="course-count">{{courseDetail.sales}}人购买</view>
           </view>
         </view>
@@ -51,11 +51,21 @@
         <image class="userImg" wx:for="{{util.splitImages(info.headimgs)}}" src="{{item}}"></image>
         <image class="userImg" wx:for="{{util.getNoCJQJL(jlRen,info.num)}}" src="../../images/icon_head_no.png"></image>
       </view>
-      <view class="box3" style="padding-bottom: 40rpx;" hidden="{{isZJQJL}}">
-        <view class="next" catchtap="addJieLong">
-          ￥{{util.toNumberFloatFix(jlPrice)}} 立即接龙
+
+      <!-- 0是未下架,1是已下架 -->
+      <block wx:if="{{courseDetail.is_hidden==1}}">
+        <view class="box3">
+          <view class="next" style="color: red;">商品已下线</view>
         </view>
-      </view>
+      </block>
+      <block wx:else>
+        <view class="box3" style="padding-bottom: 40rpx;" hidden="{{isZJQJL}}">
+          <view class="next" catchtap="addJieLong">
+            ￥{{util.toNumberFloatFix(jlPrice)}} 立即接龙
+          </view>
+        </view>
+      </block>
+
     </view>
 
     <view class="fkPos" style="display:flex;justify-content: center;">

@@ -123,7 +123,7 @@ page {
   width: 32rpx;
   height: 32rpx;
   position: absolute;
-  top: 64rpx;
+  top: 44rpx;
   left: 184rpx;
 }
 
@@ -139,7 +139,7 @@ page {
 }
 
 .child {
-  top: 58rpx;
+  top: 38rpx;
   left: 40rpx;
 }
 

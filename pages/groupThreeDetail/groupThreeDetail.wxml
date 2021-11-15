@@ -29,7 +29,7 @@
           </view>
           <view class="course-prices level">
             <view class="course-price">¥{{util.toNumberFloatFix(courseDetail.price)}}</view>
-            <view class="course-lineprice">¥{{util.toNumberFloatFix(courseDetail.old_price)}}</view>
+            <view class="course-lineprice" wx:if="{{courseDetail.price!=courseDetail.old_price}}">¥{{util.toNumberFloatFix(courseDetail.old_price)}}</view>
             <view class="course-count">{{courseDetail.sales}}人购买</view>
           </view>
         </view>
@@ -56,14 +56,27 @@
         <image class="userImg" wx:for="{{util.getNoCJHD(util.splitImages(info.headimgs).length)}}"
           src="../../images/icon_head_no.png"></image>
       </view>
-      <view class="box3" style="padding-bottom: 40rpx;">
-        <view wx:if="{{isPTEnd}}" class="next" catchtap="showFkDetail" data-item="{{courseDetail}}">
-          ￥{{util.toNumberFloatFix(courseDetail.price)}} 单独购
+
+
+      <!-- 0是未下架,1是已下架 -->
+      <block wx:if="{{courseDetail.is_hidden==1}}">
+        <view class="boxbtm">
+          <view class="next" style="color: red;">商品已下线</view>
         </view>
-        <view wx:else class="next" catchtap="showFkDetail" data-item="{{courseDetail}}">
-          ￥{{util.toNumberFloatFix(courseDetail.group_price)}} 立即参团
+      </block>
+      <block wx:else>
+
+        <view class="box3" style="padding-bottom: 40rpx;">
+          <view wx:if="{{isPTEnd}}" class="next" catchtap="showFkDetail" data-item="{{courseDetail}}">
+            ￥{{util.toNumberFloatFix(courseDetail.price)}} 单独购
+          </view>
+          <view wx:else class="next" catchtap="showFkDetail" data-item="{{courseDetail}}">
+            ￥{{util.toNumberFloatFix(courseDetail.group_price)}} 立即参团
+          </view>
         </view>
-      </view>
+
+      </block>
+
     </view>
 
     <view class="fkPos">

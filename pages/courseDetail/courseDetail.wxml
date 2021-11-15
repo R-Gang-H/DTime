@@ -27,8 +27,9 @@
         <!-- <text wx:if="{{openType==1}}" class="yhtxt">优惠价¥{{util.toNumberFloatFix(info.price)}}</text>  wx:else-->
         <text class="yhtxt">优惠价¥{{util.toNumberFloatFix(info.group_price)}}</text>
         <text class="qi">起</text>
-        <text class="yuanjia">¥{{util.toNumberFloatFix(info.old_price)}}</text>
-        <text class="contRen">已有{{info.sales}}人购买</text>
+        <text class="yuanjia"
+          wx:if="{{info.group_price!=info.old_price}}">¥{{util.toNumberFloatFix(info.old_price)}}</text>
+        <!-- <text class="contRen">已有{{info.sales}}人购买</text> -->
       </view>
     </view>
 
@@ -68,7 +69,7 @@
         <text wx:if="{{isShow}}" class="{{tobIndex==4?'xuanzhong':'noxuanzhong'}}" data-index="4" data-toview="demo4"
           bindtap="tobTo">推荐</text>
       </view>
-      <scroll-view style="{{isPos?'margin-top: 100rpx;':''}}" scroll-y="true" scroll-with-animation="{{true}}"
+      <scroll-view style="margin-top:{{isPos?'100rpx;':''}}" scroll-y="true" scroll-with-animation="{{true}}"
         scroll-top="{{scrollTop}}">
         <view id="demo1" class="scroll-view-item demo-text-1">
           <view class="tuijian">荐者说</view>
@@ -160,8 +161,9 @@
               </view>
               <view class="course-prices level">
                 <view class="course-price">¥{{util.toNumberFloatFix(item.price)}}</view>
-                <view class="course-lineprice">¥{{util.toNumberFloatFix(item.old_price)}}</view>
-                <view class="course-count">{{item.sales}}人购买</view>
+                <view class="course-lineprice" wx:if="{{item.price!=item.old_price}}">
+                  ¥{{util.toNumberFloatFix(item.old_price)}}</view>
+                <!-- <view class="course-count">{{item.sales}}人购买</view> -->
               </view>
             </view>
           </view>
@@ -172,29 +174,38 @@
 
   </view>
 
-  <block wx:if="{{openType==1}}">
-    <button wx:if="{{!hasToken&&!shareId}}" bindtap="toLogin"
-      style="z-index:50;background:transparent;width:100vw;height: 100rpx;" class="boxbtm"></button>
+  <!-- 0是未下架,1是已下架 -->
+  <block wx:if="{{info.is_hidden==1}}">
     <view class="boxbtm">
-      <view class="lower_topic" data-buy="1" bindtap="showFkDetail">￥{{util.toNumberFloatFix(info.price)}}\t\t单独购</view>
-      <view class="lower_topic" wx:if="{{!shareId}}" bindtap="showShareModal">
-        ￥{{util.toNumberFloatFix(info.group_price)}}\t\t3人团
-      </view>
+      <view class="lower_topic" style="color: red;">商品已下线</view>
     </view>
   </block>
-  <block wx:if="{{openType==2}}">
-    <view class="section3">
-      <button style="margin:0 10rpx;line-height:40rpx;" class="block1" open-type="share">
-        <text><text style="color:red;">￥{{util.toNumberFloatFix(info.price)}}</text>\t单独购</text>
-        <text style="color:#000;">分享赚:<text
-            style="color:red;font-weight:bold;">￥{{util.toNumberFloatFix((jkuser.is_qudao==1||jkuser.is_expert==1)&&qudaoLevel==2?info.senior_fenrun:info.primary_fenrun)}}</text></text>
-      </button>
-      <button style="margin:0 10rpx;line-height:40rpx;" class="block1" catchtap="addJieLong" data-opentype="1">
+  <block wx:else>
+    <block wx:if="{{openType==1}}">
+      <button wx:if="{{!hasToken&&!shareId}}" bindtap="toLogin"
+        style="z-index:50;background:transparent;width:100vw;height: 100rpx;" class="boxbtm"></button>
+      <view class="boxbtm">
+        <view class="lower_topic" data-buy="1" bindtap="showFkDetail">￥{{util.toNumberFloatFix(info.price)}}\t\t单独购
+        </view>
+        <!-- <view class="lower_topic" wx:if="{{!shareId}}" bindtap="showShareModal">
+        ￥{{util.toNumberFloatFix(info.group_price)}}\t\t3人团
+      </view> -->
+      </view>
+    </block>
+    <block wx:if="{{openType==2}}">
+      <view class="section3">
+        <button style="margin:0 10rpx;line-height:40rpx;" class="block1" catchtap="addJieLong" data-opentype="3">
+          <text><text style="color:red;">￥{{util.toNumberFloatFix(info.price)}}</text>\t单独购</text>
+          <text style="color:#000;">分享赚:<text
+              style="color:red;font-weight:bold;">￥{{util.toNumberFloatFix((jkuser.is_qudao==1||jkuser.is_expert==1)&&qudaoLevel==2?info.senior_fenrun:info.primary_fenrun)}}</text></text>
+        </button>
+        <!-- <button style="margin:0 10rpx;line-height:40rpx;" class="block1" catchtap="addJieLong" data-opentype="1">
         <text><text style="color:red;">￥{{util.toNumberFloatFix(info.group_price)}}</text>\t三人团</text>
         <text style="color:#000;">分享赚:<text
             style="color:red;font-weight:bold;">￥{{util.toNumberFloatFix((jkuser.is_qudao==1||jkuser.is_expert==1)&&qudaoLevel==2?info.senior_fenrun*3:info.primary_fenrun*3)}}</text></text>
-      </button>
-    </view>
+      </button> -->
+      </view>
+    </block>
   </block>
 
 </view>

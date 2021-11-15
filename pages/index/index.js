@@ -282,8 +282,8 @@ Page({
   onShareAppMessage: function () {
     var that = this;
     return {
-      title: '天赋教育TOP',
-      imageUrl:that.data.HOMESHAREIMG,
+      title: '天赋教养TOP',
+      imageUrl: that.data.HOMESHAREIMG,
       path: '/pages/index/index'
     }
   },

@@ -34,7 +34,19 @@ Page({
       nickname: options.nickname,
       jkuser: jkuser,//用户信息
     })
-
+    if (options.isjwt && options.isjwt == 1) {
+      API.cryptToken({
+        user_id: options.shareId
+      }, app).then(res2 => {
+        console.log("cryptToken==" + JSON.stringify(res2))
+        let userId = res2
+        that.setData({
+          shareId: userId,// 分享用户
+        })
+      }).catch((res) => {
+        console.log("catch2", res)
+      });
+    }
   },
 
   /**
@@ -54,7 +66,9 @@ Page({
         })
       }, 500)
     }
-    that.getProductDetail(that.data.product_id);
+    setTimeout(res => {
+      that.getProductDetail(that.data.product_id);
+    }, 500)
   },
 
   // 查询课程详情

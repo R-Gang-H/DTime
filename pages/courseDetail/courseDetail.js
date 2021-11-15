@@ -90,7 +90,7 @@ Page({
       id: parseInt(id),
       user_id: userId ? userId : that.data.shareId,
     }, app).then(res => {
-      // console.log("课程详情" + JSON.stringify(res))
+      console.log("课程详情" + JSON.stringify(res))
       var courseDetail = res;
       // console.log(courseDetail)
       that.setData({
@@ -229,6 +229,10 @@ Page({
       // wx.navigateTo({
       //   url: '/pages/groupThreeDetail/groupThreeDetail?id=' + that.data.info.id + "&isPuySuc=2&shareId=" + userId + "&share_time=" + shareTime,
       // })
+    } else if (opentype == 3) {
+      that.setData({
+        showThreeGroup: true,
+      })
     }
   },
   // 显示付款详情
@@ -415,6 +419,9 @@ Page({
           path: '/pages/groupThreeDetail/groupThreeDetail?id=' + that.data.info.id + "&isPuySuc=2&shareId=" + userId + "&share_time=" + shareTime,
         }
       } else {
+        that.setData({
+          showThreeGroup: false,
+        })
         return {
           title: that.data.courseDetail.product_name,
           path: '/pages/courseDetail/courseDetail?courseId=' + that.data.info.id + "&isPuySuc=2&shareId=" + userId + "&openType=" + 1,// 1:商品详情 2:推荐朋友、三人团,
@@ -440,6 +447,9 @@ Page({
           query: '/pages/groupThreeDetail/groupThreeDetail?id=' + that.data.info.id + "&isPuySuc=2&shareId=" + userId + "&share_time=" + shareTime,
         }
       } else {
+        that.setData({
+          showThreeGroup: false,
+        })
         return {
           title: that.data.courseDetail.product_name,
           query: '/pages/courseDetail/courseDetail?courseId=' + that.data.info.id + "&isPuySuc=2&shareId=" + userId + "&openType=" + 1,// 1:商品详情 2:推荐朋友、三人团,
@@ -476,15 +486,32 @@ Page({
         let shareTime = parseInt(new Date().getTime() / 1000) // 时间戳传秒
         // type":"产品类型1=解读；2=咨询；3=学业提升 4=测评；5=21天训练营；6=严选
         console.log("分享：用户Id", userId + "==课程详情" + JSON.stringify(that.data.info) + "打开类型" + that.data.openType + "shareTime" + shareTime)
-        // 三人团
-        that.setData({
-          path: '/pages/groupThreeDetail/groupThreeDetail?id=' + that.data.info.id + "&isPuySuc=2&shareId=" + userId + "&share_time=" + shareTime + "&isjwt=1",
-        })
+
+        if (that.data.info.type == 6 && that.data.openType == 2) {
+          if (that.data.opentype == 1 && that.data.showThreeGroup) {// 点击三人团
+            that.setData({
+              showThreeGroup: false,
+            })
+            // 三人团
+            that.setData({
+              path: '/pages/groupThreeDetail/groupThreeDetail?id=' + that.data.info.id + "&isPuySuc=2&shareId=" + userId + "&share_time=" + shareTime + "&isjwt=1",
+            })
+          } else {
+            that.setData({
+              showThreeGroup: false,
+            })
+            that.setData({
+              path: '/pages/courseDetail/courseDetail?courseId=' + that.data.info.id + "&isPuySuc=2&shareId=" + userId + "&openType=1&isjwt=1",// 1:商品详情 2:推荐朋友、三人团,
+            })
+          }
+        }
+
         setTimeout(res => {
           wx.navigateTo({
-            url: '/pages/shareKc/shareKc?id=' + that.data.info.id + '&path=' + encodeURIComponent(that.data.path),
+            url: '/pages/shareKc/shareKc?id=' + that.data.info.id + '&path=' + encodeURIComponent(that.data.path) + '&opentype=' + that.data.opentype,
           })
         }, 500)
+
       }).catch((res) => {
         console.log("catch2", res)
       });

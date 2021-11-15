@@ -1,5 +1,5 @@
-let API_BASE_URL = 'https://dtimemini.1bu2bu.com';// 测试服
-// let API_BASE_URL = 'https://dtimeapi.tianfumao.com';// 正式服
+// let API_BASE_URL = 'https://dtimemini.1bu2bu.com';// 测试服
+let API_BASE_URL = 'https://dtimeapi.tianfumao.com';// 正式服
 
 let bucket = 'https://dtime.oss-cn-beijing.aliyuncs.com';
 

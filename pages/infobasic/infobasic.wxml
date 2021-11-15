@@ -16,7 +16,7 @@
       </view>
     </picker>
 
-    <picker mode="date" value="{{birthday}}" start="1950-01-01" end="2017-09-01" bindchange="bindDateChange">
+    <picker mode="date" value="{{birthday}}" bindchange="bindDateChange">
       <view class="box">
         <text class="txt1">生日</text>
         <text class="txt2">{{birthday}}</text>
@@ -69,6 +69,12 @@
       <text class="txt4">如何获取邀请码？</text>
     </view> -->
 
+  </view>
+
+  <view style="margin: 32rpx 40rpx;" wx:if="{{topic_types==2}}">
+    <text style="display: flex;justify-content: center;font-size: 34rpx;color: #858C96;">DTIME天赋测评面向四岁以上儿童和成人
+      四岁至十四岁儿童，请选择“儿童测评”版
+      十四岁（含）以上，请选择“成人测评”版</text>
   </view>
 
   <view class="box3" wx:if="{{paytype==3}}">
